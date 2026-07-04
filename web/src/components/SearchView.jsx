@@ -93,6 +93,22 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
             ))}
           </div>
         )}
+        <p className="note">
+          <strong>On a private well?</strong> Your water is not in this database — or any
+          regulator&rsquo;s. Private wells are only tested when the owner orders a test. The{' '}
+          <a href="https://dnr.wisconsin.gov/topic/Wells" target="_blank" rel="noreferrer">
+            DNR&rsquo;s private well pages
+          </a>{' '}
+          explain how and what to test for, the{' '}
+          <a href="https://www.slh.wisc.edu/environmental/water/" target="_blank" rel="noreferrer">
+            Wisconsin State Laboratory of Hygiene
+          </a>{' '}
+          runs homeowner water tests, and the{' '}
+          <a href="https://dnr.wisconsin.gov/topic/PFAS" target="_blank" rel="noreferrer">
+            DNR&rsquo;s PFAS pages
+          </a>{' '}
+          cover PFAS-specific sampling and advisories.
+        </p>
       </div>
 
       {selected && (

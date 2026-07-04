@@ -148,6 +148,21 @@ export default function App() {
             not compliance determinations. MCL compliance is a running-annual-average calculation
             made by DNR and EPA, not by this tool.
           </p>
+          <p>
+            <strong>Download the data:</strong>{' '}
+            <a href="data/processed/systems.json" download>
+              systems
+            </a>{' '}
+            ·{' '}
+            <a href="data/processed/pfas_results.json" download>
+              PFAS sample results
+            </a>{' '}
+            ·{' '}
+            <a href="data/processed/summary.json" download>
+              summary
+            </a>{' '}
+            (JSON, updated weekly) — free to reuse with credit.
+          </p>
           <p>Data last built {fmtDate(summary.built_at.slice(0, 10))}.</p>
           <p className="tagline">
             <a href="https://wausaupilotandreview.com" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
