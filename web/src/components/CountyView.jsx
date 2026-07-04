@@ -136,6 +136,59 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
         </p>
       </div>
 
+      {Object.values(summary.counties).some((c) => c.private_wells) && (
+        <div className="panel">
+          <h3>Private wells: the other half of the picture</h3>
+          <p className="subhead">
+            Public systems are tested and tracked; private wells are only tested when their
+            owners order a test. These county aggregates come from voluntary homeowner samples
+            analyzed since 1985 — long-run context, not current conditions. PFAS is not among
+            the tested parameters.
+          </p>
+          <div className="table-scroll">
+            <table className="board">
+              <thead>
+                <tr>
+                  <th>County</th>
+                  <th className="num">Nitrate samples</th>
+                  <th className="num">Median (mg/L)</th>
+                  <th className="num">% over 10 mg/L standard</th>
+                  <th className="num">Coliform samples</th>
+                  <th className="num">% positive</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(summary.counties)
+                  .filter(([, c]) => c.private_wells)
+                  .map(([name, c]) => (
+                    <tr key={name}>
+                      <td>{name}</td>
+                      <td className="num mono">{fmtNum(c.private_wells.nitrate?.samples)}</td>
+                      <td className="num mono">{c.private_wells.nitrate?.median ?? '—'}</td>
+                      <td className="num mono" style={(c.private_wells.nitrate?.exceedance_pct ?? 0) >= 15 ? { color: '#a4443a', fontWeight: 700 } : undefined}>
+                        {c.private_wells.nitrate?.exceedance_pct ?? '—'}%
+                      </td>
+                      <td className="num mono">{fmtNum(c.private_wells.bacteria?.samples)}</td>
+                      <td className="num mono">{c.private_wells.bacteria?.positive_pct ?? '—'}%</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="note">
+            Source: UW-Stevens Point Center for Watershed Science and Education,{' '}
+            <a
+              href="https://www.uwsp.edu/cwse/wisconsin-well-water-quality-viewer/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Wisconsin Well Water Quality Viewer
+            </a>
+            . County averages are no substitute for testing your own well.
+          </p>
+        </div>
+      )}
+
       {summary.fish_advisories && summary.fish_advisories.length > 0 && (
         <div className="panel">
           <h3>PFAS fish consumption advisories on area waters</h3>

@@ -299,6 +299,7 @@ def main() -> None:
     raw_advisories = json.loads((RAW / "dnr_fish_advisories.json").read_text())
     raw_echo = json.loads((RAW / "echo_sdwa.json").read_text())
     raw_enforcement = json.loads((RAW / "sdwis_enforcement.json").read_text())
+    raw_private_wells = json.loads((RAW / "uwsp_private_wells.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -428,6 +429,31 @@ def main() -> None:
     if chem_orphans:
         print(f"note: chem results for {len(chem_orphans)} systems outside the "
               f"inventory (inactive, no PFAS) — not attached")
+
+    # UWSP CWSE private-well aggregates: voluntary homeowner samples since
+    # 1985, county-level; context only, no per-well or time-resolved data.
+    # Layer schemas differ: nitrate carries EXCEEDENCE (% over 10 mg/L),
+    # bacteria carries coliform counts/positivity. The arsenic layer has no
+    # exceedance or unit metadata, so it stays in raw only — not displayed.
+    private_wells: dict[str, dict] = defaultdict(dict)
+    for row in raw_private_wells:
+        county = row["Location"].replace(" County", "")
+        if row["_parameter"] == "nitrate":
+            private_wells[county]["nitrate"] = {
+                "samples": row["SAMPLES"],
+                "average": round(row["AVERAGE"], 2) if row["AVERAGE"] is not None else None,
+                "median": row["MEDIAN"],
+                "max": row["MAXIMUM"],
+                "exceedance_pct": row["EXCEEDENCE"],
+            }
+        elif row["_parameter"] == "bacteria":
+            private_wells[county]["bacteria"] = {
+                "samples": row["BACT_SAMP"],
+                "positive_pct": row["POSITIVE"],
+            }
+    for county, block in private_wells.items():
+        if county in county_rollup:
+            county_rollup[county]["private_wells"] = block
 
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
