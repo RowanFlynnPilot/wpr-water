@@ -1,0 +1,69 @@
+{
+ "built_at": "2026-07-04T14:42:45.652544+00:00",
+ "thresholds": {
+  "wi_combined_pfoa_pfos": {
+   "value": 70,
+   "label": "Wisconsin enforceable standard, PFOA + PFOS combined (NR 809, Aug 2022)"
+  },
+  "federal_mcl_pfoa": {
+   "value": 4.0,
+   "label": "Federal MCL, PFOA (April 2024 rule; compliance 2029, proposed extension to 2031)"
+  },
+  "federal_mcl_pfos": {
+   "value": 4.0,
+   "label": "Federal MCL, PFOS (April 2024 rule; compliance 2029, proposed extension to 2031)"
+  },
+  "federal_hazard_index": {
+   "value": 1.0,
+   "label": "Federal Hazard Index MCL (proposed for rescission, May 2026)"
+  }
+ },
+ "counts": {
+  "systems": 730,
+  "pfas_results": 9996,
+  "violations": 2390
+ },
+ "counties": {
+  "Langlade": {
+   "systems": 112,
+   "sampled_for_pfas": 4,
+   "with_pfas_detections": 2,
+   "with_unresolved_violations": 25
+  },
+  "Lincoln": {
+   "systems": 98,
+   "sampled_for_pfas": 10,
+   "with_pfas_detections": 9,
+   "with_unresolved_violations": 15
+  },
+  "Marathon": {
+   "systems": 195,
+   "sampled_for_pfas": 46,
+   "with_pfas_detections": 37,
+   "with_unresolved_violations": 34
+  },
+  "Portage": {
+   "systems": 149,
+   "sampled_for_pfas": 21,
+   "with_pfas_detections": 11,
+   "with_unresolved_violations": 16
+  },
+  "Shawano": {
+   "systems": 116,
+   "sampled_for_pfas": 18,
+   "with_pfas_detections": 7,
+   "with_unresolved_violations": 25
+  },
+  "Taylor": {
+   "systems": 60,
+   "sampled_for_pfas": 9,
+   "with_pfas_detections": 4,
+   "with_unresolved_violations": 15
+  }
+ },
+ "data_notes": {
+  "dws": "DNR DWS portal data, current as of ~10 p.m. the prior day.",
+  "sdwis": "EPA SDWIS federal data refreshes quarterly; violations can lag DNR records.",
+  "non_detects": "Non-detect results carry value null; qualifier and LOD are preserved."
+ }
+}

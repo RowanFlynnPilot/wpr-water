@@ -1,0 +1,66 @@
+# Human-curated per-system narratives, keyed by DNR PWS ID.
+# Merged into systems.json at build time under "editorial".
+# Same cascade pattern as wpr-trails: this file is newsroom-owned truth and
+# overrides nothing machine-derived — it adds context machines can't know.
+#
+# SEEDED FROM WPR REPORTING AND PUBLIC RECORDS 2026-07-04.
+# Every entry below requires newsroom verification before launch.
+
+"73701023":
+  headline: "All six wells contaminated in 2022; permanent treatment online"
+  remediation_status: "treating"
+  narrative: >
+    PFAS was found in all six municipal wells in early 2022. An interim
+    resin-based anion exchange system came online with the new Drinking Water
+    Treatment Facility in December 2022; a permanent ~$17M granular activated
+    carbon (GAC) system replaced it in late 2024. The city sued 3M and other
+    manufacturers in 2023 and joined the national AFFF settlement. Water rates
+    rose roughly 65% with plant construction. GAC media reactivation contracts
+    are now part of ongoing operating costs.
+  treatment: "Granular activated carbon (permanent), anion exchange (interim 2022-24)"
+  verified_by: null   # newsroom sign-off required
+
+"73701639":
+  headline: "Two wells offline in 2022; permanent GAC installed 2025"
+  remediation_status: "treating"
+  narrative: >
+    Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health
+    advisory levels. Temporary GAC let Well 4 resume pumping later that year.
+    A permanent GAC system was installed in 2025 — Well 4 began pumping through
+    it in October, with about half the ~$1.8M cost covered by principal
+    forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is
+    expected back in service in 2026.
+  treatment: "Granular activated carbon"
+  verified_by: null
+
+"73706600":
+  headline: "PFAS in two of four wells; permanent plant targeted spring 2026"
+  remediation_status: "constructing"
+  narrative: >
+    Rib Mountain found PFAS in two of its four municipal wells. Interim resin
+    filtration on Well 1 has reduced treated water to non-detectable levels,
+    but a January 2026 public notice confirmed the system still exceeded
+    Wisconsin's hazard index guidance as of December 2025. A permanent
+    treatment plant has been under construction since mid-2024.
+  treatment: "Ion exchange resin (interim); permanent plant under construction"
+  verified_by: null
+
+"73701617":
+  headline: "Well shut down in 2022; new treatment facility"
+  remediation_status: "treating"
+  narrative: >
+    Rothschild shut down a municipal well after PFAS was detected in 2022 and
+    moved forward with a new treatment facility expected complete by the end
+    of 2025.
+  treatment: "Under construction / recently completed — verify current status"
+  verified_by: null
+
+"73701595":
+  headline: "PFAS above 2022 federal health advisories; pumping adjustments"
+  remediation_status: "managing"
+  narrative: >
+    Mosinee wells tested above EPA's 2022 interim health advisory levels. The
+    city adjusted pumping between wells rather than installing treatment.
+    Verify current approach before launch.
+  treatment: "Operational management — verify"
+  verified_by: null
