@@ -203,6 +203,19 @@ def summarize_chem(rows: list[dict]) -> dict:
     return block
 
 
+def summarize_enforcement(actions: list[dict]) -> dict | None:
+    if not actions:
+        return None
+    dates = sorted(a["enforcement_date"][:10] for a in actions if a["enforcement_date"])
+    return {
+        "total": len(actions),
+        "state": sum(1 for a in actions if a["originator_code"] == "S"),
+        "federal": sum(1 for a in actions if a["originator_code"] == "F"),
+        "first_date": dates[0] if dates else None,
+        "latest_date": dates[-1] if dates else None,
+    }
+
+
 def _echo_date(mdy: str | None) -> str | None:
     if not mdy:
         return None
@@ -285,6 +298,7 @@ def main() -> None:
     raw_chem = json.loads((RAW / "dws_chem_results.json").read_text())
     raw_advisories = json.loads((RAW / "dnr_fish_advisories.json").read_text())
     raw_echo = json.loads((RAW / "echo_sdwa.json").read_text())
+    raw_enforcement = json.loads((RAW / "sdwis_enforcement.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -307,6 +321,10 @@ def main() -> None:
         violations_by_pwsid[v["pwsid"]].append(v)
 
     echo_by_pwsid = {r["PWSId"]: r for r in raw_echo}
+
+    enforcement_by_pwsid: dict[str, list[dict]] = defaultdict(list)
+    for a in raw_enforcement:
+        enforcement_by_pwsid[a["pwsid"]].append(a)
 
     # DNR identity fields for systems with PFAS results (fresher than SDWIS)
     dnr_identity: dict[str, dict] = {}
@@ -349,6 +367,9 @@ def main() -> None:
             record["chem"] = summarize_chem(chem_by_pwsid[pid])
         if pid in echo_by_pwsid:
             record["echo"] = summarize_echo(echo_by_pwsid[pid])
+        enf = summarize_enforcement(enforcement_by_pwsid.get(pid, []))
+        if enf:
+            record["violations"]["enforcement"] = enf
         if dnr.get("pws_id_dnr") in editorial:
             record["editorial"] = editorial[dnr["pws_id_dnr"]]
         systems.append(record)

@@ -293,13 +293,18 @@ export default function SystemCard({ system: s, thresholds, chemReferences, onSh
             )}
           </>
         )}
-        {s.echo && (s.echo.last_formal_action || s.echo.last_informal_action) && (
+        {(v.enforcement || s.echo?.last_formal_action || s.echo?.last_informal_action) && (
           <p className="subhead" style={{ marginTop: 10, marginBottom: 0 }}>
             Enforcement on EPA&rsquo;s record:
-            {s.echo.last_informal_action &&
+            {v.enforcement &&
+              ` ${v.enforcement.total} action${v.enforcement.total === 1 ? '' : 's'} since ${fmtDate(
+                v.enforcement.first_date
+              )}${v.enforcement.federal > 0 ? ` (${v.enforcement.federal} federal)` : ''}`}
+            {v.enforcement && (s.echo?.last_informal_action || s.echo?.last_formal_action) && ' ·'}
+            {s.echo?.last_informal_action &&
               ` last informal action ${fmtDate(s.echo.last_informal_action)}`}
-            {s.echo.last_informal_action && s.echo.last_formal_action && ' ·'}
-            {s.echo.last_formal_action &&
+            {s.echo?.last_informal_action && s.echo?.last_formal_action && ' ·'}
+            {s.echo?.last_formal_action &&
               ` last formal action ${fmtDate(s.echo.last_formal_action)}`}
             .
           </p>

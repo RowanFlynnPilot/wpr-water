@@ -20,6 +20,7 @@ jobs:
       - run: python -m scrapers.echo_sdwa
       - run: python -m scrapers.sdwis_water_systems
       - run: python -m scrapers.sdwis_violations
+      - run: python -m scrapers.sdwis_enforcement
       - run: python -m transforms.build_water
       - name: Commit refreshed data
         run: |
