@@ -142,6 +142,29 @@ export default function App() {
             </a>{' '}
             ({summary.data_notes.sdwis})
           </p>
+          <p>
+            Additional context from EPA{' '}
+            <a href="https://echo.epa.gov" target="_blank" rel="noreferrer">
+              ECHO
+            </a>{' '}
+            (compliance designations), the UW&ndash;Stevens Point{' '}
+            <a
+              href="https://www.uwsp.edu/cwse/wisconsin-well-water-quality-viewer/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Center for Watershed Science and Education
+            </a>{' '}
+            (private-well aggregates), and DNR&rsquo;s{' '}
+            <a
+              href="https://dnr.wisconsin.gov/topic/Brownfields/BOTW.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              BRRTS
+            </a>{' '}
+            remediation tracking and fish-advisory records.
+          </p>
           <p>{summary.data_notes.non_detects}</p>
           <p>
             Regulatory thresholds are shown as labeled reference lines for context only — they are

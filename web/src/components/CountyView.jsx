@@ -1,8 +1,11 @@
 import { useMemo, useState } from 'react'
 import { fmtDate, fmtNum, titleCase, typeLabel } from '../format.js'
 
+const RANKED_PREVIEW = 25
+
 export default function CountyView({ systems, summary, onOpenSystem }) {
   const [county, setCounty] = useState(null) // null = all six
+  const [showAll, setShowAll] = useState(false)
 
   const counties = Object.keys(summary.counties)
 
@@ -101,7 +104,7 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
               </tr>
             </thead>
             <tbody>
-              {ranked.map((s) => (
+              {(showAll ? ranked : ranked.slice(0, RANKED_PREVIEW)).map((s) => (
                 <tr key={s.pwsid}>
                   <td>
                     <button className="linklike" onClick={() => onOpenSystem(s.pwsid)}>
@@ -130,6 +133,15 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
             </tbody>
           </table>
         </div>
+        {ranked.length > RANKED_PREVIEW && (
+          <p style={{ margin: '10px 0 0' }}>
+            <button className="linklike" onClick={() => setShowAll(!showAll)}>
+              {showAll
+                ? 'Show fewer'
+                : `Show all ${ranked.length} systems with unresolved violations →`}
+            </button>
+          </p>
+        )}
         <p className="note warn">
           Federal SDWIS data refreshes quarterly from state submissions — some of these violations
           may already be resolved in DNR&rsquo;s records.
@@ -144,6 +156,9 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
             owners order a test. These county aggregates come from voluntary homeowner samples
             analyzed since 1985 — long-run context, not current conditions. PFAS is not among
             the tested parameters.
+          </p>
+          <p className="scroll-hint" aria-hidden="true">
+            swipe sideways to see the full table →
           </p>
           <div className="table-scroll">
             <table className="board">
@@ -196,6 +211,9 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
             The same PFOS found in drinking-water wells also accumulates in fish. DNR and DHS
             have issued special consumption advice for these waters in and around the coverage
             area:
+          </p>
+          <p className="scroll-hint" aria-hidden="true">
+            swipe sideways to see the full table →
           </p>
           <div className="table-scroll">
             <table className="board">

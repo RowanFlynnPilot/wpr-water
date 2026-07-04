@@ -99,6 +99,13 @@ Still skipped (with reasons):
 
 ## Session log
 
+- **2026-07-04 (sixth pass)** — Post-ingest refinement review (Claude
+  Code). County board capped to top 25 with show-all toggle (page height
+  23.8k px → 6.8k px); ECHO all-caps rule names calm-cased in prose;
+  mobile swipe hints on private-wells + advisories tables; zero-signal
+  ECHO blocks dropped from systems.json (730 → 539); footer attribution
+  for ECHO / UWSP CWSE / BRRTS. All views re-verified desktop + 375px.
+
 - **2026-07-04 (fifth pass)** — Six new data sources ingested end-to-end
   (Claude Code): DWS chem results (9,839 rows; chem block on 588 systems,
   card panel with MCL/action-level references), PFOS fish advisories (5 on

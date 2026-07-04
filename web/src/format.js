@@ -80,6 +80,7 @@ export function titleCase(s) {
     .toLowerCase()
     .replace(/\b[a-z]/g, (c) => c.toUpperCase())
     .replace(/\bOf\b/g, 'of')
+    .replace(/\bAnd\b/g, 'and')
     .replace(/\bLlc\b/g, 'LLC')
     .replace(/\bMhp\b/g, 'MHP')
     .replace(/\bDnr\b/g, 'DNR')
@@ -123,6 +124,9 @@ export const RULE_NAMES = {
 }
 
 export const ruleName = (code) => RULE_NAMES[code] || `Rule ${code}`
+
+// ECHO returns some rule names in ALL CAPS; normalize for prose display.
+export const calmCase = (s) => (s === s.toUpperCase() ? titleCase(s) : s)
 
 // Display casing for analytes outside the key panel
 const OTHER_ANALYTE_LABELS = {

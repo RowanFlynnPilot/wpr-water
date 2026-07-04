@@ -5,6 +5,7 @@ import {
   RESCISSION_ANALYTES,
   SOURCE_LABELS,
   VIOLATION_CATEGORY_LABELS,
+  calmCase,
   fmtCombined,
   fmtDate,
   fmtNum,
@@ -107,7 +108,7 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
           <p className="subhead" style={{ marginBottom: 6 }}>
             Flagged by EPA for unresolved Safe Drinking Water Act violations
             {s.echo.contaminants_in_cur_viol.length > 0 &&
-              ` under: ${s.echo.contaminants_in_cur_viol.join(', ')}`}{' '}
+              ` under: ${s.echo.contaminants_in_cur_viol.map(calmCase).join(', ')}`}{' '}
             — not for the PFAS results below. Details in the violations section.
           </p>
         )}
@@ -219,7 +220,7 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
               EPA&rsquo;s current designation: {s.echo.qtrs_with_snc} of the last 12 quarters in
               significant noncompliance, {s.echo.qtrs_with_vio} with violations
               {s.echo.contaminants_in_cur_viol.length > 0 &&
-                ` — currently in violation under: ${s.echo.contaminants_in_cur_viol.join(', ')}`}
+                ` — currently in violation under: ${s.echo.contaminants_in_cur_viol.map(calmCase).join(', ')}`}
               .
             </span>
           </p>

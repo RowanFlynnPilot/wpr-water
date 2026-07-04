@@ -368,7 +368,13 @@ def main() -> None:
         if pid in chem_by_pwsid:
             record["chem"] = summarize_chem(chem_by_pwsid[pid])
         if pid in echo_by_pwsid:
-            record["echo"] = summarize_echo(echo_by_pwsid[pid])
+            echo = summarize_echo(echo_by_pwsid[pid])
+            # Only carry ECHO blocks with signal; all-zero blocks on 730
+            # systems are dead payload weight.
+            if (echo["serious_violator"] or echo["qtrs_with_vio"] > 0
+                    or echo["last_formal_action"] or echo["last_informal_action"]
+                    or echo["pb_ale"] or echo["cu_ale"]):
+                record["echo"] = echo
         enf = summarize_enforcement(enforcement_by_pwsid.get(pid, []))
         if enf:
             record["violations"]["enforcement"] = enf
