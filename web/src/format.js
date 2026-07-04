@@ -50,6 +50,10 @@ export const fmtNum = (n) => (n == null ? '—' : n.toLocaleString('en-US'))
 // Editorial policy: non-detects are null, never 0. Render honestly.
 export function fmtResult(entry) {
   if (!entry) return { text: 'not tested', cls: 'nd' }
+  if (entry.value == null && entry.qualifier && entry.qualifier !== 'Non-detect') {
+    // e.g. DNR 'Unexplained' rows: no value in the record, not a non-detect
+    return { text: 'n/a', cls: 'nd', title: `No value in DNR's record (qualifier: ${entry.qualifier})` }
+  }
   if (entry.value == null) return { text: '<LOD', cls: 'nd', title: 'Non-detect: below the limit of detection' }
   if (entry.qualifier === 'Between LOD and LOQ') {
     return {
@@ -134,3 +138,13 @@ const OTHER_ANALYTE_LABELS = {
 }
 
 export const otherAnalyteLabel = (a) => OTHER_ANALYTE_LABELS[a] || a
+
+export const CHEM_LABELS = {
+  nitrate: 'Nitrate (as N)',
+  arsenic: 'Arsenic',
+  lead: 'Lead',
+  copper: 'Copper',
+}
+
+export const UNIT_LABELS = { 'MG/L': 'mg/L', 'UG/L': 'µg/L', 'NG/L': 'ng/L' }
+export const unitLabel = (u) => UNIT_LABELS[u] || (u ? u.toLowerCase() : '')

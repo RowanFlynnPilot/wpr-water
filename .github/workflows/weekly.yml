@@ -15,6 +15,7 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: python -m scrapers.dws_pfas_results
+      - run: python -m scrapers.dws_chem_results
       - run: python -m scrapers.sdwis_water_systems
       - run: python -m scrapers.sdwis_violations
       - run: python -m transforms.build_water

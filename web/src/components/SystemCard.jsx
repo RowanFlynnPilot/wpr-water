@@ -1,6 +1,7 @@
 import {
   KEY_ANALYTES,
   ANALYTE_LABELS,
+  CHEM_LABELS,
   RESCISSION_ANALYTES,
   SOURCE_LABELS,
   VIOLATION_CATEGORY_LABELS,
@@ -12,6 +13,7 @@ import {
   ruleName,
   titleCase,
   typeLabel,
+  unitLabel,
 } from '../format.js'
 
 function AnalyteCell({ analyte, latest, historicMax }) {
@@ -48,7 +50,42 @@ function AnalyteCell({ analyte, latest, historicMax }) {
   )
 }
 
-export default function SystemCard({ system: s, thresholds, onShowTrend }) {
+function ChemCell({ chemKey, entry, reference }) {
+  const r = fmtResult(entry.latest)
+  const unit = unitLabel(entry.latest.units)
+  return (
+    <div className="analyte-cell">
+      <div className="a-name">{CHEM_LABELS[chemKey]}</div>
+      <div className={`a-val ${r.cls}`} title={r.title}>
+        {r.cls === 'det' || r.cls === 'trace' ? (
+          <>
+            {entry.latest.value} <span className="unit">{unit}</span>
+            {r.cls === 'trace' && <span className="tracemark"> trace</span>}
+          </>
+        ) : (
+          r.text
+        )}
+      </div>
+      <div className="a-sub">
+        {fmtDate(entry.latest.date)} · {entry.latest.sample_source === 'Distribution System' ? 'tap sample' : 'entry point'}
+        <br />
+        {entry.historic_max
+          ? `max since 2020: ${entry.historic_max.value} ${unitLabel(entry.historic_max.units)}`
+          : 'never detected since 2020'}
+        {reference && (
+          <>
+            <br />
+            <span title={reference.label}>
+              ref: {reference.value} {unitLabel(reference.units)}
+            </span>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default function SystemCard({ system: s, thresholds, chemReferences, onShowTrend }) {
   const p = s.pfas
   const v = s.violations
   const editorial = s.editorial && s.editorial.verified_by ? s.editorial : null
@@ -136,6 +173,28 @@ export default function SystemCard({ system: s, thresholds, onShowTrend }) {
           </>
         )}
       </div>
+
+      {s.chem && Object.keys(s.chem).length > 0 && (
+        <div className="panel">
+          <h3>Nitrate, arsenic, lead &amp; copper</h3>
+          <p className="subhead">
+            Most recent DNR-recorded sample since 2020 for the classic regulated contaminants.
+            Reference values are shown for context, not as compliance findings.
+          </p>
+          <div className="analyte-grid">
+            {Object.entries(s.chem).map(([key, entry]) => (
+              <ChemCell key={key} chemKey={key} entry={entry} reference={chemReferences?.[key]} />
+            ))}
+          </div>
+          {(s.chem.lead || s.chem.copper) && (
+            <p className="note">
+              Lead and copper results are individual tap samples. Compliance is assessed by
+              DNR/EPA on the 90th percentile of a sampling round — a single tap value above the
+              action level is not by itself a violation.
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="panel">
         <h3>Safe Drinking Water Act violations</h3>

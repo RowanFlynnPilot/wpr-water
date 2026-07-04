@@ -158,6 +158,10 @@ export default function App() {
               PFAS sample results
             </a>{' '}
             ·{' '}
+            <a href="data/processed/chem_results.json" download>
+              nitrate/arsenic/lead/copper results
+            </a>{' '}
+            ·{' '}
             <a href="data/processed/summary.json" download>
               summary
             </a>{' '}

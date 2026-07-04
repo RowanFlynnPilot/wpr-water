@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-04T18:03:55.445683+00:00",
+ "built_at": "2026-07-04T18:49:43.607782+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -18,9 +18,32 @@
    "label": "Federal Hazard Index MCL (proposed for rescission, May 2026)"
   }
  },
+ "chem_references": {
+  "nitrate": {
+   "value": 10,
+   "units": "MG/L",
+   "label": "Federal & Wisconsin MCL, nitrate as N"
+  },
+  "arsenic": {
+   "value": 0.01,
+   "units": "MG/L",
+   "label": "Federal MCL, arsenic (0.010 mg/L = 10 \u00b5g/L, 2001 rule)"
+  },
+  "lead": {
+   "value": 15,
+   "units": "UG/L",
+   "label": "Federal action level at the 90th percentile of tap samples (drops to 10 \u00b5g/L under the 2024 LCRI, compliance 2027) \u2014 not a single-sample standard"
+  },
+  "copper": {
+   "value": 1300,
+   "units": "UG/L",
+   "label": "Federal action level at the 90th percentile of tap samples \u2014 not a single-sample standard"
+  }
+ },
  "counts": {
   "systems": 730,
   "pfas_results": 9996,
+  "chem_results": 9839,
   "violations": 2390
  },
  "counties": {

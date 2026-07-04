@@ -36,6 +36,26 @@ EDITORIAL_PATH = Path("data/editorial.yaml")
 # Key analytes surfaced on system cards. Order = display order.
 KEY_ANALYTES = ["PFOA", "PFOS", "PFAS Hazard Index", "PFHXS", "PFNA", "HFPO-DA", "PFBS"]
 
+# DWS chem pull: portal contaminant code -> canonical key (order = display order)
+CHEM_KEYS = {"1040": "nitrate", "1005": "arsenic", "1030": "lead", "1022": "copper"}
+
+# Labeled reference values for the chem panel. Lead and copper are action
+# levels assessed at the 90th percentile of tap samples — never present a
+# single sample against them as a violation.
+CHEM_REFERENCES = {
+    "nitrate": {"value": 10, "units": "MG/L",
+                "label": "Federal & Wisconsin MCL, nitrate as N"},
+    "arsenic": {"value": 0.010, "units": "MG/L",
+                "label": "Federal MCL, arsenic (0.010 mg/L = 10 µg/L, 2001 rule)"},
+    "lead": {"value": 15, "units": "UG/L",
+             "label": "Federal action level at the 90th percentile of tap samples "
+                      "(drops to 10 µg/L under the 2024 LCRI, compliance 2027) "
+                      "— not a single-sample standard"},
+    "copper": {"value": 1300, "units": "UG/L",
+               "label": "Federal action level at the 90th percentile of tap samples "
+                        "— not a single-sample standard"},
+}
+
 # Regulatory reference values (ng/L). Displayed as labeled reference lines,
 # never as violation determinations. Verified 2026-07-04.
 THRESHOLDS = {
@@ -66,7 +86,13 @@ def epa_pwsid(dnr_pws_id: str) -> str:
 
 def parse_result(row: dict) -> dict:
     qualifier = row["ResultQualifierCode"]
-    value = None if qualifier == "Non-detect" else float(row["ResultAmt"])
+    # Non-detects are null by policy. A null ResultAmt with another qualifier
+    # (chem data has 'Unexplained' rows) is a value DNR did not record —
+    # preserved as null with its qualifier, never coerced.
+    if qualifier == "Non-detect" or row["ResultAmt"] is None:
+        value = None
+    else:
+        value = float(row["ResultAmt"])
     return {
         "pws_id_dnr": row["PwsId"],
         "pwsid": epa_pwsid(row["PwsId"]),
@@ -145,6 +171,38 @@ def summarize_pfas(results: list[dict]) -> dict:
     }
 
 
+def summarize_chem(rows: list[dict]) -> dict:
+    """Per-system chem block: latest and historic max per contaminant key."""
+    by_key: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        by_key[r["key"]].append(r)
+
+    block = {}
+    for key in CHEM_KEYS.values():
+        krows = sorted(by_key.get(key, []), key=lambda r: r["date"])
+        if not krows:
+            continue
+        last = krows[-1]
+        entry = {
+            "latest": {
+                "value": last["value"], "units": last["units"],
+                "date": last["date"], "qualifier": last["qualifier"],
+                "sample_source": last["source_code"],
+            },
+            "n_results": len(krows),
+            "n_detections": sum(1 for r in krows if r["value"] is not None),
+            "first_sample_date": krows[0]["date"],
+        }
+        detected = [r for r in krows if r["value"] is not None]
+        if detected:
+            top = max(detected, key=lambda r: r["value"])
+            entry["historic_max"] = {
+                "value": top["value"], "units": top["units"], "date": top["date"],
+            }
+        block[key] = entry
+    return block
+
+
 # Most recent violations carried per system; the rest are summarized in counts.
 VIOLATION_DETAIL_CAP = 12
 
@@ -197,6 +255,7 @@ def summarize_violations(violations: list[dict]) -> dict:
 
 def main() -> None:
     raw_results = json.loads((RAW / "dws_pfas_results.json").read_text())
+    raw_chem = json.loads((RAW / "dws_chem_results.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -206,6 +265,13 @@ def main() -> None:
     results_by_pwsid: dict[str, list[dict]] = defaultdict(list)
     for r in results:
         results_by_pwsid[r["pwsid"]].append(r)
+
+    chem_results = [
+        parse_result(r) | {"key": CHEM_KEYS[r["ContamCode"]]} for r in raw_chem
+    ]
+    chem_by_pwsid: dict[str, list[dict]] = defaultdict(list)
+    for r in chem_results:
+        chem_by_pwsid[r["pwsid"]].append(r)
 
     violations_by_pwsid: dict[str, list[dict]] = defaultdict(list)
     for v in raw_violations:
@@ -248,6 +314,8 @@ def main() -> None:
             "pfas": summarize_pfas(results_by_pwsid[pid]) if has_pfas else {"sampled": False},
             "violations": summarize_violations(violations_by_pwsid.get(pid, [])),
         }
+        if pid in chem_by_pwsid:
+            record["chem"] = summarize_chem(chem_by_pwsid[pid])
         if dnr.get("pws_id_dnr") in editorial:
             record["editorial"] = editorial[dnr["pws_id_dnr"]]
         systems.append(record)
@@ -279,12 +347,19 @@ def main() -> None:
         if s["violations"]["unresolved"] > 0:
             c["with_unresolved_violations"] += 1
 
+    chem_orphans = set(chem_by_pwsid) - {s["pwsid"] for s in systems}
+    if chem_orphans:
+        print(f"note: chem results for {len(chem_orphans)} systems outside the "
+              f"inventory (inactive, no PFAS) — not attached")
+
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
         "thresholds": THRESHOLDS,
+        "chem_references": CHEM_REFERENCES,
         "counts": {
             "systems": len(systems),
             "pfas_results": len(results),
+            "chem_results": len(chem_results),
             "violations": len(raw_violations),
         },
         "counties": dict(sorted(county_rollup.items())),
@@ -297,9 +372,11 @@ def main() -> None:
 
     PROCESSED.mkdir(parents=True, exist_ok=True)
     (PROCESSED / "pfas_results.json").write_text(json.dumps(results))
+    (PROCESSED / "chem_results.json").write_text(json.dumps(chem_results))
     (PROCESSED / "systems.json").write_text(json.dumps(systems, indent=1))
     (PROCESSED / "summary.json").write_text(json.dumps(summary, indent=1))
-    print(f"systems: {len(systems)} | pfas results: {len(results)} | violations: {len(raw_violations)}")
+    print(f"systems: {len(systems)} | pfas results: {len(results)} | "
+          f"chem results: {len(chem_results)} | violations: {len(raw_violations)}")
     for county, c in sorted(county_rollup.items()):
         print(f"  {county:10} systems:{c['systems']:4}  sampled:{c['sampled_for_pfas']:4}  "
               f"detections:{c['with_pfas_detections']:4}  unresolved viol:{c['with_unresolved_violations']:3}")

@@ -114,7 +114,12 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
       </div>
 
       {selected && (
-        <SystemCard system={selected} thresholds={summary.thresholds} onShowTrend={onShowTrend} />
+        <SystemCard
+          system={selected}
+          thresholds={summary.thresholds}
+          chemReferences={summary.chem_references}
+          onShowTrend={onShowTrend}
+        />
       )}
     </div>
   )

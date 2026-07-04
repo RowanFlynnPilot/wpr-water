@@ -53,7 +53,9 @@ SAMPLE_DATE_START = "01/01/2019"
 OUTPUT_PATH = Path("data/raw/dws_pfas_results.json")
 
 
-def _datatables_params(county_code: str) -> list[tuple[str, str]]:
+def _datatables_params(
+    county_code: str, contam_codes, sample_date_start: str
+) -> list[tuple[str, str]]:
     """Build the DataTables server-side POST body the endpoint requires."""
     cols = ["ContamDesc", "ResultAmt"]  # server returns full row model regardless
     params: list[tuple[str, str]] = [("draw", "1")]
@@ -74,12 +76,12 @@ def _datatables_params(county_code: str) -> list[tuple[str, str]]:
         ("search[value]", ""),
         ("search[regex]", "false"),
     ]
-    params += [("Contam[]", code) for code in PFAS_ANALYTES]
+    params += [("Contam[]", code) for code in contam_codes]
     params += [
         ("County[]", county_code),
         ("DetectsOnly", "false"),
         ("MCLExceedancesOnly", "false"),
-        ("SampleDateStart", SAMPLE_DATE_START),
+        ("SampleDateStart", sample_date_start),
         ("SampleDateEnd", ""),
         ("PWSNameOrID", ""),
         ("ResultAmtLow", ""),
@@ -88,10 +90,10 @@ def _datatables_params(county_code: str) -> list[tuple[str, str]]:
     return params
 
 
-def fetch_county(county_code: str) -> list[dict]:
+def fetch_county(county_code: str, contam_codes, sample_date_start: str) -> list[dict]:
     response = requests.post(
         API_URL,
-        data=_datatables_params(county_code),
+        data=_datatables_params(county_code, contam_codes, sample_date_start),
         headers={"User-Agent": USER_AGENT, "X-Requested-With": "XMLHttpRequest"},
         timeout=300,
     )
@@ -109,7 +111,7 @@ def fetch_county(county_code: str) -> list[dict]:
 def main() -> None:
     all_rows: list[dict] = []
     for code, name in COUNTIES.items():
-        rows = fetch_county(code)
+        rows = fetch_county(code, PFAS_ANALYTES, SAMPLE_DATE_START)
         if not rows:
             raise RuntimeError(f"county {name} returned zero PFAS results")
         print(f"{name}: {len(rows)} results")
