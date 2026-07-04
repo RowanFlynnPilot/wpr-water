@@ -67,6 +67,41 @@ at the production path, so there is exactly one fetch path.
 - WordPress iframe embed on the companion story page.
 - Optional: screenshot/social card for the July 7 hearing coverage.
 
+## Candidate data sources (all endpoint-verified 2026-07-04)
+
+Ranked; "ingest" items have working, tested endpoints with real 6-county data.
+
+1. **DWS all-contaminants** (small) — the existing contamresults POST works
+   for non-PFAS codes: Nitrate 1040, Arsenic 1005, Lead 1030, Copper 1022,
+   Coliform 3100 (untested). 570 Marathon nitrate rows since 2024-01.
+   MclText/MclUnits populated. Keep SampleDateStart tight; page pulls.
+2. **DNR PFOS fish advisories** (small) — ArcGIS layers 801/803 at
+   dnrmaps.wi.gov/arcgis2 EM_PFAS_MAPLAYERS_PUBLIC_EXT. Verified Lake
+   Wausau + Stevens Point Flowage PFOS advisories. No county field —
+   filter spatially. (Distinct from the rejected EM PFAS sampling layer —
+   advisory designations, not sample values.)
+3. **ECHO SDWA** (small) — EPA Serious Violator flag + 13-quarter
+   compliance timeline. Marathon: 512 systems, exactly 1 serious violator.
+   Per-system: dfr_rest_services.get_sdwis_compliance?p_id=PWSID (works);
+   county: get_systems?p_st=WI&p_co=X then get_qid pages (p_pwsid ignored).
+4. **Envirofacts ENFORCEMENT_ACTION** (small) — same county-join pattern as
+   VIOLATION. Type codes need a lookup; linking to specific violations
+   needs VIOLATION_ENF_ASSOC (untested). LCR_SAMPLE lead 90th percentiles
+   exist but are stale (Wausau ends Oct 2020) — historical context only.
+5. **UWSP private-well aggregates** (small) — AGOL org kkX9mRo34fTGAX96,
+   County_Data/Township_Data FeatureServers, 15 params (no PFAS).
+   Marathon nitrate: 4,506 samples, 10.7% exceed 10 mg/L; Portage: 19,309,
+   23.1%. Confirm attribution/terms with UWSP CWSE before display.
+6. **BRRTS RR Sites** (medium) — dnrmaps.wi.gov/arcgis RR_Sites_Map core
+   layers 101/103. Wauleco open since 1984-10-24; Wausau GW Superfund NPL.
+   No substance field — PFAS-site flagging needs DNR's BOTW PFAS list;
+   coords are EPSG:3071; county encoded in BRRTS no. digits 3-4.
+- **Skip: lead service line inventories** — submitted to DNR Oct 2024 but
+  not published programmatically; needs a records request or PSC annual
+  reports (newsroom action, not scraper).
+- **Skip: UCMR5** — redundant; DNR DWS already carries all PFAS samples
+  for our systems, fresher and with lower detection limits.
+
 ## Blockers / needs-human
 
 - `editorial.yaml`: all five municipal narratives are `verified_by: null`.
