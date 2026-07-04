@@ -2,16 +2,19 @@ import { useMemo } from 'react'
 import { fmtDate } from '../format.js'
 
 const W = 760
-const H = 320
-const M = { top: 18, right: 16, bottom: 34, left: 52 }
+const H = 300
+const M = { top: 30, right: 16, bottom: 32, left: 46 }
 const IW = W - M.left - M.right
 const IH = H - M.top - M.bottom
 
-const EP_DASH = ['', '6 4', '2 3', '8 3 2 3']
+// entry point 0 is a solid line at full weight; later ones are lighter and dashed
+const EP_DASH = ['', '5 4', '2 3', '8 3 2 3']
+const EP_OPACITY = [1, 0.6, 0.55, 0.5]
+const EP_WIDTH = [2, 1.5, 1.5, 1.5]
 const EP_SHAPE = ['circle', 'square', 'triangle', 'diamond']
 
 function niceStep(range) {
-  const raw = range / 5
+  const raw = range / 6
   const pow = Math.pow(10, Math.floor(Math.log10(raw)))
   for (const m of [1, 2, 2.5, 5, 10]) {
     if (raw <= m * pow) return m * pow
@@ -19,16 +22,16 @@ function niceStep(range) {
   return 10 * pow
 }
 
-function Marker({ shape, x, y, color, open, title }) {
+function Marker({ shape, x, y, color, open, opacity, title }) {
   const fill = open ? '#fff' : color
-  const common = { fill, stroke: color, strokeWidth: 1.4 }
+  const common = { fill, stroke: color, strokeWidth: 1.3, opacity }
   let el
-  if (shape === 'square') el = <rect x={x - 3.4} y={y - 3.4} width={6.8} height={6.8} {...common} />
+  if (shape === 'square') el = <rect x={x - 2.8} y={y - 2.8} width={5.6} height={5.6} {...common} />
   else if (shape === 'triangle')
-    el = <polygon points={`${x},${y - 4.2} ${x - 4},${y + 3.2} ${x + 4},${y + 3.2}`} {...common} />
+    el = <polygon points={`${x},${y - 3.6} ${x - 3.4},${y + 2.7} ${x + 3.4},${y + 2.7}`} {...common} />
   else if (shape === 'diamond')
-    el = <polygon points={`${x},${y - 4.5} ${x + 4.5},${y} ${x},${y + 4.5} ${x - 4.5},${y}`} {...common} />
-  else el = <circle cx={x} cy={y} r={3.6} {...common} />
+    el = <polygon points={`${x},${y - 3.8} ${x + 3.8},${y} ${x},${y + 3.8} ${x - 3.8},${y}`} {...common} />
+  else el = <circle cx={x} cy={y} r={3} {...common} />
   return (
     <g>
       <title>{title}</title>
@@ -56,7 +59,7 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
     const dataMax = Math.max(...points.map((p) => (p.value == null ? 0 : p.value)), 0)
     const drawn = refLines.filter((r) => r.value <= Math.max(dataMax, 1) * 2.5)
     const offScale = refLines.filter((r) => !drawn.includes(r))
-    const yTop = Math.max(dataMax, ...drawn.map((r) => r.value), 0.5) * 1.18
+    const yTop = Math.max(dataMax, ...drawn.map((r) => r.value), 0.5) * 1.15
     const step = niceStep(yTop)
     const yMax = Math.ceil(yTop / step) * step
 
@@ -87,35 +90,54 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
   }, [points, series, refLines])
 
   const { x, y, yTicks, xTicks, lines, eps, drawn, offScale } = model
+  const baseline = y(0)
 
   return (
     <div>
       <div className="chart-wrap">
         <svg className="chart-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="PFAS trend chart">
+          {/* horizontal grid + y labels */}
           {yTicks.map((v) => (
             <g key={v}>
-              <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="#ececec" strokeWidth="1" />
-              <text x={M.left - 8} y={y(v) + 4} textAnchor="end" fontSize="11" fill="#666" fontFamily="JetBrains Mono Variable, monospace">
+              {v > 0 && (
+                <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="#eeeeee" strokeWidth="1" />
+              )}
+              <text x={M.left - 9} y={y(v) + 3.5} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="JetBrains Mono Variable, monospace">
                 {v}
               </text>
             </g>
           ))}
-          <text x={14} y={M.top + IH / 2} fontSize="11" fill="#666" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.05em" transform={`rotate(-90 14 ${M.top + IH / 2})`} textAnchor="middle">
+          {/* unit, horizontal, above the axis numbers */}
+          <text x={M.left - 9} y={M.top - 10} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.06em">
             {unit}
           </text>
+
+          {/* x axis baseline, year ticks + labels */}
+          <line x1={M.left} x2={W - M.right} y1={baseline} y2={baseline} stroke="#bbbbbb" strokeWidth="1" />
           {xTicks.map((t) => (
             <g key={t.t}>
-              <line x1={x(t.t)} x2={x(t.t)} y1={M.top} y2={M.top + IH} stroke="#f2f2f2" strokeWidth="1" />
-              <text x={x(t.t)} y={H - 12} textAnchor="middle" fontSize="11.5" fill="#666" fontFamily="Oswald Variable, sans-serif">
+              <line x1={x(t.t)} x2={x(t.t)} y1={baseline} y2={baseline + 5} stroke="#bbbbbb" strokeWidth="1" />
+              <text x={x(t.t)} y={H - 10} textAnchor="middle" fontSize="11.5" fill="#666" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.04em">
                 {t.label}
               </text>
             </g>
           ))}
 
+          {/* reference lines, label haloed and anchored left, clear of the line */}
           {drawn.map((r) => (
             <g key={r.label}>
-              <line x1={M.left} x2={W - M.right} y1={y(r.value)} y2={y(r.value)} stroke="#cf2e2e" strokeWidth="1.3" strokeDasharray="7 4" />
-              <text x={W - M.right} y={y(r.value) - 5} textAnchor="end" fontSize="10.5" fill="#cf2e2e" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.04em">
+              <line x1={M.left} x2={W - M.right} y1={y(r.value)} y2={y(r.value)} stroke="#cf2e2e" strokeWidth="1" strokeDasharray="6 4" />
+              <text
+                x={M.left + 6}
+                y={y(r.value) - 6}
+                fontSize="10.5"
+                fill="#cf2e2e"
+                fontFamily="Oswald Variable, sans-serif"
+                letterSpacing="0.05em"
+                paintOrder="stroke"
+                stroke="#ffffff"
+                strokeWidth="3.5"
+              >
                 {r.label}
               </text>
             </g>
@@ -127,9 +149,10 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
               points={l.pts.map((p) => `${x(Date.parse(p.date))},${y(p.value == null ? 0 : p.value)}`).join(' ')}
               fill="none"
               stroke={l.color}
-              strokeWidth="1.8"
+              strokeWidth={EP_WIDTH[l.epIndex % EP_WIDTH.length]}
               strokeDasharray={EP_DASH[l.epIndex % EP_DASH.length]}
-              opacity="0.85"
+              strokeLinejoin="round"
+              opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
             />
           ))}
           {lines.map((l) =>
@@ -141,6 +164,7 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
                 y={y(p.value == null ? 0 : p.value)}
                 color={l.color}
                 open={p.value == null}
+                opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
                 title={
                   `${l.label} — ` +
                   (p.value == null
@@ -167,7 +191,16 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
           eps.map((ep, i) => (
             <span key={ep}>
               <svg width="26" height="9" aria-hidden="true">
-                <line x1="1" y1="4.5" x2="25" y2="4.5" stroke="#666" strokeWidth="2" strokeDasharray={EP_DASH[i % EP_DASH.length]} />
+                <line
+                  x1="1"
+                  y1="4.5"
+                  x2="25"
+                  y2="4.5"
+                  stroke="#666"
+                  strokeWidth={EP_WIDTH[i % EP_WIDTH.length]}
+                  strokeDasharray={EP_DASH[i % EP_DASH.length]}
+                  opacity={EP_OPACITY[i % EP_OPACITY.length]}
+                />
               </svg>
               entry point {ep}
             </span>
