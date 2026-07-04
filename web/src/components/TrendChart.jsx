@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { fmtDate } from '../format.js'
 
 const W = 760
@@ -22,21 +22,53 @@ function niceStep(range) {
   return 10 * pow
 }
 
-function Marker({ shape, x, y, color, open, opacity, title }) {
+function MarkerShape({ shape, x, y, color, open, opacity }) {
   const fill = open ? '#fff' : color
-  const common = { fill, stroke: color, strokeWidth: 1.3, opacity }
-  let el
-  if (shape === 'square') el = <rect x={x - 2.8} y={y - 2.8} width={5.6} height={5.6} {...common} />
-  else if (shape === 'triangle')
-    el = <polygon points={`${x},${y - 3.6} ${x - 3.4},${y + 2.7} ${x + 3.4},${y + 2.7}`} {...common} />
-  else if (shape === 'diamond')
-    el = <polygon points={`${x},${y - 3.8} ${x + 3.8},${y} ${x},${y + 3.8} ${x - 3.8},${y}`} {...common} />
-  else el = <circle cx={x} cy={y} r={3} {...common} />
+  const common = { fill, stroke: color, strokeWidth: 1.3, opacity, pointerEvents: 'none' }
+  if (shape === 'square') return <rect x={x - 2.8} y={y - 2.8} width={5.6} height={5.6} {...common} />
+  if (shape === 'triangle')
+    return <polygon points={`${x},${y - 3.6} ${x - 3.4},${y + 2.7} ${x + 3.4},${y + 2.7}`} {...common} />
+  if (shape === 'diamond')
+    return <polygon points={`${x},${y - 3.8} ${x + 3.8},${y} ${x},${y + 3.8} ${x - 3.8},${y}`} {...common} />
+  return <circle cx={x} cy={y} r={3} {...common} />
+}
+
+function Tooltip({ tip, unit }) {
+  // position as a percentage of the chart box so it tracks the responsive SVG
+  const left = (tip.x / W) * 100
+  const top = (tip.y / H) * 100
+  const style = { left: `${left}%`, top: `${top}%` }
+  const tx = left > 72 ? 'calc(-100% - 10px)' : left < 28 ? '10px' : '-50%'
+  const ty = top < 38 ? '14px' : 'calc(-100% - 12px)'
+  style.transform = `translate(${tx}, ${ty})`
+
+  const p = tip.point
   return (
-    <g>
-      <title>{title}</title>
-      {el}
-    </g>
+    <div className="chart-tip" style={style} role="status">
+      <div className="t-head">
+        <span className="t-dot" style={{ background: tip.color }} />
+        {tip.label}
+      </div>
+      <div className="t-val mono">
+        {p.value == null ? (
+          '<LOD'
+        ) : (
+          <>
+            {p.value} <span className="t-unit">{unit}</span>
+          </>
+        )}
+      </div>
+      {p.value == null && <div className="t-qual">non-detect — below the limit of detection</div>}
+      {p.qualifier === 'Between LOD and LOQ' && (
+        <div className="t-qual">trace — between LOD and LOQ (estimated)</div>
+      )}
+      <div className="t-rows">
+        <div>{fmtDate(p.date)}</div>
+        <div>
+          Entry point {p.source_id} · {p.sample_type} sample
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -48,6 +80,8 @@ function Marker({ shape, x, y, color, open, opacity, title }) {
  * unit: axis label
  */
 export default function TrendChart({ points, series, refLines = [], unit = 'ng/L' }) {
+  const [tip, setTip] = useState(null)
+
   const model = useMemo(() => {
     const ts = points.map((p) => Date.parse(p.date))
     const tMin = Math.min(...ts)
@@ -95,87 +129,109 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
   return (
     <div>
       <div className="chart-wrap">
-        <svg className="chart-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="PFAS trend chart">
-          {/* horizontal grid + y labels */}
-          {yTicks.map((v) => (
-            <g key={v}>
-              {v > 0 && (
-                <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="#eeeeee" strokeWidth="1" />
-              )}
-              <text x={M.left - 9} y={y(v) + 3.5} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="JetBrains Mono Variable, monospace">
-                {v}
-              </text>
-            </g>
-          ))}
-          {/* unit, horizontal, above the axis numbers */}
-          <text x={M.left - 9} y={M.top - 10} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.06em">
-            {unit}
-          </text>
+        <div className="chart-box">
+          <svg
+            className="chart-svg"
+            viewBox={`0 0 ${W} ${H}`}
+            role="img"
+            aria-label="PFAS trend chart"
+            onMouseLeave={() => setTip(null)}
+          >
+            {/* horizontal grid + y labels */}
+            {yTicks.map((v) => (
+              <g key={v}>
+                {v > 0 && (
+                  <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="#eeeeee" strokeWidth="1" />
+                )}
+                <text x={M.left - 9} y={y(v) + 3.5} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="JetBrains Mono Variable, monospace">
+                  {v}
+                </text>
+              </g>
+            ))}
+            {/* unit, horizontal, above the axis numbers */}
+            <text x={M.left - 9} y={M.top - 10} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.06em">
+              {unit}
+            </text>
 
-          {/* x axis baseline, year ticks + labels */}
-          <line x1={M.left} x2={W - M.right} y1={baseline} y2={baseline} stroke="#bbbbbb" strokeWidth="1" />
-          {xTicks.map((t) => (
-            <g key={t.t}>
-              <line x1={x(t.t)} x2={x(t.t)} y1={baseline} y2={baseline + 5} stroke="#bbbbbb" strokeWidth="1" />
-              <text x={x(t.t)} y={H - 10} textAnchor="middle" fontSize="11.5" fill="#666" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.04em">
-                {t.label}
-              </text>
-            </g>
-          ))}
+            {/* x axis baseline, year ticks + labels */}
+            <line x1={M.left} x2={W - M.right} y1={baseline} y2={baseline} stroke="#bbbbbb" strokeWidth="1" />
+            {xTicks.map((t) => (
+              <g key={t.t}>
+                <line x1={x(t.t)} x2={x(t.t)} y1={baseline} y2={baseline + 5} stroke="#bbbbbb" strokeWidth="1" />
+                <text x={x(t.t)} y={H - 10} textAnchor="middle" fontSize="11.5" fill="#666" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.04em">
+                  {t.label}
+                </text>
+              </g>
+            ))}
 
-          {/* reference lines, label haloed and anchored left, clear of the line */}
-          {drawn.map((r) => (
-            <g key={r.label}>
-              <line x1={M.left} x2={W - M.right} y1={y(r.value)} y2={y(r.value)} stroke="#cf2e2e" strokeWidth="1" strokeDasharray="6 4" />
-              <text
-                x={M.left + 6}
-                y={y(r.value) - 6}
-                fontSize="10.5"
-                fill="#cf2e2e"
-                fontFamily="Oswald Variable, sans-serif"
-                letterSpacing="0.05em"
-                paintOrder="stroke"
-                stroke="#ffffff"
-                strokeWidth="3.5"
-              >
-                {r.label}
-              </text>
-            </g>
-          ))}
+            {/* reference lines, label haloed and anchored left, clear of the line */}
+            {drawn.map((r) => (
+              <g key={r.label}>
+                <line x1={M.left} x2={W - M.right} y1={y(r.value)} y2={y(r.value)} stroke="#cf2e2e" strokeWidth="1" strokeDasharray="6 4" />
+                <text
+                  x={M.left + 6}
+                  y={y(r.value) - 6}
+                  fontSize="10.5"
+                  fill="#cf2e2e"
+                  fontFamily="Oswald Variable, sans-serif"
+                  letterSpacing="0.05em"
+                  paintOrder="stroke"
+                  stroke="#ffffff"
+                  strokeWidth="3.5"
+                >
+                  {r.label}
+                </text>
+              </g>
+            ))}
 
-          {lines.map((l) => (
-            <polyline
-              key={`${l.analyte}-${l.ep}`}
-              points={l.pts.map((p) => `${x(Date.parse(p.date))},${y(p.value == null ? 0 : p.value)}`).join(' ')}
-              fill="none"
-              stroke={l.color}
-              strokeWidth={EP_WIDTH[l.epIndex % EP_WIDTH.length]}
-              strokeDasharray={EP_DASH[l.epIndex % EP_DASH.length]}
-              strokeLinejoin="round"
-              opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
-            />
-          ))}
-          {lines.map((l) =>
-            l.pts.map((p) => (
-              <Marker
-                key={`${l.analyte}-${l.ep}-${p.date}-${p.seq_no ?? ''}`}
-                shape={EP_SHAPE[l.epIndex % EP_SHAPE.length]}
-                x={x(Date.parse(p.date))}
-                y={y(p.value == null ? 0 : p.value)}
-                color={l.color}
-                open={p.value == null}
+            {lines.map((l) => (
+              <polyline
+                key={`${l.analyte}-${l.ep}`}
+                points={l.pts.map((p) => `${x(Date.parse(p.date))},${y(p.value == null ? 0 : p.value)}`).join(' ')}
+                fill="none"
+                stroke={l.color}
+                strokeWidth={EP_WIDTH[l.epIndex % EP_WIDTH.length]}
+                strokeDasharray={EP_DASH[l.epIndex % EP_DASH.length]}
+                strokeLinejoin="round"
                 opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
-                title={
-                  `${l.label} — ` +
-                  (p.value == null
-                    ? `non-detect (<LOD)`
-                    : `${p.value} ${unit}${p.qualifier === 'Between LOD and LOQ' ? ' (trace, estimated)' : ''}`) +
-                  ` — ${fmtDate(p.date)} — entry point ${p.source_id} — ${p.sample_type} sample`
-                }
               />
-            ))
-          )}
-        </svg>
+            ))}
+
+            {/* markers + generous invisible hover targets */}
+            {lines.map((l) =>
+              l.pts.map((p) => {
+                const px = x(Date.parse(p.date))
+                const py = y(p.value == null ? 0 : p.value)
+                const active = tip && tip.point === p && tip.label === l.label
+                return (
+                  <g key={`${l.analyte}-${l.ep}-${p.date}-${p.seq_no ?? ''}`}>
+                    {active && (
+                      <circle cx={px} cy={py} r={7} fill="none" stroke={l.color} strokeWidth="1.2" opacity="0.45" />
+                    )}
+                    <MarkerShape
+                      shape={EP_SHAPE[l.epIndex % EP_SHAPE.length]}
+                      x={px}
+                      y={py}
+                      color={l.color}
+                      open={p.value == null}
+                      opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
+                    />
+                    <circle
+                      cx={px}
+                      cy={py}
+                      r={10}
+                      fill="transparent"
+                      style={{ cursor: 'pointer' }}
+                      onMouseEnter={() => setTip({ x: px, y: py, point: p, color: l.color, label: l.label })}
+                    />
+                  </g>
+                )
+              })
+            )}
+          </svg>
+
+          {tip && <Tooltip tip={tip} unit={unit} />}
+        </div>
       </div>
 
       <div className="chart-legend">

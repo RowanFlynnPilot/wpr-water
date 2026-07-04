@@ -299,7 +299,53 @@ button.linklike:hover { color: var(--black); }
 /* ---------- chart ---------- */
 
 .chart-wrap { overflow-x: auto; }
-.chart-svg { display: block; width: 100%; min-width: 540px; height: auto; }
+.chart-box { position: relative; min-width: 540px; }
+.chart-svg { display: block; width: 100%; height: auto; }
+
+.chart-tip {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  background: var(--black);
+  color: #fff;
+  padding: 9px 12px 10px;
+  border-radius: 2px;
+  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.28);
+  min-width: 158px;
+  max-width: 230px;
+  line-height: 1.45;
+}
+.chart-tip .t-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--head);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #ccc;
+  margin-bottom: 2px;
+}
+.chart-tip .t-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; box-shadow: 0 0 0 1.5px #fff; }
+.chart-tip .t-val { font-size: 19px; color: #fff; }
+.chart-tip .t-val .t-unit { font-size: 11px; color: #aaa; }
+.chart-tip .t-qual {
+  font-family: var(--head);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #f5c6c3;
+  margin-top: 1px;
+}
+.chart-tip .t-rows {
+  font-family: var(--body);
+  font-size: 11.5px;
+  color: #bbb;
+  margin-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 5px;
+}
 .chart-legend {
   display: flex;
   flex-wrap: wrap;
