@@ -28,7 +28,9 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
       .filter(
         (s) =>
           s.name.toLowerCase().includes(q) ||
-          (s.city_served && s.city_served.toLowerCase().includes(q))
+          (s.city_served && s.city_served.toLowerCase().includes(q)) ||
+          s.pwsid.toLowerCase().includes(q) ||
+          (s.pws_id_dnr && s.pws_id_dnr.includes(q))
       )
       .slice(0, 30)
   }, [systems, query])

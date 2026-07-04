@@ -53,6 +53,17 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
                 <div className="c-line">
                   <span>with detections</span> <span className="mono">{d.with_pfas_detections}</span>
                 </div>
+                {d.population_served > 0 && (
+                  <div
+                    className="c-line"
+                    title={`${d.population_pfas_sampled.toLocaleString()} of ${d.population_served.toLocaleString()} people served by public systems get water from a PFAS-tested system. Most untested systems are small.`}
+                  >
+                    <span>people covered by a test</span>{' '}
+                    <span className="mono">
+                      {Math.round((d.population_pfas_sampled / d.population_served) * 100)}%
+                    </span>
+                  </div>
+                )}
                 <div className="c-line">
                   <span>unresolved viol.</span>{' '}
                   <span className="mono">{d.with_unresolved_violations}</span>
@@ -85,7 +96,7 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
                 <th className="num">Serves</th>
                 <th className="num">Unresolved health-based</th>
                 <th className="num">Unresolved total</th>
-                <th>Latest violation</th>
+                <th>Open since</th>
                 <th>PFAS tested?</th>
               </tr>
             </thead>
@@ -104,7 +115,7 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
                     {s.violations.unresolved_health_based}
                   </td>
                   <td className="num mono">{s.violations.unresolved}</td>
-                  <td>{fmtDate(s.violations.latest_date)}</td>
+                  <td>{fmtDate(s.violations.oldest_unresolved_hb_date || s.violations.oldest_unresolved_date)}</td>
                   <td>{s.pfas.sampled ? 'yes' : 'no'}</td>
                 </tr>
               ))}

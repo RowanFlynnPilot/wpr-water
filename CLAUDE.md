@@ -121,15 +121,19 @@ Verified against Wausau (73701023→WI7370102), Antigo, Merrill, Weston.
 results): identity (both IDs, name, county, type, population,
 city_served, source), `pfas` block (sampled flag, first/latest sample dates,
 latest + historic max per key analyte with qualifiers,
-latest_combined_pfoa_pfos), `violations` block (total, health_based,
-unresolved, unresolved_health_based, since_2020, latest_date, categories),
-optional `editorial` block.
+latest_combined_pfoa_pfos, other_detections — non-key analytes with max),
+`violations` block (total, health_based, unresolved,
+unresolved_health_based, since_2020, latest_date, oldest_unresolved_date,
+oldest_unresolved_hb_date, categories, detail — 12 most recent slim
+violation records with rule/contaminant codes and rtc status,
+detail_omitted), optional `editorial` block.
 
 `pfas_results.json` — slim per-sample records for trend charts (analyte,
 value|null, units, qualifier, lod, loq, date, sample_type, source_id).
 
 `summary.json` — built_at, thresholds (values + display labels), counts,
-county rollups, data_notes.
+county rollups (system counts plus population_served /
+population_pfas_sampled for active systems), data_notes.
 
 ## Frontend spec (Claude Code handoff)
 

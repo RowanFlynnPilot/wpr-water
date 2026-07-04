@@ -77,6 +77,17 @@ at the production path, so there is exactly one fetch path.
 
 ## Session log
 
+- **2026-07-04 (fourth pass)** — New data points + River Street-inspired
+  additions (Claude Code). Transform now emits per-system violation detail
+  (12 most recent, rule/contaminant codes, rtc status), oldest-unresolved
+  dates, county population coverage (population_served /
+  population_pfas_sampled), and non-key-analyte detections; counts
+  verified unchanged (730/9,996/2,390). Frontend: violation history table
+  with federal rule names, "open since" on card + county board, "people
+  covered by a test" % on county cards (Marathon: 92%), "also detected"
+  analyte line, PWSID search, private-well callout, data download links,
+  og/social meta tags. Styled chart tooltip + chart formatting rework.
+
 - **2026-07-04 (third pass)** — Brand alignment + tidy (Claude Code).
   Restyled to match wausaupilotandreview.com (Newspack "Joseph"): Oswald
   headings, Merriweather body, black/white newsprint, typewriter badge +

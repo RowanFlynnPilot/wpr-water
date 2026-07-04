@@ -117,6 +117,20 @@ def summarize_pfas(results: list[dict]) -> dict:
             2,
         )
 
+    # Detections outside the key-analyte panel (e.g. PFHxA, PFBA), max per analyte.
+    other_detections = []
+    for analyte, rows in sorted(by_analyte.items()):
+        if analyte in KEY_ANALYTES:
+            continue
+        detected = [r for r in rows if r["value"] is not None]
+        if detected:
+            top = max(detected, key=lambda r: r["value"])
+            other_detections.append({
+                "analyte": analyte, "max_value": top["value"],
+                "units": top["units"], "date": top["date"],
+            })
+    other_detections.sort(key=lambda d: -d["max_value"])
+
     dates = sorted(r["date"] for r in results)
     return {
         "sampled": True,
@@ -127,7 +141,12 @@ def summarize_pfas(results: list[dict]) -> dict:
         "latest": latest,
         "historic_max": historic_max,
         "latest_combined_pfoa_pfos": combined,
+        "other_detections": other_detections,
     }
+
+
+# Most recent violations carried per system; the rest are summarized in counts.
+VIOLATION_DETAIL_CAP = 12
 
 
 def summarize_violations(violations: list[dict]) -> dict:
@@ -137,19 +156,42 @@ def summarize_violations(violations: list[dict]) -> dict:
     # Unresolved = no return-to-compliance date. Verified against the data
     # 2026-07-04: status codes R/I always carry rtc_date, O/K never do.
     unresolved = [v for v in violations if not v["rtc_date"]]
+    unresolved_hb = [v for v in unresolved if v["is_health_based_ind"] == "Y"]
     dates = sorted(
         v["compl_per_begin_date"][:10] for v in violations if v["compl_per_begin_date"]
     )
+
+    by_recent = sorted(violations, key=lambda v: v["compl_per_begin_date"], reverse=True)
+    detail = [
+        {
+            "begin_date": v["compl_per_begin_date"][:10],
+            "category": v["violation_category_code"],
+            "health_based": v["is_health_based_ind"] == "Y",
+            "resolved": bool(v["rtc_date"]),
+            "rtc_date": v["rtc_date"][:10] if v["rtc_date"] else None,
+            "rule_code": v["rule_code"],
+            "contaminant_code": v["contaminant_code"],
+            "pn_tier": v["public_notification_tier"],
+        }
+        for v in by_recent[:VIOLATION_DETAIL_CAP]
+    ]
+
     return {
         "total": len(violations),
         "health_based": sum(1 for v in violations if v["is_health_based_ind"] == "Y"),
         "unresolved": len(unresolved),
-        "unresolved_health_based": sum(
-            1 for v in unresolved if v["is_health_based_ind"] == "Y"
-        ),
+        "unresolved_health_based": len(unresolved_hb),
         "since_2020": sum(1 for d in dates if d >= "2020-01-01"),
         "latest_date": dates[-1] if dates else None,
+        "oldest_unresolved_date": min(
+            (v["compl_per_begin_date"][:10] for v in unresolved), default=None
+        ),
+        "oldest_unresolved_hb_date": min(
+            (v["compl_per_begin_date"][:10] for v in unresolved_hb), default=None
+        ),
         "categories": dict(categories),
+        "detail": detail,
+        "detail_omitted": max(0, len(violations) - VIOLATION_DETAIL_CAP),
     }
 
 
@@ -218,13 +260,20 @@ def main() -> None:
 
     county_rollup: dict[str, dict] = defaultdict(
         lambda: {"systems": 0, "sampled_for_pfas": 0, "with_pfas_detections": 0,
-                 "with_unresolved_violations": 0}
+                 "with_unresolved_violations": 0,
+                 "population_served": 0, "population_pfas_sampled": 0}
     )
     for s in systems:
         c = county_rollup[s["county"]]
         c["systems"] += 1
+        # Population coverage counts active systems only. Populations of
+        # overlapping systems (e.g. a school inside a city) can double-count;
+        # this is a served-population figure, not a census one.
+        pop = (s["population"] or 0) if s["active"] else 0
+        c["population_served"] += pop
         if s["pfas"]["sampled"]:
             c["sampled_for_pfas"] += 1
+            c["population_pfas_sampled"] += pop
             if s["pfas"]["n_detections"] > 0:
                 c["with_pfas_detections"] += 1
         if s["violations"]["unresolved"] > 0:

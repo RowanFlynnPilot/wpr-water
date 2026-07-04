@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-04T14:42:45.652544+00:00",
+ "built_at": "2026-07-04T18:03:55.445683+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -28,37 +28,49 @@
    "systems": 112,
    "sampled_for_pfas": 4,
    "with_pfas_detections": 2,
-   "with_unresolved_violations": 25
+   "with_unresolved_violations": 25,
+   "population_served": 19206,
+   "population_pfas_sampled": 8472
   },
   "Lincoln": {
    "systems": 98,
    "sampled_for_pfas": 10,
    "with_pfas_detections": 9,
-   "with_unresolved_violations": 15
+   "with_unresolved_violations": 15,
+   "population_served": 19051,
+   "population_pfas_sampled": 14444
   },
   "Marathon": {
    "systems": 195,
    "sampled_for_pfas": 46,
    "with_pfas_detections": 37,
-   "with_unresolved_violations": 34
+   "with_unresolved_violations": 34,
+   "population_served": 103465,
+   "population_pfas_sampled": 95389
   },
   "Portage": {
    "systems": 149,
    "sampled_for_pfas": 21,
    "with_pfas_detections": 11,
-   "with_unresolved_violations": 16
+   "with_unresolved_violations": 16,
+   "population_served": 50373,
+   "population_pfas_sampled": 46686
   },
   "Shawano": {
    "systems": 116,
    "sampled_for_pfas": 18,
    "with_pfas_detections": 7,
-   "with_unresolved_violations": 25
+   "with_unresolved_violations": 25,
+   "population_served": 24374,
+   "population_pfas_sampled": 20791
   },
   "Taylor": {
    "systems": 60,
    "sampled_for_pfas": 9,
    "with_pfas_detections": 4,
-   "with_unresolved_violations": 15
+   "with_unresolved_violations": 15,
+   "population_served": 10796,
+   "population_pfas_sampled": 7273
   }
  },
  "data_notes": {

@@ -97,3 +97,40 @@ export const VIOLATION_CATEGORY_LABELS = {
   MRDL: 'Disinfectant residual level',
   Other: 'Other',
 }
+
+// SDWIS rule_code → federal rule name (codes present in the 6-county pull)
+export const RULE_NAMES = {
+  110: 'Total Coliform Rule',
+  111: 'Revised Total Coliform Rule',
+  140: 'Ground Water Rule',
+  210: 'Stage 1 Disinfectants & Byproducts',
+  220: 'Stage 2 Disinfectants & Byproducts',
+  310: 'Volatile Organic Chemicals',
+  320: 'Synthetic Organic Chemicals',
+  331: 'Nitrates',
+  332: 'Arsenic',
+  333: 'Inorganic Chemicals',
+  340: 'Radionuclides',
+  350: 'Lead & Copper Rule',
+  351: 'Lead & Copper Rule Revisions',
+  410: 'Public Notification',
+  420: 'Consumer Confidence Report',
+  500: 'Other / unregulated contaminant',
+}
+
+export const ruleName = (code) => RULE_NAMES[code] || `Rule ${code}`
+
+// Display casing for analytes outside the key panel
+const OTHER_ANALYTE_LABELS = {
+  PFHXA: 'PFHxA',
+  PFHPA: 'PFHpA',
+  PFHPS: 'PFHpS',
+  PFUNA: 'PFUnA',
+  PFTrDA: 'PFTrDA',
+  NETFOSAA: 'NEtFOSAA',
+  NMEFOSAA: 'NMeFOSAA',
+  NETFOSA: 'NEtFOSA',
+  NMEFOSA: 'NMeFOSA',
+}
+
+export const otherAnalyteLabel = (a) => OTHER_ANALYTE_LABELS[a] || a

@@ -8,6 +8,8 @@ import {
   fmtDate,
   fmtNum,
   fmtResult,
+  otherAnalyteLabel,
+  ruleName,
   titleCase,
   typeLabel,
 } from '../format.js'
@@ -108,6 +110,17 @@ export default function SystemCard({ system: s, thresholds, onShowTrend }) {
                 and PFOS (April 2024 rule; compliance deadline 2029, proposed extension to 2031)
               </div>
             </div>
+            {p.other_detections && p.other_detections.length > 0 && (
+              <p className="subhead" style={{ marginTop: 2 }}>
+                Also detected at least once:{' '}
+                {p.other_detections
+                  .map(
+                    (d) =>
+                      `${otherAnalyteLabel(d.analyte)} (max ${d.max_value} ng/L, ${fmtDate(d.date)})`
+                  )
+                  .join(' · ')}
+              </p>
+            )}
             {onShowTrend && (
               <p style={{ marginBottom: 0 }}>
                 <button className="linklike" onClick={() => onShowTrend(s.pwsid)}>
@@ -154,14 +167,59 @@ export default function SystemCard({ system: s, thresholds, onShowTrend }) {
                 <div className="v-label">since 2020</div>
               </div>
             </div>
-            <p className="subhead" style={{ marginBottom: 0 }}>
-              Most recent violation dated {fmtDate(v.latest_date)}.{' '}
-              {Object.entries(v.categories)
-                .map(([k, n]) => `${VIOLATION_CATEGORY_LABELS[k] || k}: ${n}`)
-                .join(' · ')}
-              . &ldquo;Unresolved&rdquo; means EPA&rsquo;s record shows no return-to-compliance
-              date.
-            </p>
+            {v.oldest_unresolved_date && (
+              <p className="subhead">
+                Oldest unresolved violation open since{' '}
+                <strong>{fmtDate(v.oldest_unresolved_date)}</strong>
+                {v.oldest_unresolved_hb_date &&
+                  ` — oldest unresolved health-based since ${fmtDate(v.oldest_unresolved_hb_date)}`}
+                . &ldquo;Unresolved&rdquo; means EPA&rsquo;s record shows no return-to-compliance
+                date.
+              </p>
+            )}
+            {v.detail && v.detail.length > 0 && (
+              <div className="table-scroll">
+                <table className="board">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Rule</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {v.detail.map((d, i) => (
+                      <tr key={i}>
+                        <td>{fmtDate(d.begin_date)}</td>
+                        <td>{ruleName(d.rule_code)}</td>
+                        <td>
+                          {VIOLATION_CATEGORY_LABELS[d.category] || d.category}
+                          {d.health_based && (
+                            <>
+                              {' '}
+                              <span className="chip rust">health-based</span>
+                            </>
+                          )}
+                        </td>
+                        <td>
+                          {d.resolved ? (
+                            `resolved ${fmtDate(d.rtc_date)}`
+                          ) : (
+                            <strong style={{ color: '#cf2e2e' }}>open</strong>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {v.detail_omitted > 0 && (
+              <p className="subhead" style={{ marginTop: 6 }}>
+                Showing the {v.detail.length} most recent of {v.total} violations on record.
+              </p>
+            )}
           </>
         )}
         <p className="note warn">
