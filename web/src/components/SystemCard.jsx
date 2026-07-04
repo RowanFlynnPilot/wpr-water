@@ -96,8 +96,21 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
       <div className="panel">
         <div className="syscard-head">
           <h2>{titleCase(s.name)}</h2>
+          {s.echo?.serious_violator && (
+            <span className="chip rust" title="EPA's current Serious Violator designation — see the violations section below">
+              EPA serious violator
+            </span>
+          )}
           {!s.active && <span className="chip gray">Inactive</span>}
         </div>
+        {s.echo?.serious_violator && (
+          <p className="subhead" style={{ marginBottom: 6 }}>
+            Flagged by EPA for unresolved Safe Drinking Water Act violations
+            {s.echo.contaminants_in_cur_viol.length > 0 &&
+              ` under: ${s.echo.contaminants_in_cur_viol.join(', ')}`}{' '}
+            — not for the PFAS results below. Details in the violations section.
+          </p>
+        )}
         <p className="syscard-meta">
           {s.county} County · {typeLabel(s)} · Serves {fmtNum(s.population)} people
           {s.city_served ? ` in ${titleCase(s.city_served)}` : ''} ·{' '}
