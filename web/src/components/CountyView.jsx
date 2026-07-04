@@ -72,6 +72,9 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
           Ranked by unresolved health-based violations. &ldquo;Unresolved&rdquo; means EPA&rsquo;s
           record shows no return-to-compliance date.
         </p>
+        <p className="scroll-hint" aria-hidden="true">
+          swipe sideways to see the full table →
+        </p>
         <div className="table-scroll">
           <table className="board">
             <thead>

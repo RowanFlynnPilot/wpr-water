@@ -186,7 +186,8 @@ button.linklike:hover { color: var(--black); }
 .search-input {
   width: 100%;
   font-family: var(--body);
-  font-size: 15px;
+  /* 16px floor prevents iOS Safari from auto-zooming focused inputs */
+  font-size: 16px;
   padding: 11px 15px;
   border: 1px solid var(--black);
   border-radius: 2px;
@@ -302,6 +303,18 @@ button.linklike:hover { color: var(--black); }
 .chart-box { position: relative; min-width: 540px; }
 .chart-svg { display: block; width: 100%; height: auto; }
 
+/* shown only on small screens, where wide charts/tables scroll sideways */
+.scroll-hint {
+  display: none;
+  font-family: var(--head);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 4px;
+}
+
 .chart-tip {
   position: absolute;
   z-index: 10;
@@ -359,7 +372,7 @@ button.linklike:hover { color: var(--black); }
 .chart-legend svg { vertical-align: middle; margin-right: 5px; }
 
 .sys-select { position: relative; margin-bottom: 16px; }
-.sys-select .search-input { font-size: 14px; padding: 9px 14px; }
+.sys-select .search-input { padding: 9px 14px; }
 .sys-select .dropdown {
   position: absolute;
   z-index: 5;
@@ -496,4 +509,13 @@ summary {
   .panel { padding: 14px; }
   .masthead { gap: 12px; }
   .masthead .badge-img { width: 60px; height: 60px; }
+  .scroll-hint { display: block; }
+  /* comfortable touch targets */
+  .tabs button { min-height: 42px; }
+  .quick-links button { min-height: 38px; }
+  button.linklike { padding: 5px 0; }
+  .result-list button { padding: 12px 6px; }
+  .sys-select .dropdown button { padding: 12px 14px; }
+  /* two county cards per row instead of a long single-column stack */
+  .county-grid { grid-template-columns: repeat(2, 1fr); }
 }

@@ -167,6 +167,9 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
 
           <details style={{ marginTop: 16 }}>
             <summary>All PFOA / PFOS samples for this system</summary>
+            <p className="scroll-hint" aria-hidden="true">
+              swipe sideways to see the full table →
+            </p>
             <div className="table-scroll">
               <table className="board" style={{ marginTop: 10 }}>
                 <thead>

@@ -128,6 +128,9 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
 
   return (
     <div>
+      <p className="scroll-hint" aria-hidden="true">
+        swipe sideways to see the full chart →
+      </p>
       <div className="chart-wrap">
         <div className="chart-box">
           <svg
@@ -219,7 +222,7 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
                     <circle
                       cx={px}
                       cy={py}
-                      r={10}
+                      r={12}
                       fill="transparent"
                       style={{ cursor: 'pointer' }}
                       onMouseEnter={() => setTip({ x: px, y: py, point: p, color: l.color, label: l.label })}
