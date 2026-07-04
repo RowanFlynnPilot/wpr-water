@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-04T18:49:43.607782+00:00",
+ "built_at": "2026-07-04T18:57:10.903744+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -96,6 +96,48 @@
    "population_pfas_sampled": 7273
   }
  },
+ "fish_advisories": [
+  {
+   "name": "WISCONSIN RIVER AT LAKE WAUSAU",
+   "description": "WISCONSIN RIVER FROM DAM AT WAUSAU TO THE DAM AT ROTHSCHILD (LAKE WAUSAU). INCLUDING THE BIG RIB RIVER UNTIL IT FLOWS UNDER HWY 29",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2023-01-18",
+   "wbic": "1437500, 1451800"
+  },
+  {
+   "name": "WISCONSIN RIVER AT THE STEVENS POINT FLOWAGE",
+   "description": "WISCONSIN RIVER FROM THE DU BAY DAM TO THE DAM AT STEVENS POINT (STEVENS POINT FLOWAGE)",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2023-01-18",
+   "wbic": "1409400"
+  },
+  {
+   "name": "Wisconsin River Biron Flowage",
+   "description": "WISCONSIN RIVER FROM THE WHITING PLOVER DAM TO THE BIRON DAM (BIRON FLOWAGE)",
+   "contaminants": "PCBs and PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2020-11-12",
+   "wbic": "1179900, 1396900, 1402000, 1402400, 1402500"
+  },
+  {
+   "name": "WISCONSIN RIVER FROM DAM AT NEKOOSA TO THE PETENWELL DAM",
+   "description": "WISCONSIN RIVER FROM DAM AT NEKOOSA TO THE PETENWELL DAM (PETENWELL FLOWAGE)",
+   "contaminants": "PCBs, Dioxin, and PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "1980-04-01",
+   "wbic": "1179900, 1377100"
+  },
+  {
+   "name": "Lake Mohawksin, Wisconsin River, and Somo River",
+   "description": "WISCONSIN RIVER AT LAKE MOHAWKSIN",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": null,
+   "wbic": "1077700, 1179900, 1515400, 1515800, 1546900, 1554900, 4000008, 5520946, 5521436"
+  }
+ ],
  "data_notes": {
   "dws": "DNR DWS portal data, current as of ~10 p.m. the prior day.",
   "sdwis": "EPA SDWIS federal data refreshes quarterly; violations can lag DNR records.",

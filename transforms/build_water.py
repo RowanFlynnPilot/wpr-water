@@ -256,6 +256,7 @@ def summarize_violations(violations: list[dict]) -> dict:
 def main() -> None:
     raw_results = json.loads((RAW / "dws_pfas_results.json").read_text())
     raw_chem = json.loads((RAW / "dws_chem_results.json").read_text())
+    raw_advisories = json.loads((RAW / "dnr_fish_advisories.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -347,6 +348,29 @@ def main() -> None:
         if s["violations"]["unresolved"] > 0:
             c["with_unresolved_violations"] += 1
 
+    # Fish consumption advisories: dedup geometry rows by ROI_SEQ_NO, keep
+    # PFAS-related designations as DNR/DHS recorded them. ROI_START_DATE of
+    # epoch 0 is a placeholder, not a real effective date.
+    advisories = {}
+    for a in raw_advisories:
+        if "PFOS" not in (a["ROI_SUBTYPE"] or "") and "PFAS" not in (a["ROI_SUBTYPE"] or ""):
+            continue
+        advisories[a["ROI_SEQ_NO"]] = {
+            "name": a["ROI_SHORT_NAME"],
+            "description": a["ROI_DESC"],
+            "contaminants": a["ROI_SUBTYPE_DESC"],
+            "advice_type": a["ROI_CODE_DESC"],
+            "effective": (
+                datetime.fromtimestamp(a["ROI_START_DATE"] / 1000, tz=timezone.utc)
+                .date().isoformat()
+                if a["ROI_START_DATE"] else None
+            ),
+            "wbic": a["WBIC"],
+        }
+    advisory_list = sorted(
+        advisories.values(), key=lambda a: a["effective"] or "", reverse=True
+    )
+
     chem_orphans = set(chem_by_pwsid) - {s["pwsid"] for s in systems}
     if chem_orphans:
         print(f"note: chem results for {len(chem_orphans)} systems outside the "
@@ -363,6 +387,7 @@ def main() -> None:
             "violations": len(raw_violations),
         },
         "counties": dict(sorted(county_rollup.items())),
+        "fish_advisories": advisory_list,
         "data_notes": {
             "dws": "DNR DWS portal data, current as of ~10 p.m. the prior day.",
             "sdwis": "EPA SDWIS federal data refreshes quarterly; violations can lag DNR records.",

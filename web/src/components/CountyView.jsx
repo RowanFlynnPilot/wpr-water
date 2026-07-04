@@ -127,6 +127,51 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
           may already be resolved in DNR&rsquo;s records.
         </p>
       </div>
+
+      {summary.fish_advisories && summary.fish_advisories.length > 0 && (
+        <div className="panel">
+          <h3>PFAS fish consumption advisories on area waters</h3>
+          <p className="subhead">
+            The same PFOS found in drinking-water wells also accumulates in fish. DNR and DHS
+            have issued special consumption advice for these waters in and around the coverage
+            area:
+          </p>
+          <div className="table-scroll">
+            <table className="board">
+              <thead>
+                <tr>
+                  <th>Waters</th>
+                  <th>Contaminants</th>
+                  <th>Advice</th>
+                  <th>Effective</th>
+                </tr>
+              </thead>
+              <tbody>
+                {summary.fish_advisories.map((a) => (
+                  <tr key={a.description}>
+                    <td>{titleCase(a.name || a.description)}</td>
+                    <td>{a.contaminants}</td>
+                    <td>{a.advice_type}</td>
+                    <td>{a.effective ? fmtDate(a.effective) : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="note">
+            Advisory designations as recorded by DNR. Specific meal-frequency advice by species
+            is at{' '}
+            <a
+              href="https://dnr.wisconsin.gov/topic/Fishing/consumption"
+              target="_blank"
+              rel="noreferrer"
+            >
+              dnr.wisconsin.gov/topic/Fishing/consumption
+            </a>
+            .
+          </p>
+        </div>
+      )}
     </div>
   )
 }
