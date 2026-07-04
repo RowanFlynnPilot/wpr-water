@@ -85,7 +85,8 @@ function ChemCell({ chemKey, entry, reference }) {
   )
 }
 
-export default function SystemCard({ system: s, thresholds, chemReferences, onShowTrend }) {
+export default function SystemCard({ system: s, thresholds, chemReferences, cleanupSitesByCity, onShowTrend }) {
+  const cleanupCount = s.city_served ? cleanupSitesByCity?.[s.city_served.toUpperCase()] : null
   const p = s.pfas
   const v = s.violations
   const editorial = s.editorial && s.editorial.verified_by ? s.editorial : null
@@ -314,6 +315,29 @@ export default function SystemCard({ system: s, thresholds, chemReferences, onSh
           can lag DNR&rsquo;s own records by up to a quarter.
         </p>
       </div>
+
+      {cleanupCount > 0 && (
+        <div className="panel">
+          <h3>Contamination cleanup nearby</h3>
+          <p className="subhead" style={{ marginBottom: 0 }}>
+            DNR&rsquo;s remediation tracking database (BRRTS) lists{' '}
+            <strong>
+              {cleanupCount} open cleanup {cleanupCount === 1 ? 'activity' : 'activities'}
+            </strong>{' '}
+            in {titleCase(s.city_served)} — all types, from spills and leaking tanks to
+            long-term environmental repair, not necessarily affecting this water system. Look
+            them up on{' '}
+            <a
+              href="https://dnr.wisconsin.gov/topic/Brownfields/BOTW.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              BRRTS on the Web
+            </a>
+            .
+          </p>
+        </div>
+      )}
 
       {editorial && (
         <div className="panel">

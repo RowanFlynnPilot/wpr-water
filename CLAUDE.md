@@ -30,8 +30,14 @@ web/         React/Vite frontend (built by Claude Code — see spec below)
 Weekly cron (Sunday 7am UTC — sampling is quarterly, weekly is generous):
 ```
 python -m scrapers.dws_pfas_results
+python -m scrapers.dws_chem_results
+python -m scrapers.dnr_fish_advisories
 python -m scrapers.sdwis_water_systems
 python -m scrapers.sdwis_violations
+python -m scrapers.sdwis_enforcement
+python -m scrapers.echo_sdwa
+python -m scrapers.uwsp_private_wells
+python -m scrapers.dnr_brrts_sites
 python -m transforms.build_water
 ```
 
@@ -40,7 +46,16 @@ python -m transforms.build_water
 | Source | What | Freshness | Access |
 |---|---|---|---|
 | DNR DWS portal API | Raw PFAS sample results, all analytes, ng/L | Nightly | POST, no auth |
-| EPA SDWIS (Envirofacts) | System inventory + violations/enforcement | Quarterly | GET JSON |
+| DNR DWS portal API | Nitrate/arsenic/lead/copper results (same endpoint, codes 1040/1005/1030/1022, since 2020) | Nightly | POST, no auth |
+| EPA SDWIS (Envirofacts) | System inventory + violations + ENFORCEMENT_ACTION | Quarterly | GET JSON |
+| EPA ECHO SDWA REST | Serious Violator flag, SNC quarters, 12-qtr history, last enforcement dates | Quarterly | GET JSON (get_systems→get_qid per county; p_pwsid ignored) |
+| DNR EM_PFAS ArcGIS (layers 801/803) | PFOS fish consumption advisory designations | ~Annual revisions | GET, envelope query |
+| UWSP CWSE AGOL | Private-well county aggregates (nitrate, coliform; since 1985, voluntary samples) | ~Annual | GET, FeatureServer |
+| DNR RR Sites ArcGIS (layer 101) | Open BRRTS cleanup activities (no substance field — never present as PFAS-specific) | Nightly | GET, LIKE on county-encoded BRRTS no. |
+
+Lead/copper DWS results are individual tap samples; compliance is a 90th-
+percentile determination — always carry that caveat. UWSP display requires
+CWSE attribution + "test your own well" disclaimer.
 
 ### DNR DWS portal — the workhorse
 

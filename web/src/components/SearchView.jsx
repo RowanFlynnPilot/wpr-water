@@ -118,6 +118,7 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
           system={selected}
           thresholds={summary.thresholds}
           chemReferences={summary.chem_references}
+          cleanupSitesByCity={summary.cleanup_sites_by_city}
           onShowTrend={onShowTrend}
         />
       )}

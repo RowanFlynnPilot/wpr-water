@@ -300,6 +300,7 @@ def main() -> None:
     raw_echo = json.loads((RAW / "echo_sdwa.json").read_text())
     raw_enforcement = json.loads((RAW / "sdwis_enforcement.json").read_text())
     raw_private_wells = json.loads((RAW / "uwsp_private_wells.json").read_text())
+    raw_brrts = json.loads((RAW / "dnr_brrts_sites.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -467,6 +468,14 @@ def main() -> None:
         },
         "counties": dict(sorted(county_rollup.items())),
         "fish_advisories": advisory_list,
+        # Open DNR cleanup activities (BRRTS layer 101) by city — all activity
+        # types, not PFAS-specific; the layer carries no substance field.
+        "cleanup_sites_by_city": dict(sorted(
+            (city, sum(1 for s in raw_brrts
+                       if (s["LOC_CITY"] or "").strip().upper() == city))
+            for city in {(s["LOC_CITY"] or "").strip().upper() for s in raw_brrts}
+            if city
+        )),
         "data_notes": {
             "dws": "DNR DWS portal data, current as of ~10 p.m. the prior day.",
             "sdwis": "EPA SDWIS federal data refreshes quarterly; violations can lag DNR records.",

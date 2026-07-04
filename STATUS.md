@@ -67,42 +67,29 @@ at the production path, so there is exactly one fetch path.
 - WordPress iframe embed on the companion story page.
 - Optional: screenshot/social card for the July 7 hearing coverage.
 
-## Candidate data sources (all endpoint-verified 2026-07-04)
+## Data sources: all six verified candidates INGESTED (2026-07-04)
 
-Ranked; "ingest" items have working, tested endpoints with real 6-county data.
+All six "ingest" recommendations from the source scout are now live in the
+pipeline (scrapers + transform + UI): DWS chem results (nitrate/arsenic/
+lead/copper), DNR PFOS fish advisories, ECHO serious-violator rollups,
+SDWIS enforcement actions, UWSP private-well county aggregates, and BRRTS
+open cleanup activities. Endpoint details live in the scraper docstrings
+and CLAUDE.md.
 
-1. **DWS all-contaminants** (small) — the existing contamresults POST works
-   for non-PFAS codes: Nitrate 1040, Arsenic 1005, Lead 1030, Copper 1022,
-   Coliform 3100 (untested). 570 Marathon nitrate rows since 2024-01.
-   MclText/MclUnits populated. Keep SampleDateStart tight; page pulls.
-2. **DNR PFOS fish advisories** (small) — ArcGIS layers 801/803 at
-   dnrmaps.wi.gov/arcgis2 EM_PFAS_MAPLAYERS_PUBLIC_EXT. Verified Lake
-   Wausau + Stevens Point Flowage PFOS advisories. No county field —
-   filter spatially. (Distinct from the rejected EM PFAS sampling layer —
-   advisory designations, not sample values.)
-3. **ECHO SDWA** (small) — EPA Serious Violator flag + 13-quarter
-   compliance timeline. Marathon: 512 systems, exactly 1 serious violator.
-   Per-system: dfr_rest_services.get_sdwis_compliance?p_id=PWSID (works);
-   county: get_systems?p_st=WI&p_co=X then get_qid pages (p_pwsid ignored).
-4. **Envirofacts ENFORCEMENT_ACTION** (small) — same county-join pattern as
-   VIOLATION. Type codes need a lookup; linking to specific violations
-   needs VIOLATION_ENF_ASSOC (untested). LCR_SAMPLE lead 90th percentiles
-   exist but are stale (Wausau ends Oct 2020) — historical context only.
-5. **UWSP private-well aggregates** (small) — AGOL org kkX9mRo34fTGAX96,
-   County_Data/Township_Data FeatureServers, 15 params (no PFAS).
-   Marathon nitrate: 4,506 samples, 10.7% exceed 10 mg/L; Portage: 19,309,
-   23.1%. Confirm attribution/terms with UWSP CWSE before display.
-6. **BRRTS RR Sites** (medium) — dnrmaps.wi.gov/arcgis RR_Sites_Map core
-   layers 101/103. Wauleco open since 1984-10-24; Wausau GW Superfund NPL.
-   No substance field — PFAS-site flagging needs DNR's BOTW PFAS list;
-   coords are EPSG:3071; county encoded in BRRTS no. digits 3-4.
-- **Skip: lead service line inventories** — submitted to DNR Oct 2024 but
-  not published programmatically; needs a records request or PSC annual
-  reports (newsroom action, not scraper).
-- **Skip: UCMR5** — redundant; DNR DWS already carries all PFAS samples
-  for our systems, fresher and with lower detection limits.
+Still skipped (with reasons):
+- **Lead service line inventories** — submitted to DNR Oct 2024 but not
+  published programmatically; needs a records request or PSC annual
+  reports (newsroom action, not scraper). Re-check after LCRI milestones.
+- **UCMR5** — redundant; DNR DWS already carries all PFAS samples for our
+  systems, fresher and with lower detection limits.
+- **Envirofacts LCR_SAMPLE (lead 90th percentiles)** — stale in SDWIS Fed
+  (Wausau ends Oct 2020); revisit only as historical context.
 
 ## Blockers / needs-human
+
+- UWSP CWSE private-well data is displayed with attribution + disclaimer;
+  confirm reuse terms with the Center before launch (no license stated on
+  the service).
 
 - `editorial.yaml`: all five municipal narratives are `verified_by: null`.
   Shereen sign-off required before the remediation tracker view displays them.
@@ -111,6 +98,18 @@ Ranked; "ingest" items have working, tested endpoints with real 6-county data.
 - News peg: EPA hearing July 7, comment period closes July 20, 2026.
 
 ## Session log
+
+- **2026-07-04 (fifth pass)** — Six new data sources ingested end-to-end
+  (Claude Code): DWS chem results (9,839 rows; chem block on 588 systems,
+  card panel with MCL/action-level references), PFOS fish advisories (5 on
+  the Wisconsin River corridor; county board table), ECHO rollups (1,886
+  systems; Deer Trail Village = the area's one EPA serious violator, 7
+  qtrs SNC; card chip + board flag), SDWIS enforcement (4,341 actions;
+  card enforcement line), UWSP private-well aggregates (county board panel
+  — Portage 23.1% nitrate exceedance across 19,309 samples), BRRTS open
+  cleanup counts by city (Wausau 19, incl. Wauleco open since 1984; card
+  context panel). Weekly cron runs all nine scrapers. Each phase verified
+  in the browser before commit.
 
 - **2026-07-04 (fourth pass)** — New data points + River Street-inspired
   additions (Claude Code). Transform now emits per-system violation detail
