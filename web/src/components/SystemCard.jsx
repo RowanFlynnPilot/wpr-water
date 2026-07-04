@@ -198,6 +198,18 @@ export default function SystemCard({ system: s, thresholds, chemReferences, onSh
 
       <div className="panel">
         <h3>Safe Drinking Water Act violations</h3>
+        {s.echo?.serious_violator && (
+          <p>
+            <span className="chip rust">EPA serious violator</span>{' '}
+            <span className="threshold-note">
+              EPA&rsquo;s current designation: {s.echo.qtrs_with_snc} of the last 12 quarters in
+              significant noncompliance, {s.echo.qtrs_with_vio} with violations
+              {s.echo.contaminants_in_cur_viol.length > 0 &&
+                ` — currently in violation under: ${s.echo.contaminants_in_cur_viol.join(', ')}`}
+              .
+            </span>
+          </p>
+        )}
         {v.total === 0 ? (
           <p className="subhead">No violations on record for this system in EPA&rsquo;s SDWIS database.</p>
         ) : (
@@ -281,9 +293,20 @@ export default function SystemCard({ system: s, thresholds, chemReferences, onSh
             )}
           </>
         )}
+        {s.echo && (s.echo.last_formal_action || s.echo.last_informal_action) && (
+          <p className="subhead" style={{ marginTop: 10, marginBottom: 0 }}>
+            Enforcement on EPA&rsquo;s record:
+            {s.echo.last_informal_action &&
+              ` last informal action ${fmtDate(s.echo.last_informal_action)}`}
+            {s.echo.last_informal_action && s.echo.last_formal_action && ' ·'}
+            {s.echo.last_formal_action &&
+              ` last formal action ${fmtDate(s.echo.last_formal_action)}`}
+            .
+          </p>
+        )}
         <p className="note warn">
-          Federal SDWIS data refreshes quarterly from state submissions — violations here can lag
-          DNR&rsquo;s own records by up to a quarter.
+          Federal SDWIS and ECHO data refresh quarterly from state submissions — violations here
+          can lag DNR&rsquo;s own records by up to a quarter.
         </p>
       </div>
 

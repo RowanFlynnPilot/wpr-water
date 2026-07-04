@@ -107,6 +107,14 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
                     <button className="linklike" onClick={() => onOpenSystem(s.pwsid)}>
                       {titleCase(s.name)}
                     </button>
+                    {s.echo?.serious_violator && (
+                      <>
+                        {' '}
+                        <span className="chip rust" title="EPA's current Serious Violator designation">
+                          EPA serious violator
+                        </span>
+                      </>
+                    )}
                   </td>
                   <td>{s.county}</td>
                   <td>{typeLabel(s)}</td>

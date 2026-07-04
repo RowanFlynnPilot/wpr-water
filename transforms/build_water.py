@@ -203,6 +203,33 @@ def summarize_chem(rows: list[dict]) -> dict:
     return block
 
 
+def _echo_date(mdy: str | None) -> str | None:
+    if not mdy:
+        return None
+    m, d, y = mdy.split("/")
+    return f"{y}-{m}-{d}"
+
+
+def summarize_echo(row: dict) -> dict:
+    """EPA's precomputed compliance view for one system, as ECHO reports it."""
+    contams = [
+        part.split("=", 1)[1]
+        for part in (row["SDWAContaminantsInCurViol"] or "").split("; ")
+        if "=" in part
+    ]
+    return {
+        "serious_violator": row["SeriousViolator"] == "Yes",
+        "qtrs_with_vio": int(row["QtrsWithVio"] or 0),
+        "qtrs_with_snc": int(row["QtrsWithSNC"] or 0),
+        "compl_qtrs_history": row["SDWA3yrComplQtrsHistory"] or None,
+        "contaminants_in_cur_viol": contams,
+        "last_formal_action": _echo_date(row["SDWDateLastFea"]),
+        "last_informal_action": _echo_date(row["SDWDateLastIea"]),
+        "pb_ale": row["PbAle"],
+        "cu_ale": row["CuAle"],
+    }
+
+
 # Most recent violations carried per system; the rest are summarized in counts.
 VIOLATION_DETAIL_CAP = 12
 
@@ -257,6 +284,7 @@ def main() -> None:
     raw_results = json.loads((RAW / "dws_pfas_results.json").read_text())
     raw_chem = json.loads((RAW / "dws_chem_results.json").read_text())
     raw_advisories = json.loads((RAW / "dnr_fish_advisories.json").read_text())
+    raw_echo = json.loads((RAW / "echo_sdwa.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -277,6 +305,8 @@ def main() -> None:
     violations_by_pwsid: dict[str, list[dict]] = defaultdict(list)
     for v in raw_violations:
         violations_by_pwsid[v["pwsid"]].append(v)
+
+    echo_by_pwsid = {r["PWSId"]: r for r in raw_echo}
 
     # DNR identity fields for systems with PFAS results (fresher than SDWIS)
     dnr_identity: dict[str, dict] = {}
@@ -317,6 +347,8 @@ def main() -> None:
         }
         if pid in chem_by_pwsid:
             record["chem"] = summarize_chem(chem_by_pwsid[pid])
+        if pid in echo_by_pwsid:
+            record["echo"] = summarize_echo(echo_by_pwsid[pid])
         if dnr.get("pws_id_dnr") in editorial:
             record["editorial"] = editorial[dnr["pws_id_dnr"]]
         systems.append(record)
