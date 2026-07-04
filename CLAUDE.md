@@ -134,8 +134,11 @@ county rollups, data_notes.
 ## Frontend spec (Claude Code handoff)
 
 React/Vite in `web/`, deployed to GitHub Pages, embedded via WordPress
-iframe. WPR design system: teal `#3A867C`, cream `#f6f2e9`, Fraunces
-display, Public Sans body, JetBrains Mono for data values.
+iframe. Matches the wausaupilotandreview.com brand (Newspack "Joseph"
+theme): Oswald headings, Merriweather body, JetBrains Mono for data
+values; black/white newsprint palette with the typewriter-badge teal
+`#3A867C` as accent and site red `#cf2e2e` for warnings/reference lines.
+Typewriter badge + wordmark bundled in `web/src/assets/`.
 
 Views:
 1. **"What's in my water?"** — system search (name/city), system card with

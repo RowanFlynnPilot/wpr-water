@@ -78,6 +78,8 @@ export function titleCase(s) {
     .replace(/\bOf\b/g, 'of')
     .replace(/\bLlc\b/g, 'LLC')
     .replace(/\bMhp\b/g, 'MHP')
+    .replace(/\bDnr\b/g, 'DNR')
+    .replace(/^Wi\b/, 'WI')
 }
 
 export const SOURCE_LABELS = {

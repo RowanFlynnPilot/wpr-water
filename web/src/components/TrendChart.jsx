@@ -94,19 +94,19 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
         <svg className="chart-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="PFAS trend chart">
           {yTicks.map((v) => (
             <g key={v}>
-              <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="#eae4d4" strokeWidth="1" />
-              <text x={M.left - 8} y={y(v) + 4} textAnchor="end" fontSize="11" fill="#5b6663" fontFamily="JetBrains Mono Variable, monospace">
+              <line x1={M.left} x2={W - M.right} y1={y(v)} y2={y(v)} stroke="#ececec" strokeWidth="1" />
+              <text x={M.left - 8} y={y(v) + 4} textAnchor="end" fontSize="11" fill="#666" fontFamily="JetBrains Mono Variable, monospace">
                 {v}
               </text>
             </g>
           ))}
-          <text x={14} y={M.top + IH / 2} fontSize="11" fill="#5b6663" transform={`rotate(-90 14 ${M.top + IH / 2})`} textAnchor="middle">
+          <text x={14} y={M.top + IH / 2} fontSize="11" fill="#666" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.05em" transform={`rotate(-90 14 ${M.top + IH / 2})`} textAnchor="middle">
             {unit}
           </text>
           {xTicks.map((t) => (
             <g key={t.t}>
-              <line x1={x(t.t)} x2={x(t.t)} y1={M.top} y2={M.top + IH} stroke="#f0ece0" strokeWidth="1" />
-              <text x={x(t.t)} y={H - 12} textAnchor="middle" fontSize="11" fill="#5b6663">
+              <line x1={x(t.t)} x2={x(t.t)} y1={M.top} y2={M.top + IH} stroke="#f2f2f2" strokeWidth="1" />
+              <text x={x(t.t)} y={H - 12} textAnchor="middle" fontSize="11.5" fill="#666" fontFamily="Oswald Variable, sans-serif">
                 {t.label}
               </text>
             </g>
@@ -114,8 +114,8 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
 
           {drawn.map((r) => (
             <g key={r.label}>
-              <line x1={M.left} x2={W - M.right} y1={y(r.value)} y2={y(r.value)} stroke="#a4443a" strokeWidth="1.3" strokeDasharray="7 4" />
-              <text x={W - M.right} y={y(r.value) - 5} textAnchor="end" fontSize="10.5" fill="#a4443a" fontWeight="600">
+              <line x1={M.left} x2={W - M.right} y1={y(r.value)} y2={y(r.value)} stroke="#cf2e2e" strokeWidth="1.3" strokeDasharray="7 4" />
+              <text x={W - M.right} y={y(r.value) - 5} textAnchor="end" fontSize="10.5" fill="#cf2e2e" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.04em">
                 {r.label}
               </text>
             </g>
@@ -157,20 +157,18 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
       <div className="chart-legend">
         {series.map((s) => (
           <span key={s.analyte}>
-            <span className="swatch" style={{ background: s.color }} /> {s.label}
+            <svg width="26" height="9" aria-hidden="true">
+              <line x1="1" y1="4.5" x2="25" y2="4.5" stroke={s.color} strokeWidth="2.5" />
+            </svg>
+            {s.label}
           </span>
         ))}
         {eps.length > 1 &&
           eps.map((ep, i) => (
             <span key={ep}>
-              <span
-                className="swatch"
-                style={{
-                  background: 'transparent',
-                  borderTop: `3px ${i === 0 ? 'solid' : i === 1 ? 'dashed' : 'dotted'} #5b6663`,
-                  height: 0,
-                }}
-              />{' '}
+              <svg width="26" height="9" aria-hidden="true">
+                <line x1="1" y1="4.5" x2="25" y2="4.5" stroke="#666" strokeWidth="2" strokeDasharray={EP_DASH[i % EP_DASH.length]} />
+              </svg>
               entry point {ep}
             </span>
           ))}

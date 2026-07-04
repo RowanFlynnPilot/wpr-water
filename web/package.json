@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
-    "@fontsource-variable/public-sans": "^5.2.7",
+    "@fontsource-variable/oswald": "^5.2.8",
+    "@fontsource/merriweather": "^5.2.11",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

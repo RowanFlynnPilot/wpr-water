@@ -77,6 +77,14 @@ at the production path, so there is exactly one fetch path.
 
 ## Session log
 
+- **2026-07-04 (third pass)** — Brand alignment + tidy (Claude Code).
+  Restyled to match wausaupilotandreview.com (Newspack "Joseph"): Oswald
+  headings, Merriweather body, black/white newsprint, typewriter badge +
+  wordmark in the masthead, site red for reference lines. Tidy pass:
+  accurate entry-point legend, qualifier labels in sample table,
+  aria-current tabs, focus styles, mobile chart scroll, DNR/WI title-case
+  fixes. All four views re-verified; mobile has no page-level overflow.
+
 - **2026-07-04 (later)** — Frontend build and deploy (Claude Code). Four
   views built and verified on real data; Pages switched to Actions deploy;
   first deploy green; live site verified. Data contract discovery: 622/730

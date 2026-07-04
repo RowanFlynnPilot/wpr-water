@@ -82,8 +82,11 @@ export default function SystemCard({ system: s, thresholds, onShowTrend }) {
             <p className="subhead">
               Latest samples {fmtDate(p.latest_sample_date)} · {p.n_results} results since{' '}
               {fmtDate(p.first_sample_date)} · {p.n_detections} detections ·{' '}
-              <span title="Non-detects are shown as <LOD (below the limit of detection). Values marked “trace” were detected between the limits of detection and quantitation and are estimates.">
-                how to read these numbers ⓘ
+              <span
+                className="help"
+                title="Non-detects are shown as <LOD (below the limit of detection). Values marked “trace” were detected between the limits of detection and quantitation and are estimates."
+              >
+                how to read these numbers
               </span>
             </p>
             <div className="analyte-grid">

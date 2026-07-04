@@ -6,6 +6,12 @@ import { fmtDate, fmtMonthYear, titleCase } from '../format.js'
 const HI_ANALYTE = 'EPA PFAS HAZARD INDEX'
 const DEFAULT_ID = 'WI7370102' // Wausau Waterworks — launch centerpiece
 
+const QUALIFIER_LABELS = {
+  'No problem': 'detected',
+  'Non-detect': 'non-detect',
+  'Between LOD and LOQ': 'trace (between LOD and LOQ)',
+}
+
 function SystemSelect({ systems, current, onSelect }) {
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(false)
@@ -121,7 +127,7 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
             points={mainPoints}
             series={[
               { analyte: 'PFOA', label: 'PFOA', color: '#3a867c' },
-              { analyte: 'PFOS', label: 'PFOS', color: '#c26a4a' },
+              { analyte: 'PFOS', label: 'PFOS', color: '#313131' },
             ]}
             refLines={[
               {
@@ -150,7 +156,7 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
               </p>
               <TrendChart
                 points={hiPoints}
-                series={[{ analyte: HI_ANALYTE, label: 'Hazard Index', color: '#b98a2e' }]}
+                series={[{ analyte: HI_ANALYTE, label: 'Hazard Index', color: '#607d8b' }]}
                 refLines={[
                   { value: t.federal_hazard_index.value, label: 'Hazard Index MCL 1.0 (proposed for rescission, May 2026)' },
                 ]}
@@ -181,7 +187,7 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
                         <td>{fmtDate(r.date)}</td>
                         <td>{r.analyte}</td>
                         <td className="num mono">{r.value == null ? `<LOD (${r.lod})` : `${r.value}`}</td>
-                        <td>{r.qualifier === 'No problem' ? 'detected' : r.qualifier.toLowerCase()}</td>
+                        <td>{QUALIFIER_LABELS[r.qualifier] || r.qualifier}</td>
                         <td className="num mono">{r.source_id}</td>
                         <td>{r.sample_type}</td>
                       </tr>

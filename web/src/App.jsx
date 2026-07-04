@@ -5,6 +5,8 @@ import TrendView from './components/TrendView.jsx'
 import CountyView from './components/CountyView.jsx'
 import RemediationView from './components/RemediationView.jsx'
 import { fmtDate } from './format.js'
+import badgeUrl from './assets/wpr-typewriter-badge.png'
+import wordmarkUrl from './assets/wpr-wordmark.png'
 
 const TABS = [
   { id: 'search', label: "What's in my water?" },
@@ -59,17 +61,34 @@ export default function App() {
   return (
     <div className="app">
       <header className="masthead">
-        <p className="kicker">Wausau Pilot &amp; Review · Data Desk</p>
-        <h1>What&rsquo;s in the Water?</h1>
-        <p className="dek">
-          PFAS test results and drinking-water compliance for every public water system in
-          Marathon, Lincoln, Langlade, Taylor, Shawano and Portage counties.
-        </p>
+        <img
+          className="badge-img"
+          src={badgeUrl}
+          alt="Wausau Pilot & Review typewriter badge"
+          width="84"
+          height="84"
+        />
+        <div>
+          <a href="https://wausaupilotandreview.com" target="_blank" rel="noreferrer">
+            <img className="wordmark-img" src={wordmarkUrl} alt="Wausau Pilot & Review" />
+          </a>
+          <h1>What&rsquo;s in the Water?</h1>
+          <p className="dek">
+            PFAS test results and drinking-water compliance for every public water system in
+            Marathon, Lincoln, Langlade, Taylor, Shawano and Portage counties.
+          </p>
+        </div>
       </header>
+      <div className="flag-rule" role="presentation" />
 
       <nav className="tabs" aria-label="Views">
         {TABS.map((t) => (
-          <button key={t.id} className={tab === t.id ? 'active' : ''} onClick={() => setTab(t.id)}>
+          <button
+            key={t.id}
+            className={tab === t.id ? 'active' : ''}
+            aria-current={tab === t.id ? 'page' : undefined}
+            onClick={() => setTab(t.id)}
+          >
             {t.label}
           </button>
         ))}
@@ -130,6 +149,11 @@ export default function App() {
             made by DNR and EPA, not by this tool.
           </p>
           <p>Data last built {fmtDate(summary.built_at.slice(0, 10))}.</p>
+          <p className="tagline">
+            <a href="https://wausaupilotandreview.com" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              Wausau Pilot &amp; Review — More News. Less Fluff. All Local.
+            </a>
+          </p>
         </footer>
       )}
     </div>
