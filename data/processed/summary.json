@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-04T19:42:55.196879+00:00",
+ "built_at": "2026-07-16T03:55:57.044812+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -43,7 +43,7 @@
  "counts": {
   "systems": 730,
   "pfas_results": 9996,
-  "chem_results": 9839,
+  "chem_results": 9887,
   "violations": 2390
  },
  "counties": {
@@ -250,7 +250,7 @@
   "RIB FALLS TN": 1,
   "RIB LAKE": 1,
   "RINGLE": 1,
-  "ROTHSCHILD": 2,
+  "ROTHSCHILD": 1,
   "SENECA TN": 1,
   "SHAWANO": 3,
   "SHAWANO CTY": 2,

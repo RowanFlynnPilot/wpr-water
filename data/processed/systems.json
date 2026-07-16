@@ -272,9 +272,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "_______SVVVVV",
+   "compl_qtrs_history": "______SVVVVVV",
    "contaminants_in_cur_viol": [
     "Groundwater Rule",
     "Public Notice"
@@ -476,7 +476,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-08-12",
@@ -932,9 +932,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 7,
+   "qtrs_with_vio": 8,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____V__VVVVVV",
+   "compl_qtrs_history": "___V__VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -1770,9 +1770,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 1,
+   "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "V____________",
+   "compl_qtrs_history": "_____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-03-25",
@@ -2689,9 +2689,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 1,
+   "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "V____________",
+   "compl_qtrs_history": "_____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-03-25",
@@ -2974,8 +2974,7 @@
    "qtrs_with_snc": 0,
    "compl_qtrs_history": "VVVVVVVVVVVVV",
    "contaminants_in_cur_viol": [
-    "Public Notice",
-    "Revised Total Coliform Rule"
+    "Public Notice"
    ],
    "last_formal_action": null,
    "last_informal_action": "2025-12-12",
@@ -3923,7 +3922,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_____V_______",
+   "compl_qtrs_history": "____V________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-06-17",
@@ -5442,7 +5441,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_________V___",
+   "compl_qtrs_history": "________V____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-06-26",
@@ -7672,9 +7671,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 10,
+   "qtrs_with_vio": 9,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVVVV___",
+   "compl_qtrs_history": "VVVVVVVVV____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-06-25",
@@ -8594,9 +8593,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 2,
+   "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VV___________",
+   "compl_qtrs_history": "V____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-05-01",
@@ -8734,7 +8733,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVV_____",
+   "compl_qtrs_history": "___VVVV______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-11-26",
@@ -9236,9 +9235,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 3,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVV_____S____",
+   "compl_qtrs_history": "VV_____S_____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-07-12",
@@ -10395,14 +10394,14 @@
    },
    "lead": {
     "latest": {
-     "value": 0.96,
+     "value": 0.46,
      "units": "UG/L",
-     "date": "2026-06-17",
+     "date": "2026-06-23",
      "qualifier": "Between LOD and LOQ",
      "sample_source": "Distribution System"
     },
-    "n_results": 54,
-    "n_detections": 25,
+    "n_results": 60,
+    "n_detections": 26,
     "first_sample_date": "2020-08-18",
     "historic_max": {
      "value": 31.0,
@@ -10412,14 +10411,14 @@
    },
    "copper": {
     "latest": {
-     "value": 710.0,
+     "value": 680.0,
      "units": "UG/L",
-     "date": "2026-06-17",
+     "date": "2026-06-23",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 54,
-    "n_detections": 54,
+    "n_results": 60,
+    "n_detections": 60,
     "first_sample_date": "2020-08-18",
     "historic_max": {
      "value": 710.0,
@@ -10432,10 +10431,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___________V_",
-   "contaminants_in_cur_viol": [
-    "Revised Total Coliform Rule"
-   ],
+   "compl_qtrs_history": "__________V__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-11-06",
    "pb_ale": null,
@@ -10701,9 +10698,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "LEAD AND COPPER RULE REVISIONS",
     "Public Notice"
@@ -11025,9 +11022,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 2,
+   "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VV___________",
+   "compl_qtrs_history": "V____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": "2021-10-04",
    "last_informal_action": "2023-04-03",
@@ -11777,10 +11774,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_____VV___VV_",
-   "contaminants_in_cur_viol": [
-    "Stage 1 Disinfectants and Disinfection Byproducts Rule"
-   ],
+   "compl_qtrs_history": "____VV___VV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-11-04",
    "pb_ale": null,
@@ -12268,14 +12263,14 @@
    },
    "lead": {
     "latest": {
-     "value": 1.9,
+     "value": 0.67,
      "units": "UG/L",
-     "date": "2026-06-09",
-     "qualifier": "No problem",
-     "sample_source": "Distribution System"
+     "date": "2026-06-25",
+     "qualifier": "Between LOD and LOQ",
+     "sample_source": "Entry Point"
     },
-    "n_results": 25,
-    "n_detections": 25,
+    "n_results": 26,
+    "n_detections": 26,
     "first_sample_date": "2020-09-13",
     "historic_max": {
      "value": 2.2,
@@ -12285,14 +12280,14 @@
    },
    "copper": {
     "latest": {
-     "value": 1600.0,
+     "value": 110.0,
      "units": "UG/L",
-     "date": "2026-06-09",
+     "date": "2026-06-25",
      "qualifier": "No problem",
-     "sample_source": "Distribution System"
+     "sample_source": "Entry Point"
     },
-    "n_results": 25,
-    "n_detections": 25,
+    "n_results": 26,
+    "n_detections": 26,
     "first_sample_date": "2020-09-13",
     "historic_max": {
      "value": 1600.0,
@@ -12629,7 +12624,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__V_____V____",
+   "compl_qtrs_history": "_V_____V_____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-01-30",
@@ -12928,7 +12923,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-08-04",
@@ -13317,12 +13312,12 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVVVVSVVVVVVV",
+   "compl_qtrs_history": "VVVVSVVVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
    "last_formal_action": null,
-   "last_informal_action": "2025-01-22",
+   "last_informal_action": "2026-03-13",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -13709,7 +13704,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_V__V________",
+   "compl_qtrs_history": "V__V_________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-06-25",
@@ -14926,7 +14921,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 4,
-   "compl_qtrs_history": "VVVVVVVSSSSVV",
+   "compl_qtrs_history": "VVVVVVSSSSVVV",
    "contaminants_in_cur_viol": [
     "Lead and Copper Rule"
    ],
@@ -16525,12 +16520,10 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 12,
+   "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVVVVVVV",
-   "contaminants_in_cur_viol": [
-    "Public Notice"
-   ],
+   "compl_qtrs_history": "_____________",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2022-12-14",
    "pb_ale": null,
@@ -16720,9 +16713,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 9,
-   "qtrs_with_snc": 2,
-   "compl_qtrs_history": "SVVSVVVVV____",
+   "qtrs_with_vio": 8,
+   "qtrs_with_snc": 1,
+   "compl_qtrs_history": "VVSVVVVV_____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": "2024-03-08",
    "last_informal_action": "2025-03-05",
@@ -18651,7 +18644,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_________V__",
+   "compl_qtrs_history": "________V__",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-06-23",
@@ -19135,7 +19128,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_V___________",
+   "compl_qtrs_history": "V____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-06-25",
@@ -19145,7 +19138,7 @@
   "editorial": {
    "headline": "Two wells offline in 2022; permanent GAC installed 2025",
    "remediation_status": "treating",
-   "narrative": "Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health advisory levels. Temporary GAC let Well 4 resume pumping later that year. A permanent GAC system was installed in 2025 \u00e2\u20ac\u201d Well 4 began pumping through it in October, with about half the ~$1.8M cost covered by principal forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is expected back in service in 2026.\n",
+   "narrative": "Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health advisory levels. Temporary GAC let Well 4 resume pumping later that year. A permanent GAC system was installed in 2025 \u2014 Well 4 began pumping through it in October, with about half the ~$1.8M cost covered by principal forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is expected back in service in 2026.\n",
    "treatment": "Granular activated carbon",
    "verified_by": null
   }
@@ -19368,9 +19361,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -19857,7 +19850,7 @@
    "headline": "PFAS above 2022 federal health advisories; pumping adjustments",
    "remediation_status": "managing",
    "narrative": "Mosinee wells tested above EPA's 2022 interim health advisory levels. The city adjusted pumping between wells rather than installing treatment. Verify current approach before launch.\n",
-   "treatment": "Operational management \u00e2\u20ac\u201d verify",
+   "treatment": "Operational management \u2014 verify",
    "verified_by": null
   }
  },
@@ -20072,9 +20065,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -20087,7 +20080,7 @@
    "headline": "Well shut down in 2022; new treatment facility",
    "remediation_status": "treating",
    "narrative": "Rothschild shut down a municipal well after PFAS was detected in 2022 and moved forward with a new treatment facility expected complete by the end of 2025.\n",
-   "treatment": "Under construction / recently completed \u00e2\u20ac\u201d verify current status",
+   "treatment": "Under construction / recently completed \u2014 verify current status",
    "verified_by": null
   }
  },
@@ -20398,7 +20391,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVVVVVVSVVVVV",
+   "compl_qtrs_history": "VVVVVVSVVVVVV",
    "contaminants_in_cur_viol": [
     "Lead and Copper Rule",
     "Public Notice"
@@ -20949,7 +20942,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 2,
-   "compl_qtrs_history": "VVVVVVVSVSVVV",
+   "compl_qtrs_history": "VVVVVVSVSVVVV",
    "contaminants_in_cur_viol": [
     "Lead and Copper Rule",
     "Public Notice"
@@ -21364,11 +21357,11 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2023-04-18",
+     "date": "2026-06-09",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 2,
+    "n_results": 3,
     "n_detections": 0,
     "first_sample_date": "2020-07-15"
    },
@@ -21409,9 +21402,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -21685,7 +21678,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 10,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVV___VVVVVV",
+   "compl_qtrs_history": "VVV___VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -21956,9 +21949,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -22446,8 +22439,6 @@
    "qtrs_with_snc": 0,
    "compl_qtrs_history": "VVVVVVVVVVVVV",
    "contaminants_in_cur_viol": [
-    "Total Haloacetic Acids (HAA5)",
-    "TTHM",
     "Lead and Copper Rule"
    ],
    "last_formal_action": null,
@@ -22818,24 +22809,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 6,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_V_V____VVVV_",
-   "contaminants_in_cur_viol": [
-    "Arsenic",
-    "Barium",
-    "Cadmium",
-    "Chromium",
-    "Fluoride",
-    "Mercury",
-    "Nickel",
-    "Nitrate-Nitrite",
-    "Nitrite",
-    "Selenium",
-    "Antimony, Total",
-    "Beryllium, Total",
-    "Thallium, Total",
-    "Di(2-ethylhexyl) adipate",
-    "Di(2-ethylhexyl) phthalate"
-   ],
+   "compl_qtrs_history": "V_V____VVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-12-16",
    "pb_ale": null,
@@ -22999,11 +22974,11 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2023-04-12",
+     "date": "2026-06-02",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 2,
+    "n_results": 3,
     "n_detections": 1,
     "first_sample_date": "2020-04-22",
     "historic_max": {
@@ -23295,13 +23270,10 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 9,
+   "qtrs_with_vio": 8,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVV_V__VVVV_",
-   "contaminants_in_cur_viol": [
-    "Total Haloacetic Acids (HAA5)",
-    "TTHM"
-   ],
+   "compl_qtrs_history": "VVV_V__VVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-09-02",
    "pb_ale": null,
@@ -23786,9 +23758,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -23888,7 +23860,7 @@
      "analyte": "PFHPA",
      "max_value": 3.4,
      "units": "NG/L",
-     "date": "2023-08-16"
+     "date": "2024-02-27"
     }
    ]
   },
@@ -24106,7 +24078,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____V___VVV__",
+   "compl_qtrs_history": "___V___VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-04-28",
@@ -24431,10 +24403,12 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V__VVVVV__",
-   "contaminants_in_cur_viol": [],
+   "compl_qtrs_history": "__V__VVVVV_V_",
+   "contaminants_in_cur_viol": [
+    "Dinoseb"
+   ],
    "last_formal_action": null,
    "last_informal_action": "2025-09-30",
    "pb_ale": null,
@@ -24722,9 +24696,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 1,
+   "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "V____________",
+   "compl_qtrs_history": "_____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-01-02",
@@ -25265,10 +25239,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________VV_",
-   "contaminants_in_cur_viol": [
-    "LEAD AND COPPER RULE REVISIONS"
-   ],
+   "compl_qtrs_history": "_________VV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": "2017-08-10",
    "last_informal_action": "2017-07-24",
    "pb_ale": null,
@@ -25588,7 +25560,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_VV_______V__",
+   "compl_qtrs_history": "VV_______V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-08-15",
@@ -25916,10 +25888,10 @@
    }
   },
   "echo": {
-   "serious_violator": true,
+   "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 7,
-   "compl_qtrs_history": "VVVSSSVSVSSSV",
+   "compl_qtrs_history": "VVSSSVSVSSSVV",
    "contaminants_in_cur_viol": [
     "Lead and Copper Rule",
     "LEAD AND COPPER RULE REVISIONS",
@@ -25927,7 +25899,7 @@
     "Public Notice"
    ],
    "last_formal_action": "2025-09-09",
-   "last_informal_action": "2025-07-28",
+   "last_informal_action": "2026-02-22",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -26003,7 +25975,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_________",
+   "compl_qtrs_history": "__V__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-12-19",
@@ -26212,7 +26184,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_________",
+   "compl_qtrs_history": "__V__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-15",
@@ -26577,7 +26549,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_________V___",
+   "compl_qtrs_history": "________V____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-06-16",
@@ -26616,14 +26588,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 0.38,
+     "value": 0.27,
      "units": "MG/L",
-     "date": "2025-01-22",
+     "date": "2026-07-07",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 4,
+    "n_results": 7,
+    "n_detections": 5,
     "first_sample_date": "2020-11-04",
     "historic_max": {
      "value": 0.38,
@@ -26987,12 +26959,10 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 5,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "V__V____VVVV_",
-   "contaminants_in_cur_viol": [
-    "2,3,7,8-TCDD"
-   ],
+   "compl_qtrs_history": "__V____VVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-12-18",
    "pb_ale": "1",
@@ -27449,7 +27419,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-07-16",
@@ -28981,7 +28951,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-09-03",
@@ -29299,7 +29269,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_V_______",
+   "compl_qtrs_history": "__V_V________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": "2018-05-14",
    "last_informal_action": "2024-04-22",
@@ -29544,7 +29514,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_________",
+   "compl_qtrs_history": "__V__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-15",
@@ -29719,7 +29689,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_________",
+   "compl_qtrs_history": "__V__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-25",
@@ -29904,7 +29874,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_VVVVVV__",
+   "compl_qtrs_history": "__V_VVVVVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-05-20",
@@ -30162,7 +30132,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_________V___",
+   "compl_qtrs_history": "________V____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-04-17",
@@ -30588,9 +30558,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 8,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVV_____",
+   "compl_qtrs_history": "VVVVVVV______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-09-04",
@@ -31052,14 +31022,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 7.09,
+     "value": 7.04,
      "units": "MG/L",
-     "date": "2025-09-15",
+     "date": "2026-07-08",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-03-24",
     "historic_max": {
      "value": 7.69,
@@ -31720,9 +31690,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 1,
+   "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "V____________",
+   "compl_qtrs_history": "_____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-04-25",
@@ -32499,10 +32469,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________VV_",
-   "contaminants_in_cur_viol": [
-    "LEAD AND COPPER RULE REVISIONS"
-   ],
+   "compl_qtrs_history": "_________VV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2022-01-10",
    "pb_ale": null,
@@ -33091,7 +33059,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 8,
    "qtrs_with_snc": 2,
-   "compl_qtrs_history": "V____S_SVVVVV",
+   "compl_qtrs_history": "____S_SVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -33456,7 +33424,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__V__________",
+   "compl_qtrs_history": "_V___________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-09-19",
@@ -34381,7 +34349,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_V____V______",
+   "compl_qtrs_history": "V____V_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-10-01",
@@ -34653,9 +34621,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVV_VVVVVVV",
+   "compl_qtrs_history": "VVVV_VVVVVVVV",
    "contaminants_in_cur_viol": [
-    "Lead and Copper Rule",
     "Public Notice"
    ],
    "last_formal_action": null,
@@ -35318,7 +35285,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______V_VV__",
+   "compl_qtrs_history": "______V_VV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-07",
@@ -36127,7 +36094,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_V___________",
+   "compl_qtrs_history": "V____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-07-12",
@@ -36293,14 +36260,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 0.66,
+     "value": 0.82,
      "units": "MG/L",
-     "date": "2025-09-16",
+     "date": "2026-07-14",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-09-09",
     "historic_max": {
      "value": 13.76,
@@ -39284,7 +39251,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "______V______",
+   "compl_qtrs_history": "_____V_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-09-11",
@@ -39364,10 +39331,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "______V____V_",
-   "contaminants_in_cur_viol": [
-    "Revised Total Coliform Rule"
-   ],
+   "compl_qtrs_history": "_____V____V__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-11-04",
    "pb_ale": null,
@@ -40006,11 +39971,11 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2023-05-08",
+     "date": "2026-06-17",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 4,
+    "n_results": 6,
     "n_detections": 1,
     "first_sample_date": "2020-07-08",
     "historic_max": {
@@ -40285,9 +40250,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -40563,9 +40528,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 1,
+   "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "V____________",
+   "compl_qtrs_history": "_____________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": "2014-10-13",
    "last_informal_action": "2023-04-21",
@@ -41446,24 +41411,10 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVVV_",
-   "contaminants_in_cur_viol": [
-    "Arsenic",
-    "Barium",
-    "Cadmium",
-    "Chromium",
-    "Fluoride",
-    "Mercury",
-    "Nickel",
-    "Nitrate-Nitrite",
-    "Nitrite",
-    "Selenium",
-    "Antimony, Total",
-    "Beryllium, Total",
-    "Thallium, Total"
-   ],
+   "compl_qtrs_history": "_______VVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
-   "last_informal_action": "2021-01-28",
+   "last_informal_action": "2026-03-02",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -41764,7 +41715,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVVVVVVSVVVVV",
+   "compl_qtrs_history": "VVVVVVSVVVVVV",
    "contaminants_in_cur_viol": [
     "Lead and Copper Rule"
    ],
@@ -42325,23 +42276,10 @@
    "qtrs_with_snc": 0,
    "compl_qtrs_history": "VVVVVVVVVVVVV",
    "contaminants_in_cur_viol": [
-    "Arsenic",
-    "Barium",
-    "Cadmium",
-    "Chromium",
-    "Fluoride",
-    "Mercury",
-    "Nickel",
-    "Nitrate-Nitrite",
-    "Nitrite",
-    "Selenium",
-    "Antimony, Total",
-    "Beryllium, Total",
-    "Thallium, Total",
     "Public Notice"
    ],
    "last_formal_action": null,
-   "last_informal_action": "2021-01-28",
+   "last_informal_action": "2026-03-02",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -42621,7 +42559,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______V_____",
+   "compl_qtrs_history": "______V______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-04-15",
@@ -43207,9 +43145,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVVV",
    "contaminants_in_cur_viol": [
     "LEAD AND COPPER RULE REVISIONS",
     "Public Notice"
@@ -43462,15 +43400,17 @@
    }
   },
   "echo": {
-   "serious_violator": false,
-   "qtrs_with_vio": 5,
-   "qtrs_with_snc": 0,
-   "compl_qtrs_history": "______V_VVVV_",
+   "serious_violator": true,
+   "qtrs_with_vio": 7,
+   "qtrs_with_snc": 1,
+   "compl_qtrs_history": "_____V_VVVVSV",
    "contaminants_in_cur_viol": [
-    "Nitrate-Nitrite"
+    "Nitrate-Nitrite",
+    "Nitrate",
+    "Lead and Copper Rule"
    ],
    "last_formal_action": "2025-12-10",
-   "last_informal_action": "2025-10-09",
+   "last_informal_action": "2026-02-17",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -44100,9 +44040,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 3,
+   "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________VVV",
+   "compl_qtrs_history": "_________VVVV",
    "contaminants_in_cur_viol": [
     "LEAD AND COPPER RULE REVISIONS"
    ],
@@ -44391,9 +44331,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 5,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_V________VVV",
+   "compl_qtrs_history": "V________VVVV",
    "contaminants_in_cur_viol": [
     "LEAD AND COPPER RULE REVISIONS"
    ],
@@ -44755,9 +44695,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVV_________",
+   "compl_qtrs_history": "VVV__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-05",
@@ -44986,9 +44926,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVV_________",
+   "compl_qtrs_history": "VVV__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-24",
@@ -45156,14 +45096,14 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 3,
+   "qtrs_with_vio": 5,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_________VVV_",
+   "compl_qtrs_history": "________VVVVV",
    "contaminants_in_cur_viol": [
     "Revised Total Coliform Rule"
    ],
    "last_formal_action": null,
-   "last_informal_action": "2025-12-23",
+   "last_informal_action": "2026-02-26",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -45220,7 +45160,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "________S____",
+   "compl_qtrs_history": "_______S_____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2021-03-10",
@@ -45474,7 +45414,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "________S____",
+   "compl_qtrs_history": "_______S_____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": "2022-08-08",
    "last_informal_action": "2021-12-13",
@@ -46317,7 +46257,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______V_____",
+   "compl_qtrs_history": "______V______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-10-29",
@@ -47843,7 +47783,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______V_____",
+   "compl_qtrs_history": "______V______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-04-23",
@@ -49103,9 +49043,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVV_________",
+   "compl_qtrs_history": "VVV__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-05",
@@ -50127,14 +50067,14 @@
    },
    "arsenic": {
     "latest": {
-     "value": 0.0091,
+     "value": 0.0088,
      "units": "MG/L",
-     "date": "2025-09-04",
+     "date": "2026-06-10",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 10,
-    "n_detections": 9,
+    "n_results": 13,
+    "n_detections": 10,
     "first_sample_date": "2020-09-24",
     "historic_max": {
      "value": 0.0092,
@@ -50547,14 +50487,14 @@
    },
    "lead": {
     "latest": {
-     "value": 8.9,
+     "value": 0.59,
      "units": "UG/L",
-     "date": "2023-07-18",
-     "qualifier": "No problem",
+     "date": "2026-06-23",
+     "qualifier": "Between LOD and LOQ",
      "sample_source": "Distribution System"
     },
-    "n_results": 20,
-    "n_detections": 18,
+    "n_results": 30,
+    "n_detections": 23,
     "first_sample_date": "2020-08-12",
     "historic_max": {
      "value": 8.9,
@@ -50564,14 +50504,14 @@
    },
    "copper": {
     "latest": {
-     "value": 360.0,
+     "value": 160.0,
      "units": "UG/L",
-     "date": "2023-07-18",
+     "date": "2026-06-23",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 20,
-    "n_detections": 20,
+    "n_results": 30,
+    "n_detections": 30,
     "first_sample_date": "2020-08-12",
     "historic_max": {
      "value": 360.0,
@@ -50819,7 +50759,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-09-03",
@@ -51078,7 +51018,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 9,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_VVVVVVVVV___",
+   "compl_qtrs_history": "VVVVVVVVV____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-06-18",
@@ -51366,7 +51306,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 6,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "___V_V_SVVV__",
+   "compl_qtrs_history": "__V_V_SVVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": "2003-12-01",
    "last_informal_action": "2025-09-03",
@@ -51583,11 +51523,11 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2023-09-28",
+     "date": "2026-06-04",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 4,
+    "n_results": 6,
     "n_detections": 2,
     "first_sample_date": "2020-09-22",
     "historic_max": {
@@ -51973,9 +51913,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 8,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVVVVSVV_____",
+   "compl_qtrs_history": "VVVVSVV______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-10-17",
@@ -52413,7 +52353,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-12-02",
@@ -52574,9 +52514,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 3,
+   "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVV__________",
+   "compl_qtrs_history": "VV___________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-11-24",
@@ -52694,9 +52634,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 10,
+   "qtrs_with_vio": 9,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVV_VVV__",
+   "compl_qtrs_history": "VVVVVV_VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-31",
@@ -53550,11 +53490,11 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2025-07-22",
+     "date": "2026-07-06",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
+    "n_results": 7,
     "n_detections": 0,
     "first_sample_date": "2020-09-14"
    }
@@ -53666,9 +53606,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 11,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVVVVV__",
+   "compl_qtrs_history": "VVVVVVVVVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-27",
@@ -53842,12 +53782,10 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVV________V_",
-   "contaminants_in_cur_viol": [
-    "E. COLI"
-   ],
+   "compl_qtrs_history": "VV________V__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-28",
    "pb_ale": null,
@@ -54159,11 +54097,11 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 4,
+   "qtrs_with_vio": 5,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVVV_",
+   "compl_qtrs_history": "_______VVVVV_",
    "contaminants_in_cur_viol": [
-    "Nitrate"
+    "Revised Total Coliform Rule"
    ],
    "last_formal_action": null,
    "last_informal_action": "2025-10-09",
@@ -54781,9 +54719,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 11,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVVVVVVVVSV__",
+   "compl_qtrs_history": "VVVVVVVVSV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-08-13",
@@ -55048,10 +54986,12 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 0,
+   "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_____________",
-   "contaminants_in_cur_viol": [],
+   "compl_qtrs_history": "___________V_",
+   "contaminants_in_cur_viol": [
+    "Revised Total Coliform Rule"
+   ],
    "last_formal_action": null,
    "last_informal_action": "2021-09-21",
    "pb_ale": null,
@@ -55133,12 +55073,10 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 7,
+   "qtrs_with_vio": 6,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVV_____VVVV_",
-   "contaminants_in_cur_viol": [
-    "Nitrate"
-   ],
+   "compl_qtrs_history": "VV_____VVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-14",
    "pb_ale": null,
@@ -55221,7 +55159,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-09",
@@ -55306,7 +55244,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "___V_________",
+   "compl_qtrs_history": "__V__________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-01-17",
@@ -55529,11 +55467,9 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________VV_",
-   "contaminants_in_cur_viol": [
-    "Public Notice"
-   ],
-   "last_formal_action": null,
+   "compl_qtrs_history": "_________VV__",
+   "contaminants_in_cur_viol": [],
+   "last_formal_action": "2026-01-08",
    "last_informal_action": "2025-12-15",
    "pb_ale": null,
    "cu_ale": null
@@ -55819,7 +55755,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-13",
@@ -55968,7 +55904,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_____V_______",
+   "compl_qtrs_history": "____V________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-07-03",
@@ -56671,10 +56607,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 8,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVVVVVV_",
-   "contaminants_in_cur_viol": [
-    "Public Notice"
-   ],
+   "compl_qtrs_history": "___VVVVVVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-11-19",
    "pb_ale": null,
@@ -57005,7 +56939,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVV_____",
+   "compl_qtrs_history": "___VVVV______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-03-05",
@@ -57263,9 +57197,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 8,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "VVVVVVVS_____",
+   "compl_qtrs_history": "VVVVVVS______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-07-18",
@@ -57441,7 +57375,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-08",
@@ -57550,11 +57484,11 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2025-09-04",
+     "date": "2026-07-08",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 3,
+    "n_results": 4,
     "n_detections": 0,
     "first_sample_date": "2024-06-26"
    }
@@ -57759,12 +57693,10 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 12,
+   "qtrs_with_vio": 11,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVVVVVV_",
-   "contaminants_in_cur_viol": [
-    "Nitrate"
-   ],
+   "compl_qtrs_history": "VVVVVVVVVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-13",
    "pb_ale": null,
@@ -58369,7 +58301,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVV_____",
+   "compl_qtrs_history": "___VVVV______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-03-21",
@@ -58675,9 +58607,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 6,
+   "qtrs_with_vio": 5,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVV_VVV______",
+   "compl_qtrs_history": "VV_VVV_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-07-25",
@@ -58989,11 +58921,10 @@
    "qtrs_with_snc": 0,
    "compl_qtrs_history": "VVVVVVVVVVVVV",
    "contaminants_in_cur_viol": [
-    "Public Notice",
-    "Revised Total Coliform Rule"
+    "Public Notice"
    ],
    "last_formal_action": null,
-   "last_informal_action": "2025-03-06",
+   "last_informal_action": "2026-02-17",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -59095,7 +59026,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 5,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVV__V__",
+   "compl_qtrs_history": "___VVVV__V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-23",
@@ -59579,9 +59510,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 11,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVVVVV__",
+   "compl_qtrs_history": "VVVVVVVVVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-07-29",
@@ -60128,7 +60059,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVV______",
+   "compl_qtrs_history": "___VVV_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-12-02",
@@ -60317,7 +60248,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-22",
@@ -60474,9 +60405,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 9,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVVVVVVV",
+   "compl_qtrs_history": "___VVVVVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -61171,7 +61102,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_____VV______",
+   "compl_qtrs_history": "____VV_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-09-26",
@@ -61406,7 +61337,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 0,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________",
+   "compl_qtrs_history": "_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "1992-04-23",
@@ -61963,7 +61894,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__VVVV_______",
+   "compl_qtrs_history": "_VVVV________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-07-05",
@@ -62108,15 +62039,14 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 9,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 1,
-   "compl_qtrs_history": "____VVVSVVVVV",
+   "compl_qtrs_history": "___VVVSVVVVVV",
    "contaminants_in_cur_viol": [
-    "Public Notice",
-    "Revised Total Coliform Rule"
+    "Public Notice"
    ],
    "last_formal_action": null,
-   "last_informal_action": "2025-06-09",
+   "last_informal_action": "2026-02-16",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -62847,7 +62777,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VV_______",
+   "compl_qtrs_history": "___VV________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-06-24",
@@ -63122,7 +63052,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________V____",
+   "compl_qtrs_history": "_______V_____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-05-02",
@@ -63590,7 +63520,6 @@
    "qtrs_with_snc": 0,
    "compl_qtrs_history": "VVVVVVVVVVVVV",
    "contaminants_in_cur_viol": [
-    "TTHM",
     "Public Notice"
    ],
    "last_formal_action": null,
@@ -63732,9 +63661,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 9,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVVVVVVV",
+   "compl_qtrs_history": "___VVVVVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -64041,10 +63970,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________VV_",
-   "contaminants_in_cur_viol": [
-    "Groundwater Rule"
-   ],
+   "compl_qtrs_history": "_________VV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-21",
    "pb_ale": null,
@@ -64117,7 +64044,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVV______",
+   "compl_qtrs_history": "___VVV_______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-10-16",
@@ -64196,7 +64123,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__V__________",
+   "compl_qtrs_history": "_V___________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2023-09-26",
@@ -64275,10 +64202,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________VV_",
-   "contaminants_in_cur_viol": [
-    "Groundwater Rule"
-   ],
+   "compl_qtrs_history": "_________VV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-21",
    "pb_ale": null,
@@ -64356,7 +64281,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-09-17",
@@ -64494,7 +64419,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-15",
@@ -65038,7 +64963,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVV__",
+   "compl_qtrs_history": "_______VVV___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-15",
@@ -65198,7 +65123,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 3,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__VV______V__",
+   "compl_qtrs_history": "_VV______V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-03",
@@ -65635,9 +65560,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 8,
+   "qtrs_with_vio": 7,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVVVVVVV_____",
+   "compl_qtrs_history": "VVVVVVV______",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-11-18",
@@ -65725,9 +65650,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 3,
+   "qtrs_with_vio": 2,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "VVV__________",
+   "compl_qtrs_history": "VV___________",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2024-06-23",
@@ -66038,12 +65963,12 @@
    "serious_violator": false,
    "qtrs_with_vio": 6,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_______VVVVVV",
+   "compl_qtrs_history": "______VVVVVV_",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
    "last_formal_action": null,
-   "last_informal_action": "2024-12-02",
+   "last_informal_action": "2026-01-15",
    "pb_ale": null,
    "cu_ale": null
   }
@@ -66168,9 +66093,9 @@
   },
   "echo": {
    "serious_violator": false,
-   "qtrs_with_vio": 9,
+   "qtrs_with_vio": 10,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "____VVVVVVVVV",
+   "compl_qtrs_history": "___VVVVVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -66262,10 +66187,8 @@
    "serious_violator": false,
    "qtrs_with_vio": 4,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "________VVVV_",
-   "contaminants_in_cur_viol": [
-    "Nitrate"
-   ],
+   "compl_qtrs_history": "_______VVVV__",
+   "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-21",
    "pb_ale": null,
@@ -66551,7 +66474,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 12,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_VVVVVVVVVVVV",
+   "compl_qtrs_history": "VVVVVVVVVVVVV",
    "contaminants_in_cur_viol": [
     "Public Notice"
    ],
@@ -66691,7 +66614,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-09",
@@ -66957,7 +66880,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "_________V___",
+   "compl_qtrs_history": "________V____",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-07-14",
@@ -67192,7 +67115,7 @@
    "serious_violator": false,
    "qtrs_with_vio": 1,
    "qtrs_with_snc": 0,
-   "compl_qtrs_history": "__________V__",
+   "compl_qtrs_history": "_________V___",
    "contaminants_in_cur_viol": [],
    "last_formal_action": null,
    "last_informal_action": "2025-10-09",
