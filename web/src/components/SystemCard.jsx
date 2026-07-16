@@ -51,6 +51,54 @@ function AnalyteCell({ analyte, latest, historicMax }) {
   )
 }
 
+const QTR_STATUS = {
+  V: { color: '#607d8b', label: 'violation' },
+  S: { color: '#cf2e2e', label: 'significant noncompliance' },
+}
+
+// ECHO's SDWA3yrComplQtrsHistory: one character per tracked quarter,
+// oldest first. Blank/dash = no violation on EPA's record.
+function QuarterStrip({ history }) {
+  const quarters = history.split('')
+  return (
+    <div style={{ margin: '10px 0 4px' }}>
+      <div style={{ display: 'flex', gap: 3 }}>
+        {quarters.map((ch, i) => {
+          const st = QTR_STATUS[ch]
+          return (
+            <span
+              key={i}
+              title={`Quarter ${i + 1} of ${quarters.length} (oldest → newest): ${st ? st.label : 'no violation'}`}
+              style={{
+                width: 18,
+                height: 18,
+                background: st ? st.color : '#efece4',
+                border: '1px solid #ddd',
+                borderRadius: 2,
+              }}
+            />
+          )
+        })}
+      </div>
+      <div className="chart-legend" style={{ marginTop: 6 }}>
+        <span>
+          <span style={{ display: 'inline-block', width: 11, height: 11, background: '#efece4', border: '1px solid #ddd', verticalAlign: 'middle', marginRight: 5 }} />
+          no violation
+        </span>
+        <span>
+          <span style={{ display: 'inline-block', width: 11, height: 11, background: '#607d8b', verticalAlign: 'middle', marginRight: 5 }} />
+          violation
+        </span>
+        <span>
+          <span style={{ display: 'inline-block', width: 11, height: 11, background: '#cf2e2e', verticalAlign: 'middle', marginRight: 5 }} />
+          significant noncompliance
+        </span>
+        <span>oldest → newest, EPA&rsquo;s tracked quarters</span>
+      </div>
+    </div>
+  )
+}
+
 function ChemCell({ chemKey, entry, reference }) {
   const r = fmtResult(entry.latest)
   const unit = unitLabel(entry.latest.units)
@@ -307,6 +355,9 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
               </p>
             )}
           </>
+        )}
+        {s.echo?.compl_qtrs_history && s.echo.qtrs_with_vio > 0 && (
+          <QuarterStrip history={s.echo.compl_qtrs_history} />
         )}
         {(v.enforcement || s.echo?.last_formal_action || s.echo?.last_informal_action) && (
           <p className="subhead" style={{ marginTop: 10, marginBottom: 0 }}>

@@ -99,6 +99,17 @@ Still skipped (with reasons):
 
 ## Session log
 
+- **2026-07-15** — Pipeline rescue + engagement features (Claude Code).
+  Found both Sunday crons dead (DNR portal unreachable from Actions at
+  2-3am Central — maintenance window); moved refresh to Sun 15:00 UTC,
+  added DWS connection retries and issue-on-failure alerting; manual run
+  green, fresh data (built 2026-07-16 UTC) deployed. New features:
+  date-gated public-comment banner (through Jul 20), masthead "data as
+  of" freshness line, nitrate trend toggle on the trend view (Whiting
+  Waterworks: 18.97 mg/L peak vs 10 MCL, 59 samples), ECHO 13-quarter
+  compliance strip on system cards (Deer Trail: 7 SNC + 6 violation
+  quarters). All verified in browser.
+
 - **2026-07-04 (sixth pass)** — Post-ingest refinement review (Claude
   Code). County board capped to top 25 with show-all toggle (page height
   23.8k px → 6.8k px); ECHO all-caps rule names calm-cased in prose;

@@ -65,7 +65,7 @@ function Tooltip({ tip, unit }) {
       <div className="t-rows">
         <div>{fmtDate(p.date)}</div>
         <div>
-          Entry point {p.source_id} · {p.sample_type} sample
+          Entry point {p.source_id ?? 'unspecified'} · {p.sample_type} sample
         </div>
       </div>
     </div>
@@ -109,8 +109,10 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
     for (let yr = startYear; yr <= endYear; yr++) xTicks.push({ t: Date.parse(`${yr}-01-01`), label: String(yr) })
     if (xTicks.length === 0) xTicks.push({ t: tMin, label: String(new Date(tMin).getUTCFullYear()) })
 
-    // one line per (analyte, entry point)
-    const eps = [...new Set(points.map((p) => p.source_id))].sort((a, b) => a - b)
+    // one line per (analyte, entry point); null entry point sorts last
+    const eps = [...new Set(points.map((p) => p.source_id))].sort((a, b) =>
+      a === b ? 0 : a == null ? 1 : b == null ? -1 : a - b
+    )
     const lines = []
     for (const s of series) {
       for (const ep of eps) {
@@ -261,7 +263,7 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
                   opacity={EP_OPACITY[i % EP_OPACITY.length]}
                 />
               </svg>
-              entry point {ep}
+              entry point {ep ?? 'unspecified'}
             </span>
           ))}
         <span>open marker = non-detect (&lt;LOD, plotted on the zero line)</span>

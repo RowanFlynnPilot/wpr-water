@@ -15,6 +15,9 @@ const TABS = [
   { id: 'remediation', label: 'Remediation tracker' },
 ]
 
+// End of July 20, 2026, Central time — the banner removes itself after this.
+const COMMENT_DEADLINE = Date.parse('2026-07-21T05:00:00Z')
+
 function parseHash() {
   const m = window.location.hash.match(/^#\/(\w+)(?:\/([A-Za-z0-9]+))?/)
   if (!m || !TABS.some((t) => t.id === m[1])) return { tab: 'search', system: null }
@@ -77,9 +80,32 @@ export default function App() {
             PFAS test results and drinking-water compliance for every public water system in
             Marathon, Lincoln, Langlade, Taylor, Shawano and Portage counties.
           </p>
+          {summary && (
+            <p className="fresh">
+              Data as of {fmtDate(summary.built_at.slice(0, 10))} · updates weekly
+            </p>
+          )}
         </div>
       </header>
       <div className="flag-rule" role="presentation" />
+
+      {Date.now() < COMMENT_DEADLINE && (
+        <aside className="alert-banner">
+          <span className="ab-kicker">Public comment open</span>
+          <span>
+            EPA&rsquo;s proposed changes to the federal PFAS drinking-water rules — extending the
+            compliance deadline to 2031 and rescinding four of the six PFAS limits — are open for
+            public comment <strong>through July 20, 2026</strong>.{' '}
+            <a
+              href="https://www.epa.gov/sdwa/and-polyfluoroalkyl-substances-pfas"
+              target="_blank"
+              rel="noreferrer"
+            >
+              How to weigh in, via EPA
+            </a>
+          </span>
+        </aside>
+      )}
 
       <nav className="tabs" aria-label="Views">
         {TABS.map((t) => (

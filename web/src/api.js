@@ -9,10 +9,16 @@ async function getJson(name) {
 export const loadSummary = () => getJson('summary.json')
 export const loadSystems = () => getJson('systems.json')
 
-// pfas_results.json is ~2.7 MB — loaded once, on demand, when a trend
-// chart is first requested.
+// The per-sample files are ~3 MB each — loaded once, on demand, when a
+// trend chart first needs them.
 let resultsPromise = null
 export function loadPfasResults() {
   if (!resultsPromise) resultsPromise = getJson('pfas_results.json')
   return resultsPromise
+}
+
+let chemPromise = null
+export function loadChemResults() {
+  if (!chemPromise) chemPromise = getJson('chem_results.json')
+  return chemPromise
 }

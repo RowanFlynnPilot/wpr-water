@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { loadPfasResults } from '../api.js'
+import { loadChemResults, loadPfasResults } from '../api.js'
 import TrendChart from './TrendChart.jsx'
 import { fmtDate, fmtMonthYear, titleCase } from '../format.js'
 
@@ -16,7 +16,7 @@ function SystemSelect({ systems, current, onSelect }) {
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(false)
 
-  const sampled = useMemo(() => systems.filter((s) => s.pfas.sampled), [systems])
+  const sampled = useMemo(() => systems.filter((s) => s.pfas.sampled || s.chem), [systems])
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase()
     const pool = q.length < 1
@@ -57,7 +57,8 @@ function SystemSelect({ systems, current, onSelect }) {
             >
               {titleCase(s.name)}{' '}
               <span className="result-meta">
-                · {s.county} Co. · {s.pfas.n_results} results
+                · {s.county} Co.
+                {s.pfas.sampled ? ` · ${s.pfas.n_results} PFAS results` : ' · no PFAS tests'}
               </span>
             </button>
           ))}
@@ -69,37 +70,56 @@ function SystemSelect({ systems, current, onSelect }) {
 }
 
 export default function TrendView({ systems, summary, systemId, onSelect }) {
-  const [allResults, setAllResults] = useState(null)
+  const [group, setGroup] = useState('pfas') // 'pfas' | 'nitrate'
+  const [pfasResults, setPfasResults] = useState(null)
+  const [chemResults, setChemResults] = useState(null)
   const [error, setError] = useState(null)
 
   const effectiveId = useMemo(() => {
     const sel = systems.find((s) => s.pwsid === systemId)
-    if (sel && sel.pfas.sampled) return systemId
+    if (sel && (sel.pfas.sampled || sel.chem)) return systemId
     return DEFAULT_ID
   }, [systems, systemId])
 
   const system = systems.find((s) => s.pwsid === effectiveId)
 
   useEffect(() => {
-    loadPfasResults().then(setAllResults).catch((e) => setError(e.message))
+    loadPfasResults().then(setPfasResults).catch((e) => setError(e.message))
   }, [])
+  useEffect(() => {
+    if (group === 'nitrate' && !chemResults) {
+      loadChemResults().then(setChemResults).catch((e) => setError(e.message))
+    }
+  }, [group, chemResults])
 
   const { mainPoints, hiPoints } = useMemo(() => {
-    if (!allResults) return { mainPoints: [], hiPoints: [] }
-    const mine = allResults.filter((r) => r.pwsid === effectiveId)
+    if (group === 'nitrate') {
+      if (!chemResults) return { mainPoints: [], hiPoints: [] }
+      return {
+        mainPoints: chemResults
+          .filter((r) => r.pwsid === effectiveId && r.key === 'nitrate')
+          .map((r) => ({ ...r, analyte: 'nitrate' })),
+        hiPoints: [],
+      }
+    }
+    if (!pfasResults) return { mainPoints: [], hiPoints: [] }
+    const mine = pfasResults.filter((r) => r.pwsid === effectiveId)
     return {
       mainPoints: mine.filter((r) => r.analyte === 'PFOA' || r.analyte === 'PFOS'),
       hiPoints: mine.filter((r) => r.analyte === HI_ANALYTE),
     }
-  }, [allResults, effectiveId])
+  }, [group, pfasResults, chemResults, effectiveId])
 
+  const loading = group === 'nitrate' ? !chemResults : !pfasResults
   const t = summary.thresholds
+  const nitrateRef = summary.chem_references?.nitrate
   const maxPfoa = system?.pfas?.historic_max?.PFOA
   const latestPfoa = system?.pfas?.latest?.PFOA
+  const nitrate = system?.chem?.nitrate
 
   return (
     <div className="panel">
-      <h2>PFOA &amp; PFOS over time</h2>
+      <h2>{group === 'pfas' ? 'PFOA & PFOS over time' : 'Nitrate over time'}</h2>
       <p className="subhead">
         Every DNR-recorded sample for the selected system, by entry point to the distribution
         system. Reference lines are regulatory context, not compliance determinations.
@@ -107,10 +127,19 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
 
       <SystemSelect systems={systems} current={system} onSelect={onSelect} />
 
-      {error && <div className="error">Could not load sample data: {error}</div>}
-      {!error && !allResults && <div className="loading">Loading sample results…</div>}
+      <div className="tabs" role="group" aria-label="Contaminant group">
+        <button className={group === 'pfas' ? 'active' : ''} onClick={() => setGroup('pfas')}>
+          PFOA &amp; PFOS
+        </button>
+        <button className={group === 'nitrate' ? 'active' : ''} onClick={() => setGroup('nitrate')}>
+          Nitrate
+        </button>
+      </div>
 
-      {allResults && system && mainPoints.length > 0 && (
+      {error && <div className="error">Could not load sample data: {error}</div>}
+      {!error && loading && <div className="loading">Loading sample results…</div>}
+
+      {!loading && system && group === 'pfas' && mainPoints.length > 0 && (
         <>
           {maxPfoa?.value != null && latestPfoa && (
             <p className="subhead">
@@ -164,46 +193,86 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
               />
             </>
           )}
-
-          <details style={{ marginTop: 16 }}>
-            <summary>All PFOA / PFOS samples for this system</summary>
-            <p className="scroll-hint" aria-hidden="true">
-              swipe sideways to see the full table →
-            </p>
-            <div className="table-scroll">
-              <table className="board" style={{ marginTop: 10 }}>
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Analyte</th>
-                    <th className="num">Result</th>
-                    <th>Qualifier</th>
-                    <th className="num">Entry point</th>
-                    <th>Sample type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[...mainPoints]
-                    .sort((a, b) => (a.date < b.date ? 1 : -1))
-                    .map((r) => (
-                      <tr key={r.seq_no}>
-                        <td>{fmtDate(r.date)}</td>
-                        <td>{r.analyte}</td>
-                        <td className="num mono">{r.value == null ? `<LOD (${r.lod})` : `${r.value}`}</td>
-                        <td>{QUALIFIER_LABELS[r.qualifier] || r.qualifier}</td>
-                        <td className="num mono">{r.source_id}</td>
-                        <td>{r.sample_type}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-          </details>
         </>
       )}
 
-      {allResults && system && mainPoints.length === 0 && (
-        <p className="subhead">No PFOA/PFOS sample records for this system.</p>
+      {!loading && system && group === 'nitrate' && mainPoints.length > 0 && (
+        <>
+          {nitrate?.historic_max && (
+            <p className="subhead">
+              <strong>{titleCase(system.name)}</strong>: highest nitrate since 2020 was{' '}
+              <span className="mono">{nitrate.historic_max.value} mg/L</span> (
+              {fmtMonthYear(nitrate.historic_max.date)}); the latest sample is{' '}
+              <span className="mono">
+                {nitrate.latest.value != null ? `${nitrate.latest.value} mg/L` : '<LOD'}
+              </span>{' '}
+              ({fmtMonthYear(nitrate.latest.date)}).
+            </p>
+          )}
+          <TrendChart
+            points={mainPoints}
+            series={[{ analyte: 'nitrate', label: 'Nitrate (as N)', color: '#3a867c' }]}
+            refLines={
+              nitrateRef
+                ? [{ value: nitrateRef.value, label: `Federal & Wisconsin MCL ${nitrateRef.value} mg/L` }]
+                : []
+            }
+            unit="mg/L"
+          />
+          <p className="note">
+            Nitrate above 10 mg/L is a health standard aimed chiefly at infants. Compliance is
+            determined by DNR/EPA, not by any single sample shown here. Chart covers samples
+            since 2020.
+          </p>
+        </>
+      )}
+
+      {!loading && system && mainPoints.length > 0 && (
+        <details style={{ marginTop: 16 }}>
+          <summary>
+            All {group === 'pfas' ? 'PFOA / PFOS' : 'nitrate'} samples for this system
+          </summary>
+          <p className="scroll-hint" aria-hidden="true">
+            swipe sideways to see the full table →
+          </p>
+          <div className="table-scroll">
+            <table className="board" style={{ marginTop: 10 }}>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Analyte</th>
+                  <th className="num">Result</th>
+                  <th>Qualifier</th>
+                  <th className="num">Entry point</th>
+                  <th>Sample type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...mainPoints]
+                  .sort((a, b) => (a.date < b.date ? 1 : -1))
+                  .map((r) => (
+                    <tr key={r.seq_no}>
+                      <td>{fmtDate(r.date)}</td>
+                      <td>{group === 'nitrate' ? 'Nitrate (as N)' : r.analyte}</td>
+                      <td className="num mono">
+                        {r.value == null ? (r.lod ? `<LOD (${r.lod})` : '—') : `${r.value}`}
+                      </td>
+                      <td>{QUALIFIER_LABELS[r.qualifier] || r.qualifier}</td>
+                      <td className="num mono">{r.source_id ?? '—'}</td>
+                      <td>{r.sample_type}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      )}
+
+      {!loading && system && mainPoints.length === 0 && (
+        <p className="subhead">
+          No {group === 'pfas' ? 'PFOA/PFOS' : 'nitrate'} sample records for this system
+          {group === 'nitrate' ? ' since 2020' : ''}.
+        </p>
       )}
     </div>
   )

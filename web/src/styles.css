@@ -68,6 +68,16 @@ body {
   max-width: 66ch;
 }
 
+.masthead .fresh {
+  font-family: var(--head);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+}
+
 /* classic newspaper double rule under the flag */
 .flag-rule {
   border-top: 4px solid var(--black);
@@ -75,6 +85,32 @@ body {
   height: 3px;
   margin-bottom: 18px;
 }
+
+/* ---------- comment-period banner ---------- */
+
+.alert-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  border: 1px solid var(--black);
+  border-left: 4px solid var(--danger);
+  background: var(--paper);
+  padding: 10px 14px;
+  margin: 14px 0 18px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.alert-banner .ab-kicker {
+  font-family: var(--head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--danger);
+  white-space: nowrap;
+}
+.alert-banner a { color: var(--teal-dark); }
 
 /* ---------- tabs ---------- */
 
