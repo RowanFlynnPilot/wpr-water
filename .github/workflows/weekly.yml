@@ -1,13 +1,18 @@
 name: weekly-data-refresh
 on:
   schedule:
-    - cron: "0 7 * * 0"   # Sundays 7am UTC, matching wpr-trails
+    # Sundays 15:00 UTC (10am Central). The original 7am UTC slot (2am
+    # Central) hit the DNR portal's overnight maintenance window — both
+    # July 2026 runs died with connect timeouts to apps.dnr.wi.gov, while
+    # a midday dispatch succeeded.
+    - cron: "0 15 * * 0"
   workflow_dispatch:
 jobs:
   refresh:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -31,3 +36,11 @@ jobs:
           git add data/
           git diff --cached --quiet || git commit -m "Weekly data refresh"
           git push
+      - name: Open an issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Weekly data refresh failed $(date -u +%Y-%m-%d)" \
+            --body "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} — the live widget keeps serving the last good data until this is fixed."

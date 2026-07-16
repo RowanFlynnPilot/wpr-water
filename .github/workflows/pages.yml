@@ -3,8 +3,9 @@ on:
   push:
     branches: [master]
   schedule:
-    - cron: "0 8 * * 0"   # Sundays 8am UTC — one hour after weekly-data-refresh,
-                          # whose GITHUB_TOKEN push cannot trigger this workflow
+    - cron: "0 17 * * 0"  # Sundays 17:00 UTC — two hours after weekly-data-refresh
+                          # (15:00), whose GITHUB_TOKEN push cannot trigger this
+                          # workflow
   workflow_dispatch:
 
 permissions:

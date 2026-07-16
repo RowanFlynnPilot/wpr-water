@@ -91,12 +91,25 @@ def _datatables_params(
 
 
 def fetch_county(county_code: str, contam_codes, sample_date_start: str) -> list[dict]:
-    response = requests.post(
-        API_URL,
-        data=_datatables_params(county_code, contam_codes, sample_date_start),
-        headers={"User-Agent": USER_AGENT, "X-Requested-With": "XMLHttpRequest"},
-        timeout=300,
-    )
+    # The DNR portal is intermittently unreachable (overnight maintenance);
+    # retry connection failures a few times before failing loud.
+    last_exc: Exception | None = None
+    for attempt in range(3):
+        if attempt:
+            time.sleep(90)
+        try:
+            response = requests.post(
+                API_URL,
+                data=_datatables_params(county_code, contam_codes, sample_date_start),
+                headers={"User-Agent": USER_AGENT, "X-Requested-With": "XMLHttpRequest"},
+                timeout=300,
+            )
+            break
+        except requests.exceptions.ConnectionError as exc:
+            print(f"county {county_code}: connection attempt {attempt + 1} failed: {exc}")
+            last_exc = exc
+    else:
+        raise RuntimeError(f"county {county_code}: DNR portal unreachable") from last_exc
     response.raise_for_status()
     payload = response.json()
     rows = payload["data"]
