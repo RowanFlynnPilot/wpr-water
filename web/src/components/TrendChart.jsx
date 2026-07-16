@@ -13,6 +13,14 @@ const EP_OPACITY = [1, 0.6, 0.55, 0.5]
 const EP_WIDTH = [2, 1.5, 1.5, 1.5]
 const EP_SHAPE = ['circle', 'square', 'triangle', 'diamond']
 
+// Above this many entry points, per-entry-point lines turn to spaghetti:
+// switch to dots-for-every-sample plus one max-per-date line per analyte.
+const MAX_EP_LINES = 3
+
+// Never connect samples further apart than this — a line across a years-long
+// sampling gap reads as data that isn't there.
+const GAP_MS = 456 * 86400e3 // ~15 months
+
 function niceStep(range) {
   const raw = range / 6
   const pow = Math.pow(10, Math.floor(Math.log10(raw)))
@@ -22,8 +30,25 @@ function niceStep(range) {
   return 10 * pow
 }
 
-function MarkerShape({ shape, x, y, color, open, opacity }) {
+function splitOnGaps(pts) {
+  const segments = []
+  let cur = []
+  for (const p of pts) {
+    if (cur.length && Date.parse(p.date) - Date.parse(cur[cur.length - 1].date) > GAP_MS) {
+      segments.push(cur)
+      cur = []
+    }
+    cur.push(p)
+  }
+  if (cur.length) segments.push(cur)
+  return segments
+}
+
+function MarkerShape({ shape, x, y, color, open, opacity, small }) {
   const fill = open ? '#fff' : color
+  if (small) {
+    return <circle cx={x} cy={y} r={2.6} fill={fill} stroke={color} strokeWidth={1.1} opacity={opacity} pointerEvents="none" />
+  }
   const common = { fill, stroke: color, strokeWidth: 1.3, opacity, pointerEvents: 'none' }
   if (shape === 'square') return <rect x={x - 2.8} y={y - 2.8} width={5.6} height={5.6} {...common} />
   if (shape === 'triangle')
@@ -93,7 +118,9 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
     const dataMax = Math.max(...points.map((p) => (p.value == null ? 0 : p.value)), 0)
     const drawn = refLines.filter((r) => r.value <= Math.max(dataMax, 1) * 2.5)
     const offScale = refLines.filter((r) => !drawn.includes(r))
-    const yTop = Math.max(dataMax, ...drawn.map((r) => r.value), 0.5) * 1.15
+    // Data gets 15% headroom; a reference line above the data only needs a
+    // sliver, so it doesn't inflate the scale and crush low values.
+    const yTop = Math.max(dataMax * 1.15, ...drawn.map((r) => r.value * 1.06), 0.5)
     const step = niceStep(yTop)
     const yMax = Math.ceil(yTop / step) * step
 
@@ -109,23 +136,52 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
     for (let yr = startYear; yr <= endYear; yr++) xTicks.push({ t: Date.parse(`${yr}-01-01`), label: String(yr) })
     if (xTicks.length === 0) xTicks.push({ t: tMin, label: String(new Date(tMin).getUTCFullYear()) })
 
-    // one line per (analyte, entry point); null entry point sorts last
+    // entry points, null last
     const eps = [...new Set(points.map((p) => p.source_id))].sort((a, b) =>
       a === b ? 0 : a == null ? 1 : b == null ? -1 : a - b
     )
+    const manyEps = eps.length > MAX_EP_LINES
+
+    // per-entry-point mode: one line per (analyte, entry point), split on gaps
     const lines = []
-    for (const s of series) {
-      for (const ep of eps) {
-        const pts = points
-          .filter((p) => p.analyte === s.analyte && p.source_id === ep)
-          .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
-        if (pts.length) lines.push({ ...s, ep, epIndex: eps.indexOf(ep), pts })
+    if (!manyEps) {
+      for (const s of series) {
+        for (const ep of eps) {
+          const pts = points
+            .filter((p) => p.analyte === s.analyte && p.source_id === ep)
+            .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+          if (pts.length) {
+            lines.push({ ...s, ep, epIndex: eps.indexOf(ep), pts, segments: splitOnGaps(pts) })
+          }
+        }
       }
     }
-    return { x, y, yMax, yTicks, xTicks, lines, eps, drawn, offScale }
+
+    // many-entry-points mode: every sample as a dot, plus one line per
+    // analyte through the highest result on each sampling date (all-ND
+    // dates count as 0 so treatment shows).
+    const maxLines = []
+    const dots = []
+    if (manyEps) {
+      for (const s of series) {
+        const mine = points.filter((p) => p.analyte === s.analyte)
+        dots.push(...mine.map((p) => ({ p, series: s })))
+        const byDate = new Map()
+        for (const p of mine) {
+          const v = p.value == null ? 0 : p.value
+          if (!byDate.has(p.date) || v > byDate.get(p.date)) byDate.set(p.date, v)
+        }
+        const pts = [...byDate.entries()]
+          .map(([date, value]) => ({ date, value }))
+          .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+        if (pts.length > 1) maxLines.push({ ...s, pts, segments: splitOnGaps(pts) })
+      }
+    }
+
+    return { x, y, yMax, yTicks, xTicks, lines, maxLines, dots, eps, manyEps, drawn, offScale }
   }, [points, series, refLines])
 
-  const { x, y, yTicks, xTicks, lines, eps, drawn, offScale } = model
+  const { x, y, yTicks, xTicks, lines, maxLines, dots, eps, manyEps, drawn, offScale } = model
   const baseline = y(0)
 
   return (
@@ -189,50 +245,95 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
               </g>
             ))}
 
-            {lines.map((l) => (
-              <polyline
-                key={`${l.analyte}-${l.ep}`}
-                points={l.pts.map((p) => `${x(Date.parse(p.date))},${y(p.value == null ? 0 : p.value)}`).join(' ')}
-                fill="none"
-                stroke={l.color}
-                strokeWidth={EP_WIDTH[l.epIndex % EP_WIDTH.length]}
-                strokeDasharray={EP_DASH[l.epIndex % EP_DASH.length]}
-                strokeLinejoin="round"
-                opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
-              />
-            ))}
+            {/* per-entry-point lines (few entry points) */}
+            {lines.map((l) =>
+              l.segments
+                .filter((seg) => seg.length > 1)
+                .map((seg, si) => (
+                  <polyline
+                    key={`${l.analyte}-${l.ep}-${si}`}
+                    points={seg.map((p) => `${x(Date.parse(p.date))},${y(p.value == null ? 0 : p.value)}`).join(' ')}
+                    fill="none"
+                    stroke={l.color}
+                    strokeWidth={EP_WIDTH[l.epIndex % EP_WIDTH.length]}
+                    strokeDasharray={EP_DASH[l.epIndex % EP_DASH.length]}
+                    strokeLinejoin="round"
+                    opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
+                  />
+                ))
+            )}
+
+            {/* max-per-date lines (many entry points) */}
+            {maxLines.map((l) =>
+              l.segments
+                .filter((seg) => seg.length > 1)
+                .map((seg, si) => (
+                  <polyline
+                    key={`max-${l.analyte}-${si}`}
+                    points={seg.map((p) => `${x(Date.parse(p.date))},${y(p.value)}`).join(' ')}
+                    fill="none"
+                    stroke={l.color}
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                    opacity="0.9"
+                  />
+                ))
+            )}
 
             {/* markers + generous invisible hover targets */}
-            {lines.map((l) =>
-              l.pts.map((p) => {
+            {!manyEps &&
+              lines.map((l) =>
+                l.pts.map((p) => {
+                  const px = x(Date.parse(p.date))
+                  const py = y(p.value == null ? 0 : p.value)
+                  const active = tip && tip.point === p && tip.label === l.label
+                  return (
+                    <g key={`${l.analyte}-${l.ep}-${p.date}-${p.seq_no ?? ''}`}>
+                      {active && (
+                        <circle cx={px} cy={py} r={7} fill="none" stroke={l.color} strokeWidth="1.2" opacity="0.45" />
+                      )}
+                      <MarkerShape
+                        shape={EP_SHAPE[l.epIndex % EP_SHAPE.length]}
+                        x={px}
+                        y={py}
+                        color={l.color}
+                        open={p.value == null}
+                        opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
+                      />
+                      <circle
+                        cx={px}
+                        cy={py}
+                        r={12}
+                        fill="transparent"
+                        style={{ cursor: 'pointer' }}
+                        onMouseEnter={() => setTip({ x: px, y: py, point: p, color: l.color, label: l.label })}
+                      />
+                    </g>
+                  )
+                })
+              )}
+            {manyEps &&
+              dots.map(({ p, series: s }) => {
                 const px = x(Date.parse(p.date))
                 const py = y(p.value == null ? 0 : p.value)
-                const active = tip && tip.point === p && tip.label === l.label
+                const active = tip && tip.point === p
                 return (
-                  <g key={`${l.analyte}-${l.ep}-${p.date}-${p.seq_no ?? ''}`}>
+                  <g key={`dot-${s.analyte}-${p.date}-${p.seq_no ?? ''}`}>
                     {active && (
-                      <circle cx={px} cy={py} r={7} fill="none" stroke={l.color} strokeWidth="1.2" opacity="0.45" />
+                      <circle cx={px} cy={py} r={6.5} fill="none" stroke={s.color} strokeWidth="1.2" opacity="0.45" />
                     )}
-                    <MarkerShape
-                      shape={EP_SHAPE[l.epIndex % EP_SHAPE.length]}
-                      x={px}
-                      y={py}
-                      color={l.color}
-                      open={p.value == null}
-                      opacity={EP_OPACITY[l.epIndex % EP_OPACITY.length]}
-                    />
+                    <MarkerShape small x={px} y={py} color={s.color} open={p.value == null} opacity={0.75} />
                     <circle
                       cx={px}
                       cy={py}
-                      r={12}
+                      r={9}
                       fill="transparent"
                       style={{ cursor: 'pointer' }}
-                      onMouseEnter={() => setTip({ x: px, y: py, point: p, color: l.color, label: l.label })}
+                      onMouseEnter={() => setTip({ x: px, y: py, point: p, color: s.color, label: s.label })}
                     />
                   </g>
                 )
-              })
-            )}
+              })}
           </svg>
 
           {tip && <Tooltip tip={tip} unit={unit} />}
@@ -248,7 +349,8 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
             {s.label}
           </span>
         ))}
-        {eps.length > 1 &&
+        {!manyEps &&
+          eps.length > 1 &&
           eps.map((ep, i) => (
             <span key={ep}>
               <svg width="26" height="9" aria-hidden="true">
@@ -266,6 +368,12 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
               entry point {ep ?? 'unspecified'}
             </span>
           ))}
+        {manyEps && (
+          <span>
+            {eps.length} entry points — every sample shown as a dot; the line follows the highest
+            result per sampling date
+          </span>
+        )}
         <span>open marker = non-detect (&lt;LOD, plotted on the zero line)</span>
       </div>
 

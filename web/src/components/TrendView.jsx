@@ -113,9 +113,14 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
   const loading = group === 'nitrate' ? !chemResults : !pfasResults
   const t = summary.thresholds
   const nitrateRef = summary.chem_references?.nitrate
-  const maxPfoa = system?.pfas?.historic_max?.PFOA
-  const latestPfoa = system?.pfas?.latest?.PFOA
   const nitrate = system?.chem?.nitrate
+
+  // Lead the summary with whichever of PFOA/PFOS actually peaked —
+  // Weston is a PFOS story, Wausau a PFOA one.
+  const hm = system?.pfas?.historic_max || {}
+  const leadAnalyte = (hm.PFOS?.value ?? -1) > (hm.PFOA?.value ?? -1) ? 'PFOS' : 'PFOA'
+  const leadMax = hm[leadAnalyte]
+  const leadLatest = system?.pfas?.latest?.[leadAnalyte]
 
   return (
     <div className="panel">
@@ -141,15 +146,15 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
 
       {!loading && system && group === 'pfas' && mainPoints.length > 0 && (
         <>
-          {maxPfoa?.value != null && latestPfoa && (
+          {leadMax?.value != null && leadLatest && (
             <p className="subhead">
-              <strong>{titleCase(system.name)}</strong>: PFOA peaked at{' '}
-              <span className="mono">{maxPfoa.value} ng/L</span> ({fmtMonthYear(maxPfoa.date)});
-              the latest sample is{' '}
+              <strong>{titleCase(system.name)}</strong>: {leadAnalyte} peaked at{' '}
+              <span className="mono">{leadMax.value} ng/L</span> ({fmtMonthYear(leadMax.date)});
+              the latest {leadAnalyte} sample is{' '}
               <span className="mono">
-                {latestPfoa.value != null ? `${latestPfoa.value} ng/L` : '<LOD'}
+                {leadLatest.value != null ? `${leadLatest.value} ng/L` : '<LOD'}
               </span>{' '}
-              ({fmtMonthYear(latestPfoa.date)}).
+              ({fmtMonthYear(leadLatest.date)}).
             </p>
           )}
           <TrendChart
