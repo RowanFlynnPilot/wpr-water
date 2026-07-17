@@ -25,7 +25,7 @@ USER_AGENT = "wpr-water/0.1 (https://github.com/RowanFlynnPilot/wpr-water)"
 
 LAYERS = {"9": "nitrate", "2": "arsenic", "3": "bacteria"}
 
-COUNTIES = {"Langlade", "Lincoln", "Marathon", "Portage", "Shawano", "Taylor"}
+COUNTIES = {"Langlade", "Lincoln", "Marathon", "Oneida", "Portage", "Shawano", "Taylor", "Wood"}
 
 OUTPUT_PATH = Path("data/raw/uwsp_private_wells.json")
 

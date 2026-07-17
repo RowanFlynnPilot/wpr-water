@@ -25,7 +25,7 @@ import requests
 BASE = "https://echodata.epa.gov/echo"
 USER_AGENT = "wpr-water/0.1 (https://github.com/RowanFlynnPilot/wpr-water)"
 
-COUNTIES = ["Langlade", "Lincoln", "Marathon", "Portage", "Shawano", "Taylor"]
+COUNTIES = ["Langlade", "Lincoln", "Marathon", "Oneida", "Portage", "Shawano", "Taylor", "Wood"]
 
 OUTPUT_PATH = Path("data/raw/echo_sdwa.json")
 

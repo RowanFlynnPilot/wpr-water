@@ -1,8 +1,10 @@
 # wpr-water — "What's in the Water?"
 
 PFAS and drinking water compliance tracker for Wausau Pilot & Review.
-Covers every public water system in the 6-county coverage area: Marathon,
-Lincoln, Langlade, Taylor, Shawano, Portage.
+Covers every public water system in the 8-county coverage area: Marathon,
+Lincoln, Langlade, Taylor, Shawano, Portage, Oneida, Wood. (Oneida and
+Wood added 2026-07-16 — the "PFAS corridor" expansion: Rhinelander and
+the Marshfield/Wisconsin Rapids stretch of the river.)
 
 Two jobs in one widget:
 1. **PFAS tracker** — raw sample results (ng/L) for all 34 analytes, per
@@ -71,7 +73,7 @@ type, entry point (`EpaSourceId`), method, lab, and a stable
 `SampleResultSeqNo` for dedup.
 
 County codes (portal's own): Langlade 34, Lincoln 35, Marathon 37,
-Portage 50, Shawano 59, Taylor 61.
+Oneida 44, Portage 50, Shawano 59, Taylor 61, Wood 72.
 PFAS analyte codes: full 34-code panel in the scraper, including
 PFOA `2806`, PFOS `2805`, HFPO-DA/GenX `2816`, and DNR's computed
 PFAS Hazard Index `X157`.
@@ -107,6 +109,9 @@ Verified against Wausau (73701023→WI7370102), Antigo, Merrill, Weston.
 | Merrill Waterworks | 73501230 |
 | Schofield Waterworks | 73701628 |
 | Antigo Waterworks | 73400866 |
+| Rhinelander Water & Wastewater | 74401261 |
+| Marshfield Utilities | 77201652 |
+| Wis Rapids Water Works & Lighting Comm | 77201080 |
 
 ## Editorial policy (binding — mirrors the RETR scraper pattern)
 

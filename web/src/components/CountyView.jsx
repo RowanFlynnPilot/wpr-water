@@ -21,7 +21,7 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
       )
   }, [systems, county])
 
-  const scope = county || 'all six counties'
+  const scope = county || `all ${counties.length} counties`
 
   return (
     <div>

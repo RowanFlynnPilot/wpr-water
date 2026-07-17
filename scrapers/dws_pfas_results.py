@@ -22,14 +22,17 @@ import requests
 API_URL = "https://apps.dnr.wi.gov/dwsportalpub/api/contamresults"
 USER_AGENT = "wpr-water/0.1 (https://github.com/RowanFlynnPilot/wpr-water)"
 
-# DNR county codes from the portal's County select. Verified 2026-07-04.
+# DNR county codes from the portal's County select. Verified 2026-07-04;
+# Oneida/Wood verified against the live dropdown 2026-07-16.
 COUNTIES = {
     "34": "Langlade",
     "35": "Lincoln",
     "37": "Marathon",
+    "44": "Oneida",
     "50": "Portage",
     "59": "Shawano",
     "61": "Taylor",
+    "72": "Wood",
 }
 
 # Full PFAS panel from the portal's Contam select. Verified 2026-07-04.

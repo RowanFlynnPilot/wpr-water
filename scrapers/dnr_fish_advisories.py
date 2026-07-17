@@ -29,8 +29,8 @@ SERVICE = (
 LAYERS = {801: "waterbody", 803: "stream"}
 USER_AGENT = "wpr-water/0.1 (https://github.com/RowanFlynnPilot/wpr-water)"
 
-# WGS84 envelope over Marathon/Lincoln/Langlade/Taylor/Shawano/Portage.
-ENVELOPE = {"xmin": -90.93, "ymin": 44.24, "xmax": -88.24, "ymax": 45.55}
+# WGS84 envelope over the 8-county area (north to Oneida, south to Wood).
+ENVELOPE = {"xmin": -90.93, "ymin": 44.05, "xmax": -88.24, "ymax": 45.95}
 
 OUTPUT_PATH = Path("data/raw/dnr_fish_advisories.json")
 

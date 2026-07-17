@@ -99,6 +99,19 @@ Still skipped (with reasons):
 
 ## Session log
 
+- **2026-07-16** — Coverage expanded to 8 counties (Claude Code): Oneida
+  (code 44) and Wood (72) added across all scrapers, advisory envelope
+  widened, full re-pull green. Now 1,227 systems / 13,307 PFAS results /
+  2,962 violations; fish advisories 5 → 11 (Moen Lake Chain, Hat Rapids,
+  Snowden, Starks Creek, Petenwell–Castle Rock). Rhinelander latest PFOA
+  6.5 ng/L (above the 4.0 federal MCL); Marshfield + Wis Rapids sampled.
+  NOTE: fresh ECHO data moved the Serious Violator designation — Deer
+  Trail Village no longer carries it; St Adalbert Catholic Church
+  (Portage) is now the area's one SV. County cards 4×2; quick links add
+  Rhinelander/Marshfield/Wis Rapids; masthead + meta name all 8 counties.
+  Editorial follow-up: Rhinelander is a natural remediation-tracker
+  candidate — editorial.yaml entry is newsroom-owned.
+
 - **2026-07-15** — Pipeline rescue + engagement features (Claude Code).
   Found both Sunday crons dead (DNR portal unreachable from Actions at
   2-3am Central — maintenance window); moved refresh to Sun 15:00 UTC,

@@ -11,6 +11,9 @@ const QUICK_IDS = [
   'WI7350123', // Merrill
   'WI7370162', // Schofield
   'WI7340086', // Antigo
+  'WI7440126', // Rhinelander
+  'WI7720165', // Marshfield
+  'WI7720108', // Wisconsin Rapids
 ]
 
 export default function SearchView({ systems, summary, systemId, onSelect, onShowTrend }) {
@@ -90,7 +93,10 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
           <div className="quick-links">
             {quick.map((s) => (
               <button key={s.pwsid} onClick={() => onSelect(s.pwsid)}>
-                {titleCase(s.name).replace(/ Waterworks| Municipal Utilities| Water Utility/, '')}
+                {titleCase(s.name).replace(
+                  / Waterworks| Municipal Utilities| Water Utility| Water & Wastewater| Water Works & Lighting Comm| Utilities/,
+                  ''
+                )}
               </button>
             ))}
           </div>

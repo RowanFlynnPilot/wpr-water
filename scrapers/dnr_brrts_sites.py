@@ -25,7 +25,7 @@ LAYER_URL = (
 )
 USER_AGENT = "wpr-water/0.1 (https://github.com/RowanFlynnPilot/wpr-water)"
 
-COUNTY_CODES = ["34", "35", "37", "50", "59", "61"]
+COUNTY_CODES = ["34", "35", "37", "44", "50", "59", "61", "72"]
 
 OUTPUT_PATH = Path("data/raw/dnr_brrts_sites.json")
 

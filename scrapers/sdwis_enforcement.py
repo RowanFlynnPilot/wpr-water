@@ -20,7 +20,7 @@ import requests
 BASE_URL = "https://data.epa.gov/efservice"
 USER_AGENT = "wpr-water/0.1 (https://github.com/RowanFlynnPilot/wpr-water)"
 
-COUNTIES = ["Langlade", "Lincoln", "Marathon", "Portage", "Shawano", "Taylor"]
+COUNTIES = ["Langlade", "Lincoln", "Marathon", "Oneida", "Portage", "Shawano", "Taylor", "Wood"]
 
 OUTPUT_PATH = Path("data/raw/sdwis_enforcement.json")
 

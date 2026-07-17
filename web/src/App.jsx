@@ -78,7 +78,7 @@ export default function App() {
           <h1>What&rsquo;s in the Water?</h1>
           <p className="dek">
             PFAS test results and drinking-water compliance for every public water system in
-            Marathon, Lincoln, Langlade, Taylor, Shawano and Portage counties.
+            Langlade, Lincoln, Marathon, Oneida, Portage, Shawano, Taylor and Wood counties.
           </p>
           {summary && (
             <p className="fresh">

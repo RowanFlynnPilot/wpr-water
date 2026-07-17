@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-16T03:55:57.044812+00:00",
+ "built_at": "2026-07-17T00:51:02.379485+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -41,10 +41,10 @@
   }
  },
  "counts": {
-  "systems": 730,
-  "pfas_results": 9996,
-  "chem_results": 9887,
-  "violations": 2390
+  "systems": 1227,
+  "pfas_results": 13307,
+  "chem_results": 13436,
+  "violations": 2962
  },
  "counties": {
   "Langlade": {
@@ -110,6 +110,27 @@
     }
    }
   },
+  "Oneida": {
+   "systems": 348,
+   "sampled_for_pfas": 24,
+   "with_pfas_detections": 12,
+   "with_unresolved_violations": 35,
+   "population_served": 40538,
+   "population_pfas_sampled": 13631,
+   "private_wells": {
+    "nitrate": {
+     "samples": 6584,
+     "average": 1.19,
+     "median": 0.1,
+     "max": 90.4,
+     "exceedance_pct": 2.43
+    },
+    "bacteria": {
+     "samples": 2799,
+     "positive_pct": 9.47
+    }
+   }
+  },
   "Portage": {
    "systems": 149,
    "sampled_for_pfas": 21,
@@ -172,9 +193,70 @@
      "positive_pct": 24.81
     }
    }
+  },
+  "Wood": {
+   "systems": 149,
+   "sampled_for_pfas": 25,
+   "with_pfas_detections": 16,
+   "with_unresolved_violations": 24,
+   "population_served": 58534,
+   "population_pfas_sampled": 48447,
+   "private_wells": {
+    "nitrate": {
+     "samples": 6406,
+     "average": 3.0,
+     "median": 1.4,
+     "max": 74.5,
+     "exceedance_pct": 6.09
+    },
+    "bacteria": {
+     "samples": 4342,
+     "positive_pct": 12.92
+    }
+   }
   }
  },
  "fish_advisories": [
+  {
+   "name": "Sunset Lake",
+   "description": "Sunset Lake \u201cDo Not Eat\u201d for all fish species. PFOS.",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2025-09-04",
+   "wbic": "1572400, 1572500"
+  },
+  {
+   "name": "SNOWDEN LAKE",
+   "description": "SNOWDEN LAKE",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2025-09-04",
+   "wbic": "1018600"
+  },
+  {
+   "name": "Starks Creek",
+   "description": "Starks Creek (upstream to and including Starks Spring",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2025-08-26",
+   "wbic": "1572400, 1573700"
+  },
+  {
+   "name": "WISCONSIN RIVER ABOVE THE HAT RAPIDS DAM (HAT RAPIDS FLOWAGE)",
+   "description": "WISCONSIN RIVER ABOVE THE HAT RAPIDS DAM (HAT RAPIDS FLOWAGE)",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2024-02-06",
+   "wbic": "1179900, 1567325"
+  },
+  {
+   "name": "MOEN LAKE CHAIN, ONEIDA COUNTY",
+   "description": "MOEN LAKE CHAIN (INCLUDES MOEN, SECOND, THIRD, FOURTH, FIFTH and SUNSET LAKES), ALSO STARKS CREEK TO STARKS SPRINGS, ONEIDA COUNTY",
+   "contaminants": "PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "2024-02-06",
+   "wbic": "1570100, 1571100, 1572000, 1572200, 1572300, 1573800"
+  },
   {
    "name": "WISCONSIN RIVER AT LAKE WAUSAU",
    "description": "WISCONSIN RIVER FROM DAM AT WAUSAU TO THE DAM AT ROTHSCHILD (LAKE WAUSAU). INCLUDING THE BIG RIB RIVER UNTIL IT FLOWS UNDER HWY 29",
@@ -208,6 +290,14 @@
    "wbic": "1179900, 1377100"
   },
   {
+   "name": "WISCONSIN RIVER FROM PETENWELL DAM DOWN TO CASTLE ROCK DAM",
+   "description": "WISCONSIN RIVER FROM PETENWELL DAM DOWN TO CASTLE ROCK DAM (CASTLE ROCK FLOWAGE)",
+   "contaminants": "PCBs, Dioxin, and PFOS",
+   "advice_type": "Special fish consumption advice",
+   "effective": "1980-04-01",
+   "wbic": "1376100, 5024942, 1345700, 1179900"
+  },
+  {
    "name": "Lake Mohawksin, Wisconsin River, and Somo River",
    "description": "WISCONSIN RIVER AT LAKE MOHAWKSIN",
    "contaminants": "PFOS",
@@ -226,6 +316,7 @@
   "BERLIN": 1,
   "BOWLER": 1,
   "BRADLEY TN": 1,
+  "CAMERON TN": 1,
   "CLEVELAND TN": 2,
   "EDGAR": 2,
   "ELAND": 1,
@@ -237,35 +328,49 @@
   "GILMAN": 1,
   "GREEN VALLEY": 1,
   "HANNIBAL": 1,
+  "HANSEN TN": 1,
+  "HAZELHURST": 1,
   "HULL": 1,
   "LINWOOD TN": 1,
   "MAPLE GROVE TN": 2,
   "MARATHON": 3,
   "MARATHON CITY": 2,
+  "MARSHFIELD": 8,
   "MEDFORD": 4,
   "MERRILL": 1,
+  "MINOCQUA": 2,
+  "MONICO": 1,
   "MOSINEE": 2,
+  "NEKOOSA": 1,
+  "PITTSVILLE": 1,
   "PLOVER": 1,
   "PORTAGE": 1,
+  "RHINELANDER": 9,
   "RIB FALLS TN": 1,
   "RIB LAKE": 1,
+  "RICHFIELD": 1,
   "RINGLE": 1,
   "ROTHSCHILD": 1,
+  "SENECA": 1,
   "SENECA TN": 1,
   "SHAWANO": 3,
   "SHAWANO CTY": 2,
   "SPENCER TN": 1,
+  "STARKS": 1,
   "STETSONVILLE": 1,
   "STETTIN": 1,
   "STEVENS POINT": 16,
   "STRATFORD": 1,
+  "SUGAR CAMP": 2,
+  "THREE LAKES": 2,
   "TOMAHAWK": 2,
-  "TRIPOLI": 1,
+  "TRIPOLI": 2,
   "UNITY": 1,
   "WAUSAU": 19,
   "WEIN": 1,
-  "WISCONSIN RAPIDS": 1,
-  "WITTENBERG VIL": 1
+  "WISCONSIN RAPIDS": 12,
+  "WITTENBERG VIL": 1,
+  "WOODRUFF": 1
  },
  "data_notes": {
   "dws": "DNR DWS portal data, current as of ~10 p.m. the prior day.",
