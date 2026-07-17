@@ -440,7 +440,8 @@ button.linklike:hover { color: var(--black); }
 
 .county-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  /* six counties read as 3 x 2, not a five-and-orphan auto-fill row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 4px;
 }
