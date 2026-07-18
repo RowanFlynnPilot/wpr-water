@@ -194,8 +194,23 @@ h3 {
 .chip.rust { background: var(--danger); color: #fff; }
 .chip.gray { background: var(--line-soft); color: var(--ink-soft); }
 
-.loading, .error { padding: 40px 0; text-align: center; color: var(--ink-soft); font-style: italic; }
+.loading, .error { padding: 40px 0 16px; text-align: center; color: var(--ink-soft); font-style: italic; }
 .error { color: var(--danger); font-style: normal; }
+
+.skeleton {
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  margin-bottom: 14px;
+  background: linear-gradient(100deg, var(--wash) 40%, #fdfcfa 50%, var(--wash) 60%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
 
 button.linklike {
   font: inherit;
@@ -539,6 +554,19 @@ summary {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--black);
+}
+
+@media print {
+  .tabs, .alert-banner, .search-input, .sys-select, .quick-links,
+  .scroll-hint, .result-list, .chart-tip { display: none !important; }
+  button.linklike { text-decoration: none; color: inherit; }
+  .app { max-width: none; padding: 0; }
+  body { font-size: 12px; }
+  .panel, .remed-card, .county-cell, .viol-stat, .analyte-cell {
+    border-color: #bbb;
+    break-inside: avoid;
+  }
+  .note, .note.warn { background: none; border: 1px solid #bbb; border-left-width: 3px; }
 }
 
 @media (max-width: 560px) {

@@ -46,6 +46,25 @@ export default function App() {
     if (window.location.hash !== want) window.history.replaceState(null, '', want)
   }, [tab, systemId])
 
+  // Land at the top of each view instead of inheriting the last one's scroll.
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [tab])
+
+  // Report height to the parent page so a WordPress iframe can auto-size.
+  useEffect(() => {
+    if (window.parent === window) return
+    const post = () =>
+      window.parent.postMessage(
+        { type: 'wpr-water-height', height: document.documentElement.scrollHeight },
+        '*'
+      )
+    const ro = new ResizeObserver(post)
+    ro.observe(document.documentElement)
+    post()
+    return () => ro.disconnect()
+  }, [])
+
   useEffect(() => {
     const onHash = () => {
       const h = parseHash()
@@ -121,7 +140,14 @@ export default function App() {
       </nav>
 
       {error && <div className="error">Could not load data: {error}</div>}
-      {!error && (!summary || !systems) && <div className="loading">Loading water system data…</div>}
+      {!error && (!summary || !systems) && (
+        <div aria-busy="true">
+          <p className="loading">Loading water system data…</p>
+          <div className="skeleton" style={{ height: 130 }} />
+          <div className="skeleton" style={{ height: 220 }} />
+          <div className="skeleton" style={{ height: 90 }} />
+        </div>
+      )}
 
       {summary && systems && (
         <main>

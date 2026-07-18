@@ -104,7 +104,7 @@ function Tooltip({ tip, unit }) {
  *           off-scale lines are reported back via a caption chip.
  * unit: axis label
  */
-export default function TrendChart({ points, series, refLines = [], unit = 'ng/L' }) {
+export default function TrendChart({ points, series, refLines = [], unit = 'ng/L', caption }) {
   const [tip, setTip] = useState(null)
 
   const model = useMemo(() => {
@@ -213,6 +213,12 @@ export default function TrendChart({ points, series, refLines = [], unit = 'ng/L
             <text x={M.left - 9} y={M.top - 10} textAnchor="end" fontSize="10.5" fill="#888" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.06em">
               {unit}
             </text>
+            {/* self-attribution for screenshots */}
+            {caption && (
+              <text x={W - M.right} y={M.top - 10} textAnchor="end" fontSize="9.5" fill="#999" fontFamily="Oswald Variable, sans-serif" letterSpacing="0.06em">
+                {caption}
+              </text>
+            )}
 
             {/* x axis baseline, year ticks + labels */}
             <line x1={M.left} x2={W - M.right} y1={baseline} y2={baseline} stroke="#bbbbbb" strokeWidth="1" />

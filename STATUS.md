@@ -85,6 +85,24 @@ Still skipped (with reasons):
 - **Envirofacts LCR_SAMPLE (lead 90th percentiles)** — stale in SDWIS Fed
   (Wausau ends Oct 2020); revisit only as historical context.
 
+## WordPress embed
+
+The widget posts its rendered height to the parent page. The WP side of
+the iframe embed needs this listener:
+
+```html
+<iframe id="wpr-water" src="https://rowanflynnpilot.github.io/wpr-water/"
+        style="width:100%;border:0" title="What's in the Water?"></iframe>
+<script>
+  addEventListener('message', (e) => {
+    if (e.origin === 'https://rowanflynnpilot.github.io'
+        && e.data?.type === 'wpr-water-height') {
+      document.getElementById('wpr-water').style.height = e.data.height + 'px';
+    }
+  });
+</script>
+```
+
 ## Blockers / needs-human
 
 - UWSP CWSE private-well data is displayed with attribution + disclaimer;

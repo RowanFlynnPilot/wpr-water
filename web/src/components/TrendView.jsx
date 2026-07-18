@@ -82,6 +82,9 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
   }, [systems, systemId])
 
   const system = systems.find((s) => s.pwsid === effectiveId)
+  const chartCaption = system
+    ? `${titleCase(system.name)} · WI DNR data · Wausau Pilot & Review`
+    : undefined
 
   useEffect(() => {
     loadPfasResults().then(setPfasResults).catch((e) => setError(e.message))
@@ -163,6 +166,7 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
               { analyte: 'PFOA', label: 'PFOA', color: '#3a867c' },
               { analyte: 'PFOS', label: 'PFOS', color: '#313131' },
             ]}
+            caption={chartCaption}
             refLines={[
               {
                 value: t.federal_mcl_pfoa.value,
@@ -191,6 +195,7 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
               <TrendChart
                 points={hiPoints}
                 series={[{ analyte: HI_ANALYTE, label: 'Hazard Index', color: '#607d8b' }]}
+                caption={chartCaption}
                 refLines={[
                   { value: t.federal_hazard_index.value, label: 'Hazard Index MCL 1.0 (proposed for rescission, May 2026)' },
                 ]}
@@ -217,6 +222,7 @@ export default function TrendView({ systems, summary, systemId, onSelect }) {
           <TrendChart
             points={mainPoints}
             series={[{ analyte: 'nitrate', label: 'Nitrate (as N)', color: '#3a867c' }]}
+            caption={chartCaption}
             refLines={
               nitrateRef
                 ? [{ value: nitrateRef.value, label: `Federal & Wisconsin MCL ${nitrateRef.value} mg/L` }]

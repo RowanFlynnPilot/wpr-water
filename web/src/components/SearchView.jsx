@@ -24,18 +24,17 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
     [systems, systemId]
   )
 
-  const matches = useMemo(() => {
+  const { matches, matchTotal } = useMemo(() => {
     const q = query.trim().toLowerCase()
-    if (q.length < 2) return []
-    return systems
-      .filter(
-        (s) =>
-          s.name.toLowerCase().includes(q) ||
-          (s.city_served && s.city_served.toLowerCase().includes(q)) ||
-          s.pwsid.toLowerCase().includes(q) ||
-          (s.pws_id_dnr && s.pws_id_dnr.includes(q))
-      )
-      .slice(0, 30)
+    if (q.length < 2) return { matches: [], matchTotal: 0 }
+    const all = systems.filter(
+      (s) =>
+        s.name.toLowerCase().includes(q) ||
+        (s.city_served && s.city_served.toLowerCase().includes(q)) ||
+        s.pwsid.toLowerCase().includes(q) ||
+        (s.pws_id_dnr && s.pws_id_dnr.includes(q))
+    )
+    return { matches: all.slice(0, 30), matchTotal: all.length }
   }, [systems, query])
 
   const quick = useMemo(
@@ -87,6 +86,14 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
                 </p>
               </li>
             )}
+            {matchTotal > matches.length && (
+              <li>
+                <p className="subhead" style={{ marginTop: 8 }}>
+                  Showing the first {matches.length} of {matchTotal} matches — keep typing to
+                  narrow the list.
+                </p>
+              </li>
+            )}
           </ul>
         )}
         {!selected && (
@@ -120,13 +127,20 @@ export default function SearchView({ systems, summary, systemId, onSelect, onSho
       </div>
 
       {selected && (
-        <SystemCard
-          system={selected}
-          thresholds={summary.thresholds}
-          chemReferences={summary.chem_references}
-          cleanupSitesByCity={summary.cleanup_sites_by_city}
-          onShowTrend={onShowTrend}
-        />
+        <>
+          <p style={{ margin: '0 0 10px' }}>
+            <button className="linklike" onClick={() => onSelect(null)}>
+              ← All systems
+            </button>
+          </p>
+          <SystemCard
+            system={selected}
+            thresholds={summary.thresholds}
+            chemReferences={summary.chem_references}
+            cleanupSitesByCity={summary.cleanup_sites_by_city}
+            onShowTrend={onShowTrend}
+          />
+        </>
       )}
     </div>
   )
