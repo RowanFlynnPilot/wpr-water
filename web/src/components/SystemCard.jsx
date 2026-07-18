@@ -373,6 +373,9 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
             {s.echo?.last_formal_action &&
               ` last formal action ${fmtDate(s.echo.last_formal_action)}`}
             .
+            {v.total === 0 &&
+              !v.enforcement &&
+              ' The date survives in EPA’s summary data, but the records behind actions this old are no longer in the federal database — it does not mean the system was sanctioned without cause. DNR holds the fuller history.'}
           </p>
         )}
         <p className="note warn">
