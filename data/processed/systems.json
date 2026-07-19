@@ -3162,14 +3162,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 0.716,
+     "value": 0.725,
      "units": "MG/L",
-     "date": "2025-09-03",
+     "date": "2026-07-15",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-04-08",
     "historic_max": {
      "value": 1.72,
@@ -19138,7 +19138,7 @@
   "editorial": {
    "headline": "Two wells offline in 2022; permanent GAC installed 2025",
    "remediation_status": "treating",
-   "narrative": "Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health advisory levels. Temporary GAC let Well 4 resume pumping later that year. A permanent GAC system was installed in 2025 \u00e2\u20ac\u201d Well 4 began pumping through it in October, with about half the ~$1.8M cost covered by principal forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is expected back in service in 2026.\n",
+   "narrative": "Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health advisory levels. Temporary GAC let Well 4 resume pumping later that year. A permanent GAC system was installed in 2025 \u2014 Well 4 began pumping through it in October, with about half the ~$1.8M cost covered by principal forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is expected back in service in 2026.\n",
    "treatment": "Granular activated carbon",
    "verified_by": null
   }
@@ -19850,7 +19850,7 @@
    "headline": "PFAS above 2022 federal health advisories; pumping adjustments",
    "remediation_status": "managing",
    "narrative": "Mosinee wells tested above EPA's 2022 interim health advisory levels. The city adjusted pumping between wells rather than installing treatment. Verify current approach before launch.\n",
-   "treatment": "Operational management \u00e2\u20ac\u201d verify",
+   "treatment": "Operational management \u2014 verify",
    "verified_by": null
   }
  },
@@ -20080,7 +20080,7 @@
    "headline": "Well shut down in 2022; new treatment facility",
    "remediation_status": "treating",
    "narrative": "Rothschild shut down a municipal well after PFAS was detected in 2022 and moved forward with a new treatment facility expected complete by the end of 2025.\n",
-   "treatment": "Under construction / recently completed \u00e2\u20ac\u201d verify current status",
+   "treatment": "Under construction / recently completed \u2014 verify current status",
    "verified_by": null
   }
  },
@@ -29712,44 +29712,44 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-12-29",
-   "latest_sample_date": "2023-12-29",
-   "n_results": 18,
+   "latest_sample_date": "2026-06-29",
+   "n_results": 37,
    "n_detections": 0,
    "latest": {
     "PFOA": {
      "value": null,
      "units": "NG/L",
-     "date": "2023-12-29",
+     "date": "2026-06-29",
      "qualifier": "Non-detect"
     },
     "PFOS": {
      "value": null,
      "units": "NG/L",
-     "date": "2023-12-29",
+     "date": "2026-06-29",
      "qualifier": "Non-detect"
     },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
-     "date": "2023-12-29",
+     "date": "2026-06-29",
      "qualifier": "Non-detect"
     },
     "PFNA": {
      "value": null,
      "units": "NG/L",
-     "date": "2023-12-29",
+     "date": "2026-06-29",
      "qualifier": "Non-detect"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2023-12-29",
+     "date": "2026-06-29",
      "qualifier": "Non-detect"
     },
     "PFBS": {
      "value": null,
      "units": "NG/L",
-     "date": "2023-12-29",
+     "date": "2026-06-29",
      "qualifier": "Non-detect"
     }
    },
@@ -31384,14 +31384,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 2.47,
+     "value": 11.7,
      "units": "MG/L",
-     "date": "2026-03-24",
+     "date": "2026-07-16",
      "qualifier": "No problem",
-     "sample_source": "Entry Point"
+     "sample_source": "Well"
     },
-    "n_results": 31,
-    "n_detections": 31,
+    "n_results": 33,
+    "n_detections": 33,
     "first_sample_date": "2020-03-12",
     "historic_max": {
      "value": 17.9,
@@ -39973,7 +39973,7 @@
      "analyte": "PFHPA",
      "max_value": 2.6,
      "units": "NG/L",
-     "date": "2023-06-06"
+     "date": "2023-11-28"
     }
    ]
   },
@@ -49008,7 +49008,7 @@
      "analyte": "PFHPA",
      "max_value": 1.1,
      "units": "NG/L",
-     "date": "2024-02-16"
+     "date": "2023-09-19"
     }
    ]
   },
@@ -59647,31 +59647,31 @@
    },
    "lead": {
     "latest": {
-     "value": 110.0,
+     "value": 206.911,
      "units": "UG/L",
-     "date": "2023-07-12",
+     "date": "2026-07-13",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 20,
-    "n_detections": 20,
+    "n_results": 21,
+    "n_detections": 21,
     "first_sample_date": "2020-07-28",
     "historic_max": {
-     "value": 110.0,
+     "value": 206.911,
      "units": "UG/L",
-     "date": "2023-07-12"
+     "date": "2026-07-13"
     }
    },
    "copper": {
     "latest": {
-     "value": 690.0,
+     "value": 201.145,
      "units": "UG/L",
-     "date": "2023-07-12",
+     "date": "2026-07-13",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 20,
-    "n_detections": 20,
+    "n_results": 21,
+    "n_detections": 21,
     "first_sample_date": "2020-07-28",
     "historic_max": {
      "value": 690.0,
