@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-19T16:08:24.975489+00:00",
+ "built_at": "2026-07-26T16:12:37.466872+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1227,
-  "pfas_results": 13326,
-  "chem_results": 13441,
+  "pfas_results": 13459,
+  "chem_results": 13573,
   "violations": 2962
  },
  "counties": {
