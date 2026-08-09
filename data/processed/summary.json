@@ -1,5 +1,5 @@
 {
- "built_at": "2026-07-26T16:12:37.466872+00:00",
+ "built_at": "2026-08-09T15:45:17.450702+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -41,18 +41,18 @@
   }
  },
  "counts": {
-  "systems": 1227,
-  "pfas_results": 13459,
-  "chem_results": 13573,
-  "violations": 2962
+  "systems": 1232,
+  "pfas_results": 13516,
+  "chem_results": 13889,
+  "violations": 2917
  },
  "counties": {
   "Langlade": {
-   "systems": 112,
+   "systems": 117,
    "sampled_for_pfas": 4,
    "with_pfas_detections": 2,
-   "with_unresolved_violations": 25,
-   "population_served": 19206,
+   "with_unresolved_violations": 26,
+   "population_served": 19356,
    "population_pfas_sampled": 8472,
    "private_wells": {
     "nitrate": {
@@ -72,8 +72,8 @@
    "systems": 98,
    "sampled_for_pfas": 10,
    "with_pfas_detections": 9,
-   "with_unresolved_violations": 15,
-   "population_served": 19051,
+   "with_unresolved_violations": 16,
+   "population_served": 19050,
    "population_pfas_sampled": 14444,
    "private_wells": {
     "nitrate": {
@@ -90,11 +90,11 @@
    }
   },
   "Marathon": {
-   "systems": 195,
+   "systems": 196,
    "sampled_for_pfas": 46,
-   "with_pfas_detections": 37,
+   "with_pfas_detections": 38,
    "with_unresolved_violations": 34,
-   "population_served": 103465,
+   "population_served": 103490,
    "population_pfas_sampled": 95389,
    "private_wells": {
     "nitrate": {
@@ -111,11 +111,11 @@
    }
   },
   "Oneida": {
-   "systems": 348,
+   "systems": 347,
    "sampled_for_pfas": 24,
    "with_pfas_detections": 12,
    "with_unresolved_violations": 35,
-   "population_served": 40538,
+   "population_served": 40498,
    "population_pfas_sampled": 13631,
    "private_wells": {
     "nitrate": {
@@ -132,11 +132,11 @@
    }
   },
   "Portage": {
-   "systems": 149,
+   "systems": 148,
    "sampled_for_pfas": 21,
    "with_pfas_detections": 11,
-   "with_unresolved_violations": 16,
-   "population_served": 50373,
+   "with_unresolved_violations": 13,
+   "population_served": 50348,
    "population_pfas_sampled": 46686,
    "private_wells": {
     "nitrate": {
@@ -153,11 +153,11 @@
    }
   },
   "Shawano": {
-   "systems": 116,
+   "systems": 117,
    "sampled_for_pfas": 18,
    "with_pfas_detections": 7,
-   "with_unresolved_violations": 25,
-   "population_served": 24374,
+   "with_unresolved_violations": 21,
+   "population_served": 24399,
    "population_pfas_sampled": 20791,
    "private_wells": {
     "nitrate": {
@@ -177,7 +177,7 @@
    "systems": 60,
    "sampled_for_pfas": 9,
    "with_pfas_detections": 4,
-   "with_unresolved_violations": 15,
+   "with_unresolved_violations": 13,
    "population_served": 10796,
    "population_pfas_sampled": 7273,
    "private_wells": {
@@ -198,7 +198,7 @@
    "systems": 149,
    "sampled_for_pfas": 25,
    "with_pfas_detections": 16,
-   "with_unresolved_violations": 24,
+   "with_unresolved_violations": 23,
    "population_served": 58534,
    "population_pfas_sampled": 48447,
    "private_wells": {
