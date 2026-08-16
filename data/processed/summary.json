@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-09T15:45:17.450702+00:00",
+ "built_at": "2026-08-16T15:31:03.646219+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1232,
-  "pfas_results": 13516,
-  "chem_results": 13889,
+  "pfas_results": 13611,
+  "chem_results": 13948,
   "violations": 2917
  },
  "counties": {
@@ -234,14 +234,6 @@
    "wbic": "1018600"
   },
   {
-   "name": "Starks Creek",
-   "description": "Starks Creek (upstream to and including Starks Spring",
-   "contaminants": "PFOS",
-   "advice_type": "Special fish consumption advice",
-   "effective": "2025-08-26",
-   "wbic": "1572400, 1573700"
-  },
-  {
    "name": "WISCONSIN RIVER ABOVE THE HAT RAPIDS DAM (HAT RAPIDS FLOWAGE)",
    "description": "WISCONSIN RIVER ABOVE THE HAT RAPIDS DAM (HAT RAPIDS FLOWAGE)",
    "contaminants": "PFOS",
@@ -313,7 +305,6 @@
   "ANTIGO": 10,
   "ATHENS": 1,
   "BANCROFT": 1,
-  "BERLIN": 1,
   "BOWLER": 1,
   "BRADLEY TN": 1,
   "CAMERON TN": 1,
