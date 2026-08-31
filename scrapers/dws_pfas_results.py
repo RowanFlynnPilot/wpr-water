@@ -93,26 +93,37 @@ def _datatables_params(
     return params
 
 
+# (connect, read): the portal answers a connect in ~1s when it answers at all,
+# so a slow connect means this runner's IP is being dropped — give up on it
+# quickly. Reads still get a long budget; length=-1 pulls are genuinely slow.
+TIMEOUT = (30, 300)
+
+
 def fetch_county(county_code: str, contam_codes, sample_date_start: str) -> list[dict]:
-    # The DNR portal is intermittently unreachable (overnight maintenance);
-    # retry connection failures a few times before failing loud.
+    # One quick retry covers a momentary blip. It cannot cure a blocked runner
+    # IP (the retry reuses it), which is why weekly.yml schedules further
+    # attempts on fresh runners instead.
     last_exc: Exception | None = None
-    for attempt in range(3):
+    for attempt in range(2):
         if attempt:
-            time.sleep(90)
+            time.sleep(30)
         try:
             response = requests.post(
                 API_URL,
                 data=_datatables_params(county_code, contam_codes, sample_date_start),
                 headers={"User-Agent": USER_AGENT, "X-Requested-With": "XMLHttpRequest"},
-                timeout=300,
+                timeout=TIMEOUT,
             )
             break
         except requests.exceptions.ConnectionError as exc:
             print(f"county {county_code}: connection attempt {attempt + 1} failed: {exc}")
             last_exc = exc
     else:
-        raise RuntimeError(f"county {county_code}: DNR portal unreachable") from last_exc
+        raise RuntimeError(
+            f"county {county_code}: apps.dnr.wi.gov unreachable from this runner. "
+            "The portal silently drops connections from part of the GitHub Actions "
+            "IP pool; re-running on a fresh runner normally succeeds."
+        ) from last_exc
     response.raise_for_status()
     payload = response.json()
     rows = payload["data"]
