@@ -2,10 +2,13 @@ name: deploy-pages
 on:
   push:
     branches: [master]
-  schedule:
-    - cron: "0 17 * * 0"  # Sundays 17:00 UTC — two hours after weekly-data-refresh
-                          # (15:00), whose GITHUB_TOKEN push cannot trigger this
-                          # workflow
+  # weekly-data-refresh pushes with GITHUB_TOKEN, which cannot trigger a push
+  # event — but workflow_run still fires. This publishes the moment a refresh
+  # lands, whichever of its staggered attempts succeeded, instead of guessing
+  # an hour offset.
+  workflow_run:
+    workflows: ["weekly-data-refresh"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -19,6 +22,8 @@ concurrency:
 
 jobs:
   build:
+    # Don't publish after a refresh that failed; the last good data stays live.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
