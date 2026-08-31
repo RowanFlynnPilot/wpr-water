@@ -103,6 +103,29 @@ the iframe embed needs this listener:
 </script>
 ```
 
+## Known operational issue: DNR portal vs. GitHub Actions IPs
+
+`apps.dnr.wi.gov` silently drops TCP connects from part of the GitHub
+Actions (Azure) IP pool. Diagnosed 2026-08-30 after 3 of 6 scheduled runs
+failed:
+
+- the portal answers fine from a normal connection (200 in ~1.4s) while a
+  runner times out at connect;
+- failures and successes overlap in time (15:26 UTC succeeded, 15:27
+  failed), so it is not a maintenance window;
+- **re-running the identical failed job on a fresh runner succeeds.**
+
+So the retry has to be a *new run*, not an in-process retry (which reuses
+the blocked IP). `weekly.yml` schedules three staggered Sunday attempts
+(15:00 / 18:00 / 21:00 UTC); a guard job skips later attempts when the
+data is already fresh, so DNR sees one pull per week in the normal case.
+Failure issues open only after the last attempt; a success closes them.
+`pages.yml` publishes on `workflow_run` completion of the refresh, so the
+site updates whichever attempt won.
+
+If it ever fails all three: re-run the job (`gh run rerun <id> --failed`)
+— that alone usually fixes it.
+
 ## Blockers / needs-human
 
 - UWSP CWSE private-well data is displayed with attribution + disclaimer;
@@ -116,6 +139,16 @@ the iframe embed needs this listener:
 - News peg: EPA hearing July 7, comment period closes July 20, 2026.
 
 ## Session log
+
+- **2026-08-30** — Weekly refresh failures root-caused (Claude Code). Not
+  our code and not a portal outage: DNR drops connects from part of the
+  Actions IP pool (see above). Data was 2 weeks stale (last good build
+  Aug 16); re-ran on a fresh runner → success, live data now current
+  (1,232 systems, 13,744 PFAS results). Fixes: staggered retry attempts
+  on fresh runners with a skip-if-fresh guard, connect timeout 300s → 30s
+  (blocked runner now fails in ~90s, not ~20min), alert only after the
+  final attempt, successes auto-close prior failure issues, Pages
+  publishes on refresh completion rather than a fixed hour offset.
 
 - **2026-07-16** — Coverage expanded to 8 counties (Claude Code): Oneida
   (code 44) and Wood (72) added across all scrapers, advisory envelope
