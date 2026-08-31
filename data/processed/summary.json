@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-16T15:31:03.646219+00:00",
+ "built_at": "2026-08-31T04:10:06.251468+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1232,
-  "pfas_results": 13611,
-  "chem_results": 13948,
+  "pfas_results": 13744,
+  "chem_results": 14139,
   "violations": 2917
  },
  "counties": {
@@ -326,9 +326,9 @@
   "MAPLE GROVE TN": 2,
   "MARATHON": 3,
   "MARATHON CITY": 2,
-  "MARSHFIELD": 8,
+  "MARSHFIELD": 9,
   "MEDFORD": 4,
-  "MERRILL": 1,
+  "MERRILL": 2,
   "MINOCQUA": 2,
   "MONICO": 1,
   "MOSINEE": 2,
@@ -357,7 +357,7 @@
   "TOMAHAWK": 2,
   "TRIPOLI": 2,
   "UNITY": 1,
-  "WAUSAU": 19,
+  "WAUSAU": 20,
   "WEIN": 1,
   "WISCONSIN RAPIDS": 12,
   "WITTENBERG VIL": 1,
