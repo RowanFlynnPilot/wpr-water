@@ -140,6 +140,22 @@ If it ever fails all three: re-run the job (`gh run rerun <id> --failed`)
 
 ## Session log
 
+- **2026-08-31** — "What the data shows" findings view added (Claude Code).
+  The tool was a lookup tool: its most newsworthy facts were invisible
+  unless you already knew which system to search. New second tab ranks
+  what the records actually say — 16 systems whose latest PFAS sample is
+  above the 4.0 ng/L federal limit (75,258 people served), 8 current
+  nitrate exceedances, 12 never-tested systems serving 500+. Computed in
+  the frontend from systems.json; no pipeline change.
+  **Newsroom verification needed before promotion** — the top rows name
+  real entities: 3M Greystone Plant Wausau (PFOS 400 ng/L, PFOA 290, Apr
+  8 2026 compliance samples — 100× the federal limit), Pine River School
+  for Young Learners Merrill (PFOS 66, 145 children), Tomahawk Waterworks
+  (PFOA 21, flat since 2024, 3,180 residents), Mosinee East (PFOS 31).
+  All labeled as sample-vs-reference, never as violations, per policy.
+  Note: EPA Hazard Index >1.0 occurs in zero systems here, so the
+  proposed HI rescission has no local exceedance angle — don't claim one.
+
 - **2026-08-30** — Weekly refresh failures root-caused (Claude Code). Not
   our code and not a portal outage: DNR drops connects from part of the
   Actions IP pool (see above). Data was 2 weeks stale (last good build

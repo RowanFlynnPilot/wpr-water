@@ -81,6 +81,9 @@ export function titleCase(s) {
     .replace(/\b[a-z]/g, (c) => c.toUpperCase())
     .replace(/\bOf\b/g, 'of')
     .replace(/\bAnd\b/g, 'and')
+    // "3M CO" lowercases to "3m co"; no word boundary sits between a digit
+    // and the letter, so restore it explicitly.
+    .replace(/(\d)([a-z])\b/g, (_, d, c) => d + c.toUpperCase())
     .replace(/\bLlc\b/g, 'LLC')
     .replace(/\bMhp\b/g, 'MHP')
     .replace(/\bDnr\b/g, 'DNR')

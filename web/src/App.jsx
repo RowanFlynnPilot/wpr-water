@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { loadSummary, loadSystems } from './api.js'
 import SearchView from './components/SearchView.jsx'
+import FindingsView from './components/FindingsView.jsx'
 import TrendView from './components/TrendView.jsx'
 import CountyView from './components/CountyView.jsx'
 import RemediationView from './components/RemediationView.jsx'
@@ -10,6 +11,7 @@ import wordmarkUrl from './assets/wpr-wordmark.png'
 
 const TABS = [
   { id: 'search', label: "What's in my water?" },
+  { id: 'findings', label: 'What the data shows' },
   { id: 'trends', label: 'Trend charts' },
   { id: 'counties', label: 'County board' },
   { id: 'remediation', label: 'Remediation tracker' },
@@ -157,6 +159,14 @@ export default function App() {
               summary={summary}
               systemId={systemId}
               onSelect={(id) => setSystemId(id)}
+              onShowTrend={(id) => goTo('trends', id)}
+            />
+          )}
+          {tab === 'findings' && (
+            <FindingsView
+              systems={systems}
+              summary={summary}
+              onOpenSystem={(id) => goTo('search', id)}
               onShowTrend={(id) => goTo('trends', id)}
             />
           )}
