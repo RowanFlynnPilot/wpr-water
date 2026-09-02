@@ -168,7 +168,8 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
             The EPA PFAS Hazard Index is a unitless combined measure for PFHxS, PFNA, HFPO-DA
             (GenX) and PFBS, computed by DNR. Its federal limit of 1.0 — along with the
             individual limits for those first three compounds — was{' '}
-            <strong>proposed for rescission on May 18, 2026</strong>. These{' '}
+            <strong>proposed for rescission on May 18, 2026</strong>. DNR began reporting the
+            index in January 2026, so every result on record falls in this year. These{' '}
             {f.hazardOver.length} systems have recorded results above it.
           </p>
           <div className="table-scroll">
@@ -180,7 +181,7 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
                   <th className="num">Serves</th>
                   <th className="num">Highest index</th>
                   <th>Recorded</th>
-                  <th className="num">Latest</th>
+                  <th className="num">Most recent result</th>
                 </tr>
               </thead>
               <tbody>
@@ -196,12 +197,25 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
                       {max.value}
                     </td>
                     <td>{fmtDate(max.date)}</td>
-                    <td className="num mono">{l?.value ?? '—'}</td>
+                    <td className="num mono">
+                      {l?.value != null ? l.value : 'non-detect'}
+                      {l?.date && (
+                        <div className="result-meta">{fmtDate(l.date)}</div>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          <p className="note warn">
+            A system samples each entry point to its distribution system separately, and the most
+            recent result may come from a <em>different</em> entry point than the one that ran
+            high — a later non-detect does not necessarily mean the elevated source was
+            re-tested. Rib Mountain&rsquo;s 2.60 was one of four entry points sampled on March 12,
+            2026; that entry point has no newer result on record. Open each system&rsquo;s trend
+            chart for the per-entry-point picture.
+          </p>
         </div>
       )}
 
