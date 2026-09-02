@@ -2,6 +2,7 @@ import {
   KEY_ANALYTES,
   ANALYTE_LABELS,
   CHEM_LABELS,
+  HAZARD_INDEX,
   RESCISSION_ANALYTES,
   SOURCE_LABELS,
   VIOLATION_CATEGORY_LABELS,
@@ -210,6 +211,30 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
                 and PFOS (April 2024 rule; compliance deadline 2029, proposed extension to 2031)
               </div>
             </div>
+            {(() => {
+              const hi = p.latest?.[HAZARD_INDEX]
+              const hiMax = p.historic_max?.[HAZARD_INDEX]
+              if (!hi && !hiMax) return null
+              const shown = hi?.value ?? hiMax?.value
+              const over = (hiMax?.value ?? 0) > 1
+              return (
+                <p className={over ? 'note warn' : 'note'}>
+                  <strong>EPA PFAS Hazard Index:</strong>{' '}
+                  <span className="mono">
+                    {hi?.value != null ? hi.value : `<1 (latest)`}
+                  </span>
+                  {hiMax?.value != null && hi?.value !== hiMax.value && (
+                    <> · highest recorded <span className="mono">{hiMax.value}</span> ({fmtDate(hiMax.date)})</>
+                  )}
+                  {' — '}
+                  {over
+                    ? 'above the federal Hazard Index of 1.0.'
+                    : 'the federal Hazard Index is 1.0.'}{' '}
+                  A unitless combined measure for PFHxS, PFNA, HFPO-DA (GenX) and PFBS. This
+                  standard was <strong>proposed for rescission on May 18, 2026</strong>.
+                </p>
+              )
+            })()}
             {p.other_detections && p.other_detections.length > 0 && (
               <p className="subhead" style={{ marginTop: 2 }}>
                 Also detected at least once:{' '}

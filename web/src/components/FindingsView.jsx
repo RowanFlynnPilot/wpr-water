@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { fmtDate, fmtNum, titleCase, typeLabel } from '../format.js'
+import { HAZARD_INDEX, fmtDate, fmtNum, titleCase, typeLabel } from '../format.js'
 
 const FEDERAL_MCL = 4.0
 const NITRATE_MCL = 10
@@ -35,6 +35,15 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
       .filter(({ w }) => w && w.value > FEDERAL_MCL)
       .sort((a, b) => b.w.value - a.w.value)
 
+    const hazardOver = sampled
+      .map((s) => ({
+        s,
+        max: s.pfas?.historic_max?.[HAZARD_INDEX],
+        latest: s.pfas?.latest?.[HAZARD_INDEX],
+      }))
+      .filter(({ max }) => (max?.value ?? 0) > 1)
+      .sort((a, b) => b.max.value - a.max.value)
+
     const nitrateOver = systems
       .filter((s) => (s.chem?.nitrate?.latest?.value ?? 0) > NITRATE_MCL)
       .sort((a, b) => b.chem.nitrate.latest.value - a.chem.nitrate.latest.value)
@@ -44,6 +53,7 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
       .sort((a, b) => (b.population ?? 0) - (a.population ?? 0))
 
     return {
+      hazardOver,
       overMcl,
       overMclPop: overMcl.reduce((n, { s }) => n + (s.population ?? 0), 0),
       nitrateOver,
@@ -150,6 +160,50 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
           figure counts the people who drink from that tap during the day, not households.
         </p>
       </div>
+
+      {f.hazardOver.length > 0 && (
+        <div className="panel">
+          <h3>Above the standard EPA has proposed to rescind</h3>
+          <p className="subhead">
+            The EPA PFAS Hazard Index is a unitless combined measure for PFHxS, PFNA, HFPO-DA
+            (GenX) and PFBS, computed by DNR. Its federal limit of 1.0 — along with the
+            individual limits for those first three compounds — was{' '}
+            <strong>proposed for rescission on May 18, 2026</strong>. These{' '}
+            {f.hazardOver.length} systems have recorded results above it.
+          </p>
+          <div className="table-scroll">
+            <table className="board">
+              <thead>
+                <tr>
+                  <th>System</th>
+                  <th>County</th>
+                  <th className="num">Serves</th>
+                  <th className="num">Highest index</th>
+                  <th>Recorded</th>
+                  <th className="num">Latest</th>
+                </tr>
+              </thead>
+              <tbody>
+                {f.hazardOver.map(({ s, max, latest: l }) => (
+                  <tr key={s.pwsid}>
+                    <td>
+                      <SystemLink s={s} onOpenSystem={onOpenSystem} />
+                      <div className="result-meta">{typeLabel(s)}</div>
+                    </td>
+                    <td>{s.county}</td>
+                    <td className="num mono">{fmtNum(s.population)}</td>
+                    <td className="num mono" style={{ color: '#cf2e2e', fontWeight: 700 }}>
+                      {max.value}
+                    </td>
+                    <td>{fmtDate(max.date)}</td>
+                    <td className="num mono">{l?.value ?? '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {f.nitrateOver.length > 0 && (
         <div className="panel">

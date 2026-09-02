@@ -153,8 +153,18 @@ If it ever fails all three: re-run the job (`gh run rerun <id> --failed`)
   for Young Learners Merrill (PFOS 66, 145 children), Tomahawk Waterworks
   (PFOA 21, flat since 2024, 3,180 residents), Mosinee East (PFOS 31).
   All labeled as sample-vs-reference, never as violations, per policy.
-  Note: EPA Hazard Index >1.0 occurs in zero systems here, so the
-  proposed HI rescission has no local exceedance angle — don't claim one.
+- **2026-08-31 (correction)** — The "zero Hazard Index exceedances" claim
+  above was WRONG, caused by a silent transform bug: KEY_ANALYTES held
+  "PFAS Hazard Index" while DNR's ContamDesc is "EPA PFAS HAZARD INDEX",
+  so the index never landed in latest/historic_max and instead fell into
+  other_detections — where 27 system cards rendered a unitless index as a
+  detected concentration in ng/L. Fixed, plus a build-time guard that
+  raises if any KEY_ANALYTES string is absent from the DNR results.
+  **Three systems have exceeded the Hazard Index of 1.0**: 3M Greystone
+  Plant 6.52, Rib Mountain Water Utility 2.60 (municipal, 6,398 served),
+  Pine River School 2.10. So the proposed rescission DOES have a local
+  angle — findings view now has a section for it, and system cards show
+  the index with its rescission label.
 
 - **2026-08-30** — Weekly refresh failures root-caused (Claude Code). Not
   our code and not a portal outage: DNR drops connects from part of the

@@ -1,5 +1,8 @@
 export const KEY_ANALYTES = ['PFOA', 'PFOS', 'PFHXS', 'PFNA', 'HFPO-DA', 'PFBS']
 
+// DNR's computed index. Unitless — never render it with a concentration unit.
+export const HAZARD_INDEX = 'EPA PFAS HAZARD INDEX'
+
 export const ANALYTE_LABELS = {
   PFOA: 'PFOA',
   PFOS: 'PFOS',

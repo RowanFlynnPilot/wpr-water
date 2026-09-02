@@ -34,7 +34,10 @@ PROCESSED = Path("data/processed")
 EDITORIAL_PATH = Path("data/editorial.yaml")
 
 # Key analytes surfaced on system cards. Order = display order.
-KEY_ANALYTES = ["PFOA", "PFOS", "PFAS Hazard Index", "PFHXS", "PFNA", "HFPO-DA", "PFBS"]
+# These strings must match DNR's ContamDesc exactly — a near-miss silently
+# drops the analyte out of latest/historic_max and into other_detections.
+HAZARD_INDEX = "EPA PFAS HAZARD INDEX"  # unitless computed index, not a concentration
+KEY_ANALYTES = ["PFOA", "PFOS", HAZARD_INDEX, "PFHXS", "PFNA", "HFPO-DA", "PFBS"]
 
 # DWS chem pull: portal contaminant code -> canonical key (order = display order)
 CHEM_KEYS = {"1040": "nitrate", "1005": "arsenic", "1030": "lead", "1022": "copper"}
@@ -306,6 +309,16 @@ def main() -> None:
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
 
     results = [parse_result(r) for r in raw_results]
+
+    # A KEY_ANALYTES string that doesn't match DNR's ContamDesc fails silently:
+    # the analyte drops out of latest/historic_max and reappears in
+    # other_detections. Catch the drift here instead of in the widget.
+    seen = {r["analyte"] for r in results}
+    missing = [a for a in KEY_ANALYTES if a not in seen]
+    if missing:
+        raise RuntimeError(
+            f"key analytes absent from DNR results — name drift? {missing}"
+        )
 
     results_by_pwsid: dict[str, list[dict]] = defaultdict(list)
     for r in results:

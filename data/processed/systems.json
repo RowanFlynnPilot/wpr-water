@@ -6542,6 +6542,12 @@
      "date": "2026-05-27",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-27",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -10770,6 +10776,12 @@
      "date": "2026-03-04",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.11,
+     "units": null,
+     "date": "2026-03-04",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.1,
      "units": "NG/L",
@@ -10806,6 +10818,11 @@
      "units": "NG/L",
      "date": "2023-12-06"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.11,
+     "units": null,
+     "date": "2026-03-04"
+    },
     "PFHXS": {
      "value": 1.6,
      "units": "NG/L",
@@ -10829,12 +10846,6 @@
      "analyte": "PFHPA",
      "max_value": 6.2,
      "units": "NG/L",
-     "date": "2026-03-04"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.11,
-     "units": null,
      "date": "2026-03-04"
     }
    ]
@@ -11041,6 +11052,12 @@
      "units": "NG/L",
      "date": "2026-05-18",
      "qualifier": "Between LOD and LOQ"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-18",
+     "qualifier": "Non-detect"
     },
     "PFHXS": {
      "value": null,
@@ -12409,6 +12426,12 @@
      "date": "2026-06-09",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 2.1,
+     "units": null,
+     "date": "2026-06-09",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 16.0,
      "units": "NG/L",
@@ -12445,6 +12468,11 @@
      "units": "NG/L",
      "date": "2025-09-15"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 2.1,
+     "units": null,
+     "date": "2026-06-09"
+    },
     "PFHXS": {
      "value": 23.0,
      "units": "NG/L",
@@ -12480,12 +12508,6 @@
      "max_value": 4.6,
      "units": "NG/L",
      "date": "2025-09-15"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 2.1,
-     "units": null,
-     "date": "2026-06-09"
     }
    ]
   },
@@ -13805,6 +13827,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-05-07",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-05-07",
      "qualifier": "Non-detect"
     },
@@ -18950,6 +18978,12 @@
      "date": "2026-05-12",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-12",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -19163,6 +19197,12 @@
      "date": "2026-08-12",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.32,
+     "units": null,
+     "date": "2026-08-12",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 3.2,
      "units": "NG/L",
@@ -19198,6 +19238,11 @@
      "value": 47.4,
      "units": "NG/L",
      "date": "2022-05-05"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.51,
+     "units": null,
+     "date": "2026-05-11"
     },
     "PFHXS": {
      "value": 28.1,
@@ -19258,12 +19303,6 @@
      "max_value": 0.663,
      "units": "NG/L",
      "date": "2022-06-02"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.51,
-     "units": null,
-     "date": "2026-05-11"
     }
    ]
   },
@@ -19405,7 +19444,7 @@
   "editorial": {
    "headline": "Two wells offline in 2022; permanent GAC installed 2025",
    "remediation_status": "treating",
-   "narrative": "Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health advisory levels. Temporary GAC let Well 4 resume pumping later that year. A permanent GAC system was installed in 2025 \u2014 Well 4 began pumping through it in October, with about half the ~$1.8M cost covered by principal forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is expected back in service in 2026.\n",
+   "narrative": "Weston took Wells 3 and 4 offline in 2022 after PFAS exceeded state health advisory levels. Temporary GAC let Well 4 resume pumping later that year. A permanent GAC system was installed in 2025 \u00e2\u20ac\u201d Well 4 began pumping through it in October, with about half the ~$1.8M cost covered by principal forgiveness under the state's Safe Drinking Water Loan Program. Well 3 is expected back in service in 2026.\n",
    "treatment": "Granular activated carbon",
    "verified_by": null
   }
@@ -19671,6 +19710,12 @@
      "date": "2026-05-26",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-26",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -19707,6 +19752,11 @@
      "units": "NG/L",
      "date": "2026-03-12"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 2.6,
+     "units": null,
+     "date": "2026-03-12"
+    },
     "PFHXS": {
      "value": 27.0,
      "units": "NG/L",
@@ -19725,12 +19775,6 @@
      "max_value": 11.0,
      "units": "NG/L",
      "date": "2025-09-24"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 2.6,
-     "units": null,
-     "date": "2026-03-12"
     },
     {
      "analyte": "PFHPA",
@@ -20117,7 +20161,7 @@
    "headline": "PFAS above 2022 federal health advisories; pumping adjustments",
    "remediation_status": "managing",
    "narrative": "Mosinee wells tested above EPA's 2022 interim health advisory levels. The city adjusted pumping between wells rather than installing treatment. Verify current approach before launch.\n",
-   "treatment": "Operational management \u2014 verify",
+   "treatment": "Operational management \u00e2\u20ac\u201d verify",
    "verified_by": null
   }
  },
@@ -20149,6 +20193,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-07-14",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-07-14",
      "qualifier": "Non-detect"
     },
@@ -20347,7 +20397,7 @@
    "headline": "Well shut down in 2022; new treatment facility",
    "remediation_status": "treating",
    "narrative": "Rothschild shut down a municipal well after PFAS was detected in 2022 and moved forward with a new treatment facility expected complete by the end of 2025.\n",
-   "treatment": "Under construction / recently completed \u2014 verify current status",
+   "treatment": "Under construction / recently completed \u00e2\u20ac\u201d verify current status",
    "verified_by": null
   }
  },
@@ -20700,6 +20750,12 @@
      "date": "2026-03-24",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.48,
+     "units": null,
+     "date": "2026-03-24",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 4.8,
      "units": "NG/L",
@@ -20736,6 +20792,11 @@
      "units": "NG/L",
      "date": "2025-09-29"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.48,
+     "units": null,
+     "date": "2026-03-24"
+    },
     "PFHXS": {
      "value": 6.3,
      "units": "NG/L",
@@ -20760,12 +20821,6 @@
      "max_value": 2.7,
      "units": "NG/L",
      "date": "2025-09-29"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.48,
-     "units": null,
-     "date": "2026-03-24"
     }
    ]
   },
@@ -21007,6 +21062,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-03-23",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-03-23",
      "qualifier": "Non-detect"
     },
@@ -21712,6 +21773,12 @@
      "date": "2026-03-19",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.21,
+     "units": null,
+     "date": "2026-03-19",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.5,
      "units": "NG/L",
@@ -21748,6 +21815,11 @@
      "units": "NG/L",
      "date": "2023-05-22"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.21,
+     "units": null,
+     "date": "2026-03-19"
+    },
     "PFHXS": {
      "value": 2.0,
      "units": "NG/L",
@@ -21777,12 +21849,6 @@
      "max_value": 3.1,
      "units": "NG/L",
      "date": "2023-05-22"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.21,
-     "units": null,
-     "date": "2026-03-19"
     }
    ]
   },
@@ -22264,6 +22330,12 @@
      "date": "2026-08-18",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.09,
+     "units": null,
+     "date": "2026-08-18",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 0.95,
      "units": "NG/L",
@@ -22299,6 +22371,11 @@
      "value": 86.0,
      "units": "NG/L",
      "date": "2024-04-22"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.13,
+     "units": null,
+     "date": "2026-02-04"
     },
     "PFHXS": {
      "value": 2.04,
@@ -22365,12 +22442,6 @@
      "max_value": 0.25,
      "units": "NG/L",
      "date": "2022-06-02"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.13,
-     "units": null,
-     "date": "2026-02-04"
     }
    ]
   },
@@ -22795,6 +22866,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-08-18",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-08-18",
      "qualifier": "Non-detect"
     },
@@ -23339,6 +23416,12 @@
      "date": "2026-04-15",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.11,
+     "units": null,
+     "date": "2026-04-15",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.1,
      "units": "NG/L",
@@ -23375,6 +23458,11 @@
      "units": "NG/L",
      "date": "2026-04-15"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.11,
+     "units": null,
+     "date": "2026-04-15"
+    },
     "PFHXS": {
      "value": 1.1,
      "units": "NG/L",
@@ -23387,14 +23475,7 @@
     }
    },
    "latest_combined_pfoa_pfos": 2.06,
-   "other_detections": [
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.11,
-     "units": null,
-     "date": "2026-04-15"
-    }
-   ]
+   "other_detections": []
   },
   "violations": {
    "total": 5,
@@ -24073,6 +24154,12 @@
      "date": "2026-02-04",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-02-04",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -24728,6 +24815,12 @@
      "date": "2026-03-26",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.14,
+     "units": null,
+     "date": "2026-03-26",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.4,
      "units": "NG/L",
@@ -24764,6 +24857,11 @@
      "units": "NG/L",
      "date": "2026-03-26"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.14,
+     "units": null,
+     "date": "2026-03-26"
+    },
     "PFHXS": {
      "value": 1.4,
      "units": "NG/L",
@@ -24787,12 +24885,6 @@
      "analyte": "PFHPA",
      "max_value": 1.5,
      "units": "NG/L",
-     "date": "2026-03-26"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.14,
-     "units": null,
      "date": "2026-03-26"
     }
    ]
@@ -26296,6 +26388,12 @@
      "date": "2026-03-25",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.13,
+     "units": null,
+     "date": "2026-03-25",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.3,
      "units": "NG/L",
@@ -26332,6 +26430,11 @@
      "units": "NG/L",
      "date": "2026-03-25"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.13,
+     "units": null,
+     "date": "2026-03-25"
+    },
     "PFHXS": {
      "value": 1.3,
      "units": "NG/L",
@@ -26349,12 +26452,6 @@
      "analyte": "PFHXA",
      "max_value": 0.81,
      "units": "NG/L",
-     "date": "2026-03-25"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.13,
-     "units": null,
      "date": "2026-03-25"
     }
    ]
@@ -27076,6 +27173,12 @@
      "date": "2026-03-25",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-03-25",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -27448,6 +27551,12 @@
      "date": "2026-05-13",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.35,
+     "units": null,
+     "date": "2026-05-13",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 3.5,
      "units": "NG/L",
@@ -27484,6 +27593,11 @@
      "units": "NG/L",
      "date": "2026-05-13"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.35,
+     "units": null,
+     "date": "2026-05-13"
+    },
     "PFHXS": {
      "value": 3.5,
      "units": "NG/L",
@@ -27507,12 +27621,6 @@
      "analyte": "PFHPA",
      "max_value": 2.5,
      "units": "NG/L",
-     "date": "2026-05-13"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.35,
-     "units": null,
      "date": "2026-05-13"
     }
    ]
@@ -27740,6 +27848,12 @@
      "date": "2026-07-14",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.31,
+     "units": null,
+     "date": "2026-07-14",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 3.1,
      "units": "NG/L",
@@ -27776,6 +27890,11 @@
      "units": "NG/L",
      "date": "2026-02-03"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.35,
+     "units": null,
+     "date": "2026-02-03"
+    },
     "PFHXS": {
      "value": 4.3,
      "units": "NG/L",
@@ -27800,12 +27919,6 @@
      "max_value": 11.0,
      "units": "NG/L",
      "date": "2025-10-14"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.35,
-     "units": null,
-     "date": "2026-02-03"
     }
    ]
   },
@@ -29590,6 +29703,12 @@
      "date": "2026-03-25",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-03-25",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -29835,6 +29954,12 @@
      "date": "2026-07-29",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-07-29",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -30007,6 +30132,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-29",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-29",
      "qualifier": "Non-detect"
     },
@@ -30243,6 +30374,12 @@
      "date": "2026-05-20",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.19,
+     "units": null,
+     "date": "2026-05-20",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.9,
      "units": "NG/L",
@@ -30279,6 +30416,11 @@
      "units": "NG/L",
      "date": "2025-08-07"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.2,
+     "units": null,
+     "date": "2026-02-18"
+    },
     "PFHXS": {
      "value": 2.2,
      "units": "NG/L",
@@ -30303,12 +30445,6 @@
      "max_value": 1.0,
      "units": "NG/L",
      "date": "2025-08-07"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.2,
-     "units": null,
-     "date": "2026-02-18"
     }
    ]
   },
@@ -30543,6 +30679,12 @@
      "date": "2026-04-08",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 6.52,
+     "units": null,
+     "date": "2026-04-08",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 63.0,
      "units": "NG/L",
@@ -30577,6 +30719,11 @@
     "PFOS": {
      "value": 400.0,
      "units": "NG/L",
+     "date": "2026-04-08"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 6.52,
+     "units": null,
      "date": "2026-04-08"
     },
     "PFHXS": {
@@ -30614,12 +30761,6 @@
      "max_value": 20.0,
      "units": "NG/L",
      "date": "2024-03-28"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 6.52,
-     "units": null,
-     "date": "2026-04-08"
     }
    ]
   },
@@ -31725,6 +31866,12 @@
      "date": "2026-06-16",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-06-16",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -32141,6 +32288,12 @@
      "date": "2026-05-13",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.2,
+     "units": null,
+     "date": "2026-05-13",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 2.0,
      "units": "NG/L",
@@ -32177,6 +32330,11 @@
      "units": "NG/L",
      "date": "2026-05-13"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.2,
+     "units": null,
+     "date": "2026-05-13"
+    },
     "PFHXS": {
      "value": 2.2,
      "units": "NG/L",
@@ -32200,12 +32358,6 @@
      "analyte": "PFHPA",
      "max_value": 0.97,
      "units": "NG/L",
-     "date": "2026-05-13"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.2,
-     "units": null,
      "date": "2026-05-13"
     }
    ]
@@ -33141,6 +33293,12 @@
      "date": "2026-05-05",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-05",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -33898,6 +34056,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-08",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-08",
      "qualifier": "Non-detect"
     },
@@ -34669,6 +34833,12 @@
      "units": "NG/L",
      "date": "2026-07-29",
      "qualifier": "Between LOD and LOQ"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-07-29",
+     "qualifier": "Non-detect"
     },
     "PFHXS": {
      "value": null,
@@ -39968,6 +40138,12 @@
      "date": "2026-03-17",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-03-17",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -40228,6 +40404,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-09",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-09",
      "qualifier": "Non-detect"
     },
@@ -40999,6 +41181,12 @@
      "units": "NG/L",
      "date": "2026-08-03",
      "qualifier": "Between LOD and LOQ"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-08-03",
+     "qualifier": "Non-detect"
     },
     "PFHXS": {
      "value": null,
@@ -43818,6 +44006,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-03-30",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-03-30",
      "qualifier": "Non-detect"
     },
@@ -47931,6 +48125,12 @@
      "date": "2026-05-21",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-21",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -48903,6 +49103,12 @@
      "date": "2026-04-09",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-04-09",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -49523,6 +49729,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-04-09",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-04-09",
      "qualifier": "Non-detect"
     },
@@ -53263,6 +53475,12 @@
      "date": "2026-03-23",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.13,
+     "units": null,
+     "date": "2026-03-23",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.3,
      "units": "NG/L",
@@ -53299,6 +53517,11 @@
      "units": "NG/L",
      "date": "2025-09-23"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.13,
+     "units": null,
+     "date": "2026-03-23"
+    },
     "PFHXS": {
      "value": 2.3,
      "units": "NG/L",
@@ -53323,12 +53546,6 @@
      "max_value": 0.83,
      "units": "NG/L",
      "date": "2024-03-20"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.13,
-     "units": null,
-     "date": "2026-03-23"
     }
    ]
   },
@@ -53570,6 +53787,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-04-28",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-04-28",
      "qualifier": "Non-detect"
     },
@@ -54659,6 +54882,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-03-26",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-03-26",
      "qualifier": "Non-detect"
     },
@@ -59138,6 +59367,12 @@
      "date": "2026-08-10",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-08-10",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -59378,6 +59613,12 @@
      "date": "2026-07-14",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.18,
+     "units": null,
+     "date": "2026-07-14",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.8,
      "units": "NG/L",
@@ -59409,6 +59650,11 @@
      "units": "NG/L",
      "date": "2026-05-19"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.22,
+     "units": null,
+     "date": "2026-05-19"
+    },
     "PFHXS": {
      "value": 2.2,
      "units": "NG/L",
@@ -59426,12 +59672,6 @@
      "analyte": "PFHXA",
      "max_value": 0.98,
      "units": "NG/L",
-     "date": "2026-05-19"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.22,
-     "units": null,
      "date": "2026-05-19"
     }
    ]
@@ -60002,6 +60242,12 @@
      "date": "2026-04-15",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-04-15",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -60278,6 +60524,12 @@
      "date": "2026-03-04",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.05,
+     "units": null,
+     "date": "2026-03-04",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 0.5,
      "units": "NG/L",
@@ -60304,6 +60556,11 @@
     }
    },
    "historic_max": {
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.05,
+     "units": null,
+     "date": "2026-03-04"
+    },
     "PFHXS": {
      "value": 0.5,
      "units": "NG/L",
@@ -60311,14 +60568,7 @@
     }
    },
    "latest_combined_pfoa_pfos": 0,
-   "other_detections": [
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.05,
-     "units": null,
-     "date": "2026-03-04"
-    }
-   ]
+   "other_detections": []
   },
   "violations": {
    "total": 5,
@@ -61395,6 +61645,12 @@
      "date": "2026-03-02",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-03-02",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -61662,6 +61918,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-03-25",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-03-25",
      "qualifier": "Non-detect"
     },
@@ -62436,6 +62698,12 @@
      "date": "2026-03-18",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.06,
+     "units": null,
+     "date": "2026-03-18",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -62467,6 +62735,11 @@
      "units": "NG/L",
      "date": "2026-03-18"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.06,
+     "units": null,
+     "date": "2026-03-18"
+    },
     "PFNA": {
      "value": 0.62,
      "units": "NG/L",
@@ -62485,12 +62758,6 @@
      "analyte": "PFHPA",
      "max_value": 0.9,
      "units": "NG/L",
-     "date": "2026-03-18"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.06,
-     "units": null,
      "date": "2026-03-18"
     }
    ]
@@ -63201,6 +63468,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-03-18",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-03-18",
      "qualifier": "Non-detect"
     },
@@ -66346,6 +66619,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-25",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-25",
      "qualifier": "Non-detect"
     },
@@ -69999,6 +70278,12 @@
      "date": "2026-07-22",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.18,
+     "units": null,
+     "date": "2026-07-22",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.2,
      "units": "NG/L",
@@ -70035,6 +70320,11 @@
      "units": "NG/L",
      "date": "2024-03-20"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.18,
+     "units": null,
+     "date": "2026-07-22"
+    },
     "PFHXS": {
      "value": 2.2,
      "units": "NG/L",
@@ -70064,12 +70354,6 @@
      "max_value": 0.71,
      "units": "NG/L",
      "date": "2024-03-20"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.18,
-     "units": null,
-     "date": "2026-07-22"
     }
    ]
   },
@@ -71569,6 +71853,12 @@
      "date": "2026-06-01",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-06-01",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -72788,6 +73078,12 @@
      "date": "2026-04-27",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-04-27",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -73929,6 +74225,12 @@
      "date": "2026-04-22",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-04-22",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -74076,6 +74378,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-01",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-01",
      "qualifier": "Non-detect"
     },
@@ -75915,6 +76223,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-01",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-01",
      "qualifier": "Non-detect"
     },
@@ -82067,6 +82381,12 @@
      "date": "2026-05-12",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-05-12",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -82266,6 +82586,12 @@
      "date": "2026-08-05",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.2,
+     "units": null,
+     "date": "2026-08-05",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 2.0,
      "units": "NG/L",
@@ -82302,6 +82628,11 @@
      "units": "NG/L",
      "date": "2023-05-15"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.2,
+     "units": null,
+     "date": "2026-08-05"
+    },
     "PFHXS": {
      "value": 4.7,
      "units": "NG/L",
@@ -82320,12 +82651,6 @@
      "max_value": 0.57,
      "units": "NG/L",
      "date": "2025-02-26"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.2,
-     "units": null,
-     "date": "2026-08-05"
     }
    ]
   },
@@ -82968,6 +83293,12 @@
      "date": "2026-04-28",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-04-28",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -83538,6 +83869,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-04-14",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-04-14",
      "qualifier": "Non-detect"
     },
@@ -84275,6 +84612,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-23",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-23",
      "qualifier": "Non-detect"
     },
@@ -87187,6 +87530,12 @@
      "date": "2026-07-06",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-07-06",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -87222,6 +87571,11 @@
      "value": 101.0,
      "units": "NG/L",
      "date": "2022-05-31"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.16,
+     "units": null,
+     "date": "2026-03-04"
     },
     "PFHXS": {
      "value": 95.6,
@@ -87288,12 +87642,6 @@
      "max_value": 0.264,
      "units": "NG/L",
      "date": "2022-05-31"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.16,
-     "units": null,
-     "date": "2026-03-04"
     }
    ]
   },
@@ -87652,6 +88000,12 @@
      "date": "2026-07-14",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.23,
+     "units": null,
+     "date": "2026-07-14",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 2.3,
      "units": "NG/L",
@@ -87688,6 +88042,11 @@
      "units": "NG/L",
      "date": "2026-07-14"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.23,
+     "units": null,
+     "date": "2026-07-14"
+    },
     "PFHXS": {
      "value": 2.3,
      "units": "NG/L",
@@ -87711,12 +88070,6 @@
      "analyte": "PFHPA",
      "max_value": 0.72,
      "units": "NG/L",
-     "date": "2026-07-14"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.23,
-     "units": null,
      "date": "2026-07-14"
     }
    ]
@@ -89011,6 +89364,12 @@
      "date": "2026-07-06",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.23,
+     "units": null,
+     "date": "2026-07-06",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 2.3,
      "units": "NG/L",
@@ -89047,6 +89406,11 @@
      "units": "NG/L",
      "date": "2023-08-14"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.23,
+     "units": null,
+     "date": "2026-07-06"
+    },
     "PFHXS": {
      "value": 14.0,
      "units": "NG/L",
@@ -89082,12 +89446,6 @@
      "max_value": 0.4,
      "units": "NG/L",
      "date": "2023-08-14"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.23,
-     "units": null,
-     "date": "2026-07-06"
     }
    ]
   },
@@ -89232,6 +89590,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-03-03",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-03-03",
      "qualifier": "Non-detect"
     },
@@ -90389,6 +90753,12 @@
      "date": "2026-03-18",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.33,
+     "units": null,
+     "date": "2026-03-18",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 3.3,
      "units": "NG/L",
@@ -90425,6 +90795,11 @@
      "units": "NG/L",
      "date": "2023-09-18"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.33,
+     "units": null,
+     "date": "2026-03-18"
+    },
     "PFHXS": {
      "value": 4.8,
      "units": "NG/L",
@@ -90449,12 +90824,6 @@
      "max_value": 0.48,
      "units": "NG/L",
      "date": "2023-09-18"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.33,
-     "units": null,
-     "date": "2026-03-18"
     }
    ]
   },
@@ -90772,6 +91141,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-06-22",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-06-22",
      "qualifier": "Non-detect"
     },
@@ -92519,6 +92894,12 @@
      "date": "2026-03-18",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-03-18",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -92696,6 +93077,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-04-14",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-04-14",
      "qualifier": "Non-detect"
     },
@@ -94066,6 +94453,12 @@
      "date": "2026-03-25",
      "qualifier": "Between LOD and LOQ"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.14,
+     "units": null,
+     "date": "2026-03-25",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.4,
      "units": "NG/L",
@@ -94102,6 +94495,11 @@
      "units": "NG/L",
      "date": "2026-03-25"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.14,
+     "units": null,
+     "date": "2026-03-25"
+    },
     "PFHXS": {
      "value": 1.5,
      "units": "NG/L",
@@ -94114,14 +94512,7 @@
     }
    },
    "latest_combined_pfoa_pfos": 2.4,
-   "other_detections": [
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.14,
-     "units": null,
-     "date": "2026-03-25"
-    }
-   ]
+   "other_detections": []
   },
   "violations": {
    "total": 8,
@@ -94458,6 +94849,12 @@
     "PFOS": {
      "value": null,
      "units": "NG/L",
+     "date": "2026-05-19",
+     "qualifier": "Non-detect"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
      "date": "2026-05-19",
      "qualifier": "Non-detect"
     },
@@ -96535,6 +96932,12 @@
      "date": "2026-04-13",
      "qualifier": "Non-detect"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-04-13",
+     "qualifier": "Non-detect"
+    },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
@@ -97142,6 +97545,12 @@
      "date": "2026-07-26",
      "qualifier": "No problem"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.12,
+     "units": null,
+     "date": "2026-07-26",
+     "qualifier": "No problem"
+    },
     "PFHXS": {
      "value": 1.2,
      "units": "NG/L",
@@ -97178,6 +97587,11 @@
      "units": "NG/L",
      "date": "2026-07-26"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.12,
+     "units": null,
+     "date": "2026-07-26"
+    },
     "PFHXS": {
      "value": 1.2,
      "units": "NG/L",
@@ -97195,12 +97609,6 @@
      "analyte": "PFHXA",
      "max_value": 0.73,
      "units": "NG/L",
-     "date": "2026-07-26"
-    },
-    {
-     "analyte": "EPA PFAS HAZARD INDEX",
-     "max_value": 0.12,
-     "units": null,
      "date": "2026-07-26"
     }
    ]
