@@ -140,6 +140,21 @@ If it ever fails all three: re-run the job (`gh run rerun <id> --failed`)
 
 ## Session log
 
+- **2026-08-31 (late)** — Trend direction added (Claude Code). Transform
+  computes PFOA/PFOS/nitrate direction between the last two sampling
+  rounds (dates within 7 days merge; rounds scored by max across entry
+  points; a change must clear 20% AND 0.5 ng/L to leave "steady"). If the
+  entry point that produced the prior high wasn't sampled in the latest
+  round the label is "not re-sampled" — this caught Rib Mountain, whose
+  59→<LOD would otherwise have read as "falling" when the 59's entry
+  point simply wasn't re-tested. Findings view: Direction column on the
+  above-limit table + a "Getting worse, getting better" section; cards
+  show the direction line. **Editorial heads-up: Wausau PFOA is rising in
+  2026 (4.7 → 7.0, Jan → May)** — the 12.0→6.5 "treatment working" arc is
+  true across three years but the current direction is up. Weston is
+  genuinely falling (PFOS 18 → 12, Aug). 3M Greystone and Pine River
+  School are both rising.
+
 - **2026-08-31 (evening)** — Robustness + already-collected data surfaced
   (Claude Code). Transform now refuses to publish if any count drops >25%
   vs the previous build, a county vanishes, or zero fish advisories match

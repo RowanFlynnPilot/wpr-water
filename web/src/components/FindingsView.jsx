@@ -1,5 +1,27 @@
 import { useMemo } from 'react'
-import { HAZARD_INDEX, fmtDate, fmtNum, titleCase, typeLabel } from '../format.js'
+import {
+  DIRECTION,
+  HAZARD_INDEX,
+  fmtDate,
+  fmtMonthYear,
+  fmtNum,
+  fmtTrendValue,
+  titleCase,
+  typeLabel,
+} from '../format.js'
+
+function Direction({ trend }) {
+  if (!trend) return <span className="result-meta">—</span>
+  const d = DIRECTION[trend.direction]
+  return (
+    <span
+      style={{ color: d.color, fontWeight: 700, whiteSpace: 'nowrap' }}
+      title={`${fmtTrendValue(trend.prior_value)} → ${fmtTrendValue(trend.latest_value)} (${fmtMonthYear(trend.prior_date)} → ${fmtMonthYear(trend.latest_date)}), highest result per sampling round`}
+    >
+      {d.arrow} {d.label}
+    </span>
+  )
+}
 
 const FEDERAL_MCL = 4.0
 const NITRATE_MCL = 10
@@ -48,6 +70,19 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
       .filter((s) => (s.chem?.nitrate?.latest?.value ?? 0) > NITRATE_MCL)
       .sort((a, b) => b.chem.nitrate.latest.value - a.chem.nitrate.latest.value)
 
+    // Direction between the last two sampling rounds, PFOA or PFOS.
+    const withTrend = sampled.flatMap((s) =>
+      ['PFOA', 'PFOS']
+        .filter((a) => s.pfas?.trend?.[a])
+        .map((a) => ({ s, analyte: a, tr: s.pfas.trend[a] }))
+    )
+    const rising = withTrend
+      .filter(({ tr }) => tr.direction === 'rising' && (tr.latest_value ?? 0) >= 2)
+      .sort((a, b) => (b.tr.latest_value ?? 0) - (a.tr.latest_value ?? 0))
+    const falling = withTrend
+      .filter(({ tr }) => tr.direction === 'falling' && (tr.prior_value ?? 0) >= FEDERAL_MCL)
+      .sort((a, b) => (b.tr.prior_value ?? 0) - (a.tr.prior_value ?? 0))
+
     const leadCopper = systems
       .filter((s) => s.echo && (s.echo.pb_ale || s.echo.cu_ale))
       .sort((a, b) => (b.population ?? 0) - (a.population ?? 0))
@@ -59,6 +94,8 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
     return {
       hazardOver,
       leadCopper,
+      rising,
+      falling,
       overMcl,
       overMclPop: overMcl.reduce((n, { s }) => n + (s.population ?? 0), 0),
       nitrateOver,
@@ -122,6 +159,7 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
                 <th>Serves</th>
                 <th className="num">Latest result</th>
                 <th className="num">× the limit</th>
+                <th>Direction</th>
                 <th>Sampled</th>
                 <th className="num">Highest ever</th>
               </tr>
@@ -141,6 +179,9 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
                       {w.value} <span style={{ fontSize: 11 }}>{w.analyte}</span>
                     </td>
                     <td className="num mono">{Math.round(w.value / FEDERAL_MCL)}×</td>
+                    <td>
+                      <Direction trend={s.pfas?.trend?.[w.analyte]} />
+                    </td>
                     <td>{fmtDate(w.date)}</td>
                     <td className="num mono">
                       {hist ? `${hist.value}` : '—'}
@@ -165,6 +206,65 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
           figure counts the people who drink from that tap during the day, not households.
         </p>
       </div>
+
+      {(f.rising.length > 0 || f.falling.length > 0) && (
+        <div className="panel">
+          <h3>Getting worse, getting better</h3>
+          <p className="subhead">
+            Direction between each system&rsquo;s last two sampling rounds, scored by the highest
+            result across entry points in each round. A change has to be both 20% and at least
+            0.5 ng/L to count — smaller moves read as steady. Rising results are shown where the
+            latest is at least 2 ng/L; falling results where the prior round was above the federal
+            limit.
+          </p>
+          <p className="scroll-hint" aria-hidden="true">
+            swipe sideways to see the full table →
+          </p>
+          <div className="table-scroll">
+            <table className="board">
+              <thead>
+                <tr>
+                  <th>System</th>
+                  <th>County</th>
+                  <th>Analyte</th>
+                  <th className="num">Prior → latest (ng/L)</th>
+                  <th>Rounds</th>
+                  <th>Direction</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...f.rising, ...f.falling].map(({ s, analyte, tr }) => (
+                  <tr key={`${s.pwsid}-${analyte}`}>
+                    <td>
+                      <SystemLink s={s} onOpenSystem={onOpenSystem} />
+                      <div className="result-meta">{typeLabel(s)}</div>
+                    </td>
+                    <td>{s.county}</td>
+                    <td>{analyte}</td>
+                    <td className="num mono">
+                      {fmtTrendValue(tr.prior_value)} → {fmtTrendValue(tr.latest_value)}
+                    </td>
+                    <td>
+                      {fmtMonthYear(tr.prior_date)} → {fmtMonthYear(tr.latest_date)}
+                    </td>
+                    <td>
+                      <Direction trend={tr} />{' '}
+                      <button className="linklike" onClick={() => onShowTrend(s.pwsid)}>
+                        chart
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="note">
+            Two rounds is a direction, not a verdict. Open the chart before drawing conclusions —
+            a single entry point coming back online, a seasonal swing, or a switched source can
+            move one round on its own.
+          </p>
+        </div>
+      )}
 
       {f.hazardOver.length > 0 && (
         <div className="panel">

@@ -113,6 +113,78 @@ def parse_result(row: dict) -> dict:
     }
 
 
+# Direction between the last two sampling rounds. Dates within ROUND_DAYS
+# merge into one round (systems sample entry points on consecutive days);
+# each round is scored by its highest result across entry points — the same
+# convention the trend chart uses. A change must clear both a ratio and an
+# absolute floor to count, so lab noise reads as "steady".
+ROUND_DAYS = 7
+RISE_RATIO, FALL_RATIO, MIN_ABS_CHANGE = 1.2, 0.8, 0.5
+
+
+def trend_direction(rows: list[dict]) -> dict | None:
+    from datetime import date as _date
+    if not rows:
+        return None
+    by_date: dict[str, list] = defaultdict(list)
+    for r in rows:
+        by_date[r["date"]].append((r["value"], r["source_id"]))
+    rounds: list[list[str]] = []
+    for d in sorted(by_date):
+        if rounds and (_date.fromisoformat(d) - _date.fromisoformat(rounds[-1][-1])).days <= ROUND_DAYS:
+            rounds[-1].append(d)
+        else:
+            rounds.append([d])
+    if len(rounds) < 2:
+        return None
+
+    def round_info(dates, only_eps=None):
+        """(max value, entry point of that max, entry points sampled) for a round."""
+        best_v, best_ep, eps = None, None, set()
+        for d in dates:
+            for v, ep in by_date[d]:
+                eps.add(ep)
+                if only_eps is not None and ep not in only_eps:
+                    continue
+                if v is not None and (best_v is None or v > best_v):
+                    best_v, best_ep = v, ep
+        return best_v, best_ep, eps
+
+    p_v, p_ep, p_eps = round_info(rounds[-2])
+    l_v, _, l_eps = round_info(rounds[-1])
+    # Rounds don't always sample the same entry points. If the entry point
+    # that produced the prior round's high wasn't sampled again, no direction
+    # can honestly be claimed — the elevated source simply wasn't re-tested.
+    shared = p_eps & l_eps
+    if (p_v is not None and p_ep not in l_eps) or not shared:
+        return {
+            "direction": "unresampled",
+            "latest_value": l_v, "latest_date": rounds[-1][-1],
+            "prior_value": p_v, "prior_date": rounds[-2][-1],
+            "prior_entry_point": p_ep,
+        }
+    # Compare like with like: the highest result over the shared entry points.
+    prior, _, _ = round_info(rounds[-2], shared)
+    latest, _, _ = round_info(rounds[-1], shared)
+    if latest is None and prior is None:
+        direction = "steady"
+    elif latest is None:
+        direction = "falling"
+    elif prior is None:
+        direction = "rising"
+    elif latest >= prior * RISE_RATIO and latest - prior >= MIN_ABS_CHANGE:
+        direction = "rising"
+    elif latest <= prior * FALL_RATIO and prior - latest >= MIN_ABS_CHANGE:
+        direction = "falling"
+    else:
+        direction = "steady"
+    return {
+        "direction": direction,
+        "latest_value": latest, "latest_date": rounds[-1][-1],
+        "prior_value": prior, "prior_date": rounds[-2][-1],
+    }
+
+
 def summarize_pfas(results: list[dict]) -> dict:
     """Per-system PFAS block: latest and max per key analyte, combined PFOA+PFOS."""
     by_analyte: dict[str, list[dict]] = defaultdict(list)
@@ -171,6 +243,10 @@ def summarize_pfas(results: list[dict]) -> dict:
         "historic_max": historic_max,
         "latest_combined_pfoa_pfos": combined,
         "other_detections": other_detections,
+        "trend": {
+            a: t for a in ("PFOA", "PFOS")
+            if (t := trend_direction(by_analyte.get(a, []))) is not None
+        },
     }
 
 
@@ -202,6 +278,10 @@ def summarize_chem(rows: list[dict]) -> dict:
             entry["historic_max"] = {
                 "value": top["value"], "units": top["units"], "date": top["date"],
             }
+        if key == "nitrate":
+            t = trend_direction(krows)
+            if t:
+                entry["trend"] = t
         block[key] = entry
     return block
 

@@ -2,7 +2,10 @@ import {
   KEY_ANALYTES,
   ANALYTE_LABELS,
   CHEM_LABELS,
+  DIRECTION,
   HAZARD_INDEX,
+  fmtMonthYear,
+  fmtTrendValue,
   RESCISSION_ANALYTES,
   SOURCE_LABELS,
   VIOLATION_CATEGORY_LABELS,
@@ -211,6 +214,36 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
                 and PFOS (April 2024 rule; compliance deadline 2029, proposed extension to 2031)
               </div>
             </div>
+            {p.trend && Object.keys(p.trend).length > 0 && (
+              <p className="subhead" style={{ marginTop: 4 }}>
+                {['PFOA', 'PFOS']
+                  .filter((a) => p.trend[a])
+                  .map((a) => {
+                    const tr = p.trend[a]
+                    const d = DIRECTION[tr.direction]
+                    return (
+                      <span key={a} style={{ marginRight: 18, whiteSpace: 'nowrap' }}>
+                        <strong>{a}</strong>{' '}
+                        <span style={{ color: d.color, fontWeight: 700 }}>
+                          {d.arrow} {d.label}
+                        </span>{' '}
+                        <span className="mono">
+                          {fmtTrendValue(tr.prior_value)} → {fmtTrendValue(tr.latest_value)}
+                        </span>{' '}
+                        <span style={{ fontSize: 12 }}>
+                          ({fmtMonthYear(tr.prior_date)} → {fmtMonthYear(tr.latest_date)}
+                          {tr.direction === 'unresampled' &&
+                            `; the ${fmtTrendValue(tr.prior_value)} was entry point ${tr.prior_entry_point ?? 'unspecified'}, not sampled in the latest round`}
+                          )
+                        </span>
+                      </span>
+                    )
+                  })}
+                <span className="help" title="Direction between the last two sampling rounds, using the highest result across entry points in each. A change must be both 20% and 0.5 ng/L to count; smaller moves read as steady.">
+                  how this is judged
+                </span>
+              </p>
+            )}
             {(() => {
               const hi = p.latest?.[HAZARD_INDEX]
               const hiMax = p.historic_max?.[HAZARD_INDEX]

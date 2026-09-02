@@ -3,6 +3,18 @@ export const KEY_ANALYTES = ['PFOA', 'PFOS', 'PFHXS', 'PFNA', 'HFPO-DA', 'PFBS']
 // DNR's computed index. Unitless — never render it with a concentration unit.
 export const HAZARD_INDEX = 'EPA PFAS HAZARD INDEX'
 
+// Direction between the last two sampling rounds (see transform for the
+// noise floor). Colors: rising = site red, falling = teal, steady = muted.
+export const DIRECTION = {
+  rising: { arrow: '↑', label: 'rising', color: '#cf2e2e' },
+  falling: { arrow: '↓', label: 'falling', color: '#2b655d' },
+  steady: { arrow: '→', label: 'steady', color: '#666666' },
+  // the entry point that produced the prior high was not sampled again
+  unresampled: { arrow: '?', label: 'not re-sampled', color: '#b98a2e' },
+}
+
+export const fmtTrendValue = (v) => (v == null ? '<LOD' : String(v))
+
 export const ANALYTE_LABELS = {
   PFOA: 'PFOA',
   PFOS: 'PFOS',
