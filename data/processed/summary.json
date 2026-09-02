@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-02T01:47:01.922249+00:00",
+ "built_at": "2026-09-02T02:17:46.774329+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -66,7 +66,8 @@
      "samples": 1540,
      "positive_pct": 12.66
     }
-   }
+   },
+   "pfas_sites": 1
   },
   "Lincoln": {
    "systems": 98,
@@ -87,7 +88,8 @@
      "samples": 1240,
      "positive_pct": 13.79
     }
-   }
+   },
+   "pfas_sites": 0
   },
   "Marathon": {
    "systems": 196,
@@ -108,7 +110,8 @@
      "samples": 758,
      "positive_pct": 22.03
     }
-   }
+   },
+   "pfas_sites": 3
   },
   "Oneida": {
    "systems": 347,
@@ -129,7 +132,8 @@
      "samples": 2799,
      "positive_pct": 9.47
     }
-   }
+   },
+   "pfas_sites": 3
   },
   "Portage": {
    "systems": 148,
@@ -150,7 +154,8 @@
      "samples": 16018,
      "positive_pct": 14.27
     }
-   }
+   },
+   "pfas_sites": 0
   },
   "Shawano": {
    "systems": 117,
@@ -171,7 +176,8 @@
      "samples": 1485,
      "positive_pct": 15.69
     }
-   }
+   },
+   "pfas_sites": 0
   },
   "Taylor": {
    "systems": 60,
@@ -192,7 +198,8 @@
      "samples": 4494,
      "positive_pct": 24.81
     }
-   }
+   },
+   "pfas_sites": 0
   },
   "Wood": {
    "systems": 149,
@@ -213,7 +220,8 @@
      "samples": 4342,
      "positive_pct": 12.92
     }
-   }
+   },
+   "pfas_sites": 0
   }
  },
  "fish_advisories": [
@@ -296,6 +304,92 @@
    "advice_type": "Special fish consumption advice",
    "effective": null,
    "wbic": "1077700, 1179900, 1515400, 1515800, 1546900, 1554900, 4000008, 5520946, 5521436"
+  }
+ ],
+ "pfas_sites": [
+  {
+   "name": "Wagner Oil Spill",
+   "county": "Langlade",
+   "sources": "Firefighting Foam",
+   "media": "Groundwater, Soil",
+   "drinking_water_affected": "NO",
+   "status": "OPEN",
+   "notes": null,
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=577387",
+   "wtm_x": 585214.0,
+   "wtm_y": 507077.0
+  },
+  {
+   "name": "3M - WAUSAU GREYSTONE QUARRY",
+   "county": "Marathon",
+   "sources": "Unknown",
+   "media": "Groundwater",
+   "drinking_water_affected": "NO",
+   "status": "OPEN",
+   "notes": null,
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=596321",
+   "wtm_x": 548165.5,
+   "wtm_y": 504402.41
+  },
+  {
+   "name": "Mid-State Landfill (SF NPL)",
+   "county": "Marathon",
+   "sources": "Landfill",
+   "media": "Groundwater",
+   "drinking_water_affected": "NO",
+   "status": "OPEN",
+   "notes": "PFOA and PFOS, less than 40 ppt",
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=210252",
+   "wtm_x": 516818.22,
+   "wtm_y": 486097.05
+  },
+  {
+   "name": "Wausau Business Incubator",
+   "county": "Marathon",
+   "sources": "Unknown",
+   "media": "Groundwater,   Soil",
+   "drinking_water_affected": "NO",
+   "status": "OPEN",
+   "notes": "Soil from Ph2, so proceeded with GW.  May be off-site source",
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=587081",
+   "wtm_x": 548695.18,
+   "wtm_y": 497093.64
+  },
+  {
+   "name": "Rhinelander Landfill",
+   "county": "Oneida",
+   "sources": "Landfill",
+   "media": "Groundwater, Leachate",
+   "drinking_water_affected": "NO",
+   "status": "OPEN",
+   "notes": null,
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=200967",
+   "wtm_x": 567659.61,
+   "wtm_y": 572606.62
+  },
+  {
+   "name": "Rhinelander Municipal Well 7",
+   "county": "Oneida",
+   "sources": "Unknown",
+   "media": "Drinking Water",
+   "drinking_water_affected": "NO",
+   "status": "OPEN",
+   "notes": null,
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=584094",
+   "wtm_x": 560026.6900000001,
+   "wtm_y": 572796.98
+  },
+  {
+   "name": "Town of Stella",
+   "county": "Oneida",
+   "sources": "Unknown",
+   "media": "Drinking Water, Groundwater",
+   "drinking_water_affected": "YES",
+   "status": "OPEN",
+   "notes": null,
+   "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=591257",
+   "wtm_x": 580601.33,
+   "wtm_y": 576890.47
   }
  ],
  "cleanup_sites_by_city": {

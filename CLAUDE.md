@@ -54,6 +54,7 @@ python -m transforms.build_water
 | DNR EM_PFAS ArcGIS (layers 801/803) | PFOS fish consumption advisory designations | ~Annual revisions | GET, envelope query |
 | UWSP CWSE AGOL | Private-well county aggregates (nitrate, coliform; since 1985, voluntary samples) | ~Annual | GET, FeatureServer |
 | DNR RR Sites ArcGIS (layer 101) | Open BRRTS cleanup activities (no substance field — never present as PFAS-specific) | Nightly | GET, LIKE on county-encoded BRRTS no. |
+| DNR EM_PFAS ArcGIS (layer 1) | Open PFAS-specific sites: contamination source, media, DNR's drinking-water-affected flag, BOTW link (county from its activity no.) | Nightly | GET, envelope query |
 
 Lead/copper DWS results are individual tap samples; compliance is a 90th-
 percentile determination — always carry that caveat. UWSP display requires

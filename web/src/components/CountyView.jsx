@@ -71,6 +71,11 @@ export default function CountyView({ systems, summary, onOpenSystem }) {
                   <span>unresolved viol.</span>{' '}
                   <span className="mono">{d.with_unresolved_violations}</span>
                 </div>
+                {d.pfas_sites != null && (
+                  <div className="c-line" title="Open PFAS contamination sites under DNR investigation (EM_PFAS)">
+                    <span>PFAS sites (DNR)</span> <span className="mono">{d.pfas_sites}</span>
+                  </div>
+                )}
               </div>
             )
           })}

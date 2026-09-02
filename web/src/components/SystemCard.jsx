@@ -298,6 +298,26 @@ export default function SystemCard({ system: s, thresholds, chemReferences, clea
             </span>
           </p>
         )}
+        {s.echo && (s.echo.pb_ale || s.echo.cu_ale) && (
+          <p>
+            {s.echo.pb_ale && <span className="chip rust">Lead action level exceeded</span>}{' '}
+            {s.echo.cu_ale && <span className="chip rust">Copper action level exceeded</span>}{' '}
+            <span className="threshold-note">
+              EPA&rsquo;s current record shows this system&rsquo;s 90th-percentile tap result
+              above the action level — the trigger for corrosion control and public education
+              under the Lead and Copper Rule.
+            </span>
+          </p>
+        )}
+        {s.echo?.significant_deficiencies > 0 && (
+          <p className="subhead">
+            <strong>{s.echo.significant_deficiencies}</strong> significant{' '}
+            {s.echo.significant_deficiencies === 1 ? 'deficiency' : 'deficiencies'} found at the
+            last sanitary survey
+            {s.echo.last_sanitary_survey && ` (${fmtDate(s.echo.last_sanitary_survey)})`}, per
+            EPA&rsquo;s record.
+          </p>
+        )}
         {v.total === 0 ? (
           <p className="subhead">No violations on record for this system in EPA&rsquo;s SDWIS database.</p>
         ) : (

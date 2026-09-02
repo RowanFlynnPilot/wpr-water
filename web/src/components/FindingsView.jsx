@@ -48,12 +48,17 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
       .filter((s) => (s.chem?.nitrate?.latest?.value ?? 0) > NITRATE_MCL)
       .sort((a, b) => b.chem.nitrate.latest.value - a.chem.nitrate.latest.value)
 
+    const leadCopper = systems
+      .filter((s) => s.echo && (s.echo.pb_ale || s.echo.cu_ale))
+      .sort((a, b) => (b.population ?? 0) - (a.population ?? 0))
+
     const untested = systems
       .filter((s) => s.active && !s.pfas?.sampled && (s.population ?? 0) >= 500)
       .sort((a, b) => (b.population ?? 0) - (a.population ?? 0))
 
     return {
       hazardOver,
+      leadCopper,
       overMcl,
       overMclPop: overMcl.reduce((n, { s }) => n + (s.population ?? 0), 0),
       nitrateOver,
@@ -260,6 +265,101 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
               </tbody>
             </table>
           </div>
+        </div>
+      )}
+
+      {f.leadCopper.length > 0 && (
+        <div className="panel">
+          <h3>Lead or copper action level exceeded</h3>
+          <p className="subhead">
+            EPA&rsquo;s current record flags these systems&rsquo; 90th-percentile tap results
+            above the Lead and Copper Rule action levels (15 µg/L lead, 1,300 µg/L copper) —
+            the trigger for corrosion control and public education. An action level is not an
+            MCL, but it is the closest thing federal law has to a lead limit at the tap.
+          </p>
+          <p className="scroll-hint" aria-hidden="true">
+            swipe sideways to see the full table →
+          </p>
+          <div className="table-scroll">
+            <table className="board">
+              <thead>
+                <tr>
+                  <th>System</th>
+                  <th>County</th>
+                  <th className="num">Serves</th>
+                  <th>Exceeded</th>
+                  <th>Last sanitary survey</th>
+                </tr>
+              </thead>
+              <tbody>
+                {f.leadCopper.map((s) => (
+                  <tr key={s.pwsid}>
+                    <td>
+                      <SystemLink s={s} onOpenSystem={onOpenSystem} />
+                      <div className="result-meta">{typeLabel(s)}</div>
+                    </td>
+                    <td>{s.county}</td>
+                    <td className="num mono">{fmtNum(s.population)}</td>
+                    <td>
+                      {s.echo.pb_ale && <span className="chip rust">Lead</span>}{' '}
+                      {s.echo.cu_ale && <span className="chip rust">Copper</span>}
+                    </td>
+                    <td>{s.echo.last_sanitary_survey ? fmtDate(s.echo.last_sanitary_survey) : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {summary.pfas_sites && summary.pfas_sites.length > 0 && (
+        <div className="panel">
+          <h3>PFAS contamination sites under DNR investigation</h3>
+          <p className="subhead">
+            DNR&rsquo;s open PFAS sites in the coverage area, with the contamination source as
+            DNR records it. These are the places the chemicals came <em>from</em>; the water
+            systems above are where they show up.
+          </p>
+          <p className="scroll-hint" aria-hidden="true">
+            swipe sideways to see the full table →
+          </p>
+          <div className="table-scroll">
+            <table className="board">
+              <thead>
+                <tr>
+                  <th>Site</th>
+                  <th>County</th>
+                  <th>Source</th>
+                  <th>Media affected</th>
+                  <th>Drinking water affected?</th>
+                </tr>
+              </thead>
+              <tbody>
+                {summary.pfas_sites.map((site) => (
+                  <tr key={`${site.county}-${site.name}`}>
+                    <td>
+                      {site.botw_url ? (
+                        <a href={site.botw_url} target="_blank" rel="noreferrer">
+                          {site.name}
+                        </a>
+                      ) : (
+                        site.name
+                      )}
+                    </td>
+                    <td>{site.county}</td>
+                    <td>{site.sources || '—'}</td>
+                    <td>{site.media || '—'}</td>
+                    <td>{site.drinking_water_affected || '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="note">
+            Source: DNR EM_PFAS map service, open sites layer; each site links to its DNR BRRTS
+            record. &ldquo;Drinking water affected&rdquo; is DNR&rsquo;s own flag.
+          </p>
         </div>
       )}
 

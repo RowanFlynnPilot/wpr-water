@@ -57,6 +57,7 @@ jobs:
       - run: python -m scrapers.dws_pfas_results
       - run: python -m scrapers.dws_chem_results
       - run: python -m scrapers.dnr_fish_advisories
+      - run: python -m scrapers.dnr_pfas_sites
       - run: python -m scrapers.echo_sdwa
       - run: python -m scrapers.uwsp_private_wells
       - run: python -m scrapers.dnr_brrts_sites

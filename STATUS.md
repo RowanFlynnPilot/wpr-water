@@ -140,6 +140,21 @@ If it ever fails all three: re-run the job (`gh run rerun <id> --failed`)
 
 ## Session log
 
+- **2026-08-31 (evening)** — Robustness + already-collected data surfaced
+  (Claude Code). Transform now refuses to publish if any count drops >25%
+  vs the previous build, a county vanishes, or zero fish advisories match
+  (the Hazard Index bug was a silent name-drift; these guard the other
+  silent-failure paths). ECHO fields we already pulled but never showed:
+  lead/copper action-level exceedances (9 systems — incl. Maple Grove
+  Charter and Northwood Elementary for LEAD, Pelican Elementary for
+  copper) and significant deficiencies at last sanitary survey (109
+  systems). New source: DNR EM_PFAS open PFAS-sites layer (7 in our
+  counties; Town of Stella flagged drinking-water-affected; "Rhinelander
+  Municipal Well 7" is itself a listed site). Findings view gains
+  lead/copper and PFAS-sites sections; cards show ALE chips + deficiency
+  line; county cards show PFAS site counts. Census ACS scouted for a
+  private-well-share stat — API returned non-JSON without a key; parked.
+
 - **2026-08-31** — "What the data shows" findings view added (Claude Code).
   The tool was a lookup tool: its most newsworthy facts were invisible
   unless you already knew which system to search. New second tab ranks

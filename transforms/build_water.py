@@ -243,6 +243,8 @@ def summarize_echo(row: dict) -> dict:
         "last_informal_action": _echo_date(row["SDWDateLastIea"]),
         "pb_ale": row["PbAle"],
         "cu_ale": row["CuAle"],
+        "significant_deficiencies": int(row.get("SignificantDeficiencyCount") or 0),
+        "last_sanitary_survey": _echo_date(row.get("DateLastSansurvey")),
     }
 
 
@@ -304,6 +306,7 @@ def main() -> None:
     raw_enforcement = json.loads((RAW / "sdwis_enforcement.json").read_text())
     raw_private_wells = json.loads((RAW / "uwsp_private_wells.json").read_text())
     raw_brrts = json.loads((RAW / "dnr_brrts_sites.json").read_text())
+    raw_pfas_sites = json.loads((RAW / "dnr_pfas_sites.json").read_text())
     sdwis_systems = json.loads((RAW / "sdwis_water_systems.json").read_text())
     raw_violations = json.loads((RAW / "sdwis_violations.json").read_text())
     editorial = yaml.safe_load(EDITORIAL_PATH.read_text()) or {}
@@ -386,7 +389,8 @@ def main() -> None:
             # systems are dead payload weight.
             if (echo["serious_violator"] or echo["qtrs_with_vio"] > 0
                     or echo["last_formal_action"] or echo["last_informal_action"]
-                    or echo["pb_ale"] or echo["cu_ale"]):
+                    or echo["pb_ale"] or echo["cu_ale"]
+                    or echo["significant_deficiencies"] > 0):
                 record["echo"] = echo
         enf = summarize_enforcement(enforcement_by_pwsid.get(pid, []))
         if enf:
@@ -475,6 +479,13 @@ def main() -> None:
         if county in county_rollup:
             county_rollup[county]["private_wells"] = block
 
+    # DNR's PFAS-specific open sites (EM_PFAS layer 1), already county-filtered.
+    for county in county_rollup:
+        county_rollup[county]["pfas_sites"] = sum(
+            1 for s in raw_pfas_sites if s["county"] == county
+        )
+    pfas_sites = sorted(raw_pfas_sites, key=lambda s: (s["county"], s["name"] or ""))
+
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
         "thresholds": THRESHOLDS,
@@ -487,6 +498,7 @@ def main() -> None:
         },
         "counties": dict(sorted(county_rollup.items())),
         "fish_advisories": advisory_list,
+        "pfas_sites": pfas_sites,
         # Open DNR cleanup activities (BRRTS layer 101) by city — all activity
         # types, not PFAS-specific; the layer carries no substance field.
         "cleanup_sites_by_city": dict(sorted(
@@ -501,6 +513,24 @@ def main() -> None:
             "non_detects": "Non-detect results carry value null; qualifier and LOD are preserved.",
         },
     }
+
+    # Sanity guard: a scraper that silently returns a fraction of the data
+    # (schema drift, partial response) must not overwrite a good build.
+    if not advisory_list:
+        raise RuntimeError("zero PFAS fish advisories matched — ROI_SUBTYPE drift?")
+    prev_path = PROCESSED / "summary.json"
+    if prev_path.exists():
+        prev = json.loads(prev_path.read_text())
+        for key, new in summary["counts"].items():
+            old = prev.get("counts", {}).get(key)
+            if old and new < old * 0.75:
+                raise RuntimeError(
+                    f"{key} dropped from {old} to {new} (>25%) vs the previous build "
+                    "— refusing to publish; check the scrapers"
+                )
+        vanished = set(prev.get("counties", {})) - set(county_rollup)
+        if vanished:
+            raise RuntimeError(f"counties vanished vs the previous build: {sorted(vanished)}")
 
     PROCESSED.mkdir(parents=True, exist_ok=True)
     (PROCESSED / "pfas_results.json").write_text(json.dumps(results))

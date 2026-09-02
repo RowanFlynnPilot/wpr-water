@@ -1,0 +1,86 @@
+[
+ {
+  "name": "3M - WAUSAU GREYSTONE QUARRY",
+  "county": "Marathon",
+  "sources": "Unknown",
+  "media": "Groundwater",
+  "drinking_water_affected": "NO",
+  "status": "OPEN",
+  "notes": null,
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=596321",
+  "wtm_x": 548165.5,
+  "wtm_y": 504402.41
+ },
+ {
+  "name": "Town of Stella",
+  "county": "Oneida",
+  "sources": "Unknown",
+  "media": "Drinking Water, Groundwater",
+  "drinking_water_affected": "YES",
+  "status": "OPEN",
+  "notes": null,
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=591257",
+  "wtm_x": 580601.33,
+  "wtm_y": 576890.47
+ },
+ {
+  "name": "Rhinelander Municipal Well 7",
+  "county": "Oneida",
+  "sources": "Unknown",
+  "media": "Drinking Water",
+  "drinking_water_affected": "NO",
+  "status": "OPEN",
+  "notes": null,
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=584094",
+  "wtm_x": 560026.6900000001,
+  "wtm_y": 572796.98
+ },
+ {
+  "name": "Mid-State Landfill (SF NPL)",
+  "county": "Marathon",
+  "sources": "Landfill",
+  "media": "Groundwater",
+  "drinking_water_affected": "NO",
+  "status": "OPEN",
+  "notes": "PFOA and PFOS, less than 40 ppt",
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=210252",
+  "wtm_x": 516818.22,
+  "wtm_y": 486097.05
+ },
+ {
+  "name": "Rhinelander Landfill",
+  "county": "Oneida",
+  "sources": "Landfill",
+  "media": "Groundwater, Leachate",
+  "drinking_water_affected": "NO",
+  "status": "OPEN",
+  "notes": null,
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=200967",
+  "wtm_x": 567659.61,
+  "wtm_y": 572606.62
+ },
+ {
+  "name": "Wagner Oil Spill",
+  "county": "Langlade",
+  "sources": "Firefighting Foam",
+  "media": "Groundwater, Soil",
+  "drinking_water_affected": "NO",
+  "status": "OPEN",
+  "notes": null,
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=577387",
+  "wtm_x": 585214.0,
+  "wtm_y": 507077.0
+ },
+ {
+  "name": "Wausau Business Incubator",
+  "county": "Marathon",
+  "sources": "Unknown",
+  "media": "Groundwater,   Soil",
+  "drinking_water_affected": "NO",
+  "status": "OPEN",
+  "notes": "Soil from Ph2, so proceeded with GW.  May be off-site source",
+  "botw_url": "https://apps.dnr.wi.gov/rrbotw/botw-activity-detail?dsn=587081",
+  "wtm_x": 548695.18,
+  "wtm_y": 497093.64
+ }
+]
