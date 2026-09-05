@@ -323,8 +323,10 @@ def summarize_echo(row: dict) -> dict:
         "last_informal_action": _echo_date(row["SDWDateLastIea"]),
         "pb_ale": row["PbAle"],
         "cu_ale": row["CuAle"],
-        "significant_deficiencies": int(row.get("SignificantDeficiencyCount") or 0),
-        "last_sanitary_survey": _echo_date(row.get("DateLastSansurvey")),
+        # Strict keys on purpose: a renamed ECHO field must fail the build,
+        # not quietly become "no deficiencies".
+        "significant_deficiencies": int(row["SignificantDeficiencyCount"] or 0),
+        "last_sanitary_survey": _echo_date(row["DateLastSansurvey"]),
     }
 
 

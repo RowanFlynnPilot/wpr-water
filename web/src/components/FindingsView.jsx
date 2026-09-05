@@ -344,6 +344,7 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
                   <th className="num">Latest (mg/L)</th>
                   <th>Sampled</th>
                   <th className="num">Highest since 2020</th>
+                  <th>Direction</th>
                 </tr>
               </thead>
               <tbody>
@@ -360,6 +361,9 @@ export default function FindingsView({ systems, summary, onOpenSystem, onShowTre
                     </td>
                     <td>{fmtDate(s.chem.nitrate.latest.date)}</td>
                     <td className="num mono">{s.chem.nitrate.historic_max?.value ?? '—'}</td>
+                    <td>
+                      <Direction trend={s.chem.nitrate.trend} />
+                    </td>
                   </tr>
                 ))}
               </tbody>

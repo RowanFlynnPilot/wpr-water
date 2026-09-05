@@ -140,6 +140,20 @@ If it ever fails all three: re-run the job (`gh run rerun <id> --failed`)
 
 ## Session log
 
+- **2026-09-05** — Robustness pass (Claude Code). First automated tests:
+  `tests/test_build_water.py` (10 cases) pins non-detect handling, the
+  join key, and every branch of the trend rule — noise floors, round
+  merging, the "not re-sampled" guard, and that a newly sampled entry
+  point cannot fabricate a rise. `test.yml` runs them on every push that
+  touches transforms/scrapers/tests. Two silent-failure paths closed:
+  the new ECHO fields used `.get()` (a renamed field would have quietly
+  become zero deficiencies) and BOTW links are now only passed through if
+  on apps.dnr.wi.gov. Nitrate table gained its Direction column; expired
+  comment-period banner and its CSS removed; duplicate Hazard Index
+  constant consolidated. Payload check: systems.json 2.4 MB raw / 140 KB
+  gzipped — fine. First staggered-retry Sunday is 2026-09-06; worth a
+  glance Monday.
+
 - **2026-08-31 (late)** — Trend direction added (Claude Code). Transform
   computes PFOA/PFOS/nitrate direction between the last two sampling
   rounds (dates within 7 days merge; rounds scored by max across entry

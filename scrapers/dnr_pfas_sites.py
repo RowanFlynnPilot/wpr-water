@@ -69,6 +69,11 @@ def main() -> None:
             dropped += 1
             continue
         href = BOTW_HREF.search(botw)
+        # The link is rendered as an <a href> in the widget: only ever pass
+        # through DNR's own BOTW host, whatever the attribute contains.
+        url = href.group(1) if href else None
+        if url and not url.startswith("https://apps.dnr.wi.gov/"):
+            url = None
         kept.append({
             "name": a.get("SITENAME"),
             "county": COUNTIES[county_code],
@@ -77,7 +82,7 @@ def main() -> None:
             "drinking_water_affected": a.get("DWA"),
             "status": a.get("SITE_STATUS"),
             "notes": a.get("NOTES"),
-            "botw_url": href.group(1) if href else None,
+            "botw_url": url,
             "wtm_x": a.get("WTM_X"),
             "wtm_y": a.get("WTM_Y"),
         })

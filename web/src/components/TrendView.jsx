@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { loadChemResults, loadPfasResults } from '../api.js'
 import TrendChart from './TrendChart.jsx'
-import { fmtDate, fmtMonthYear, titleCase } from '../format.js'
+import { HAZARD_INDEX, fmtDate, fmtMonthYear, titleCase } from '../format.js'
 
-const HI_ANALYTE = 'EPA PFAS HAZARD INDEX'
+const HI_ANALYTE = HAZARD_INDEX
 const DEFAULT_ID = 'WI7370102' // Wausau Waterworks — launch centerpiece
 
 const QUALIFIER_LABELS = {
