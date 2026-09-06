@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-05T16:19:02.262510+00:00",
+ "built_at": "2026-09-06T17:39:30.052972+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1232,
-  "pfas_results": 13744,
-  "chem_results": 14139,
+  "pfas_results": 13763,
+  "chem_results": 14253,
   "violations": 2917
  },
  "counties": {
@@ -184,8 +184,8 @@
    "sampled_for_pfas": 9,
    "with_pfas_detections": 4,
    "with_unresolved_violations": 13,
-   "population_served": 10796,
-   "population_pfas_sampled": 7273,
+   "population_served": 10786,
+   "population_pfas_sampled": 7263,
    "private_wells": {
     "nitrate": {
      "samples": 4669,
