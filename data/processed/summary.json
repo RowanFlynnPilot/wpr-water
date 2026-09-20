@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-13T18:05:34.553179+00:00",
+ "built_at": "2026-09-20T18:12:47.639744+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1232,
-  "pfas_results": 13858,
-  "chem_results": 14361,
+  "pfas_results": 13896,
+  "chem_results": 14482,
   "violations": 2917
  },
  "counties": {
@@ -162,8 +162,8 @@
    "sampled_for_pfas": 18,
    "with_pfas_detections": 7,
    "with_unresolved_violations": 21,
-   "population_served": 24399,
-   "population_pfas_sampled": 20791,
+   "population_served": 24297,
+   "population_pfas_sampled": 20689,
    "private_wells": {
     "nitrate": {
      "samples": 2947,
@@ -429,7 +429,6 @@
   "NEKOOSA": 1,
   "PITTSVILLE": 1,
   "PLOVER": 1,
-  "PORTAGE": 1,
   "RHINELANDER": 9,
   "RIB FALLS TN": 1,
   "RIB LAKE": 1,
@@ -444,7 +443,7 @@
   "STARKS": 1,
   "STETSONVILLE": 1,
   "STETTIN": 1,
-  "STEVENS POINT": 16,
+  "STEVENS POINT": 17,
   "STRATFORD": 1,
   "SUGAR CAMP": 2,
   "THREE LAKES": 2,
