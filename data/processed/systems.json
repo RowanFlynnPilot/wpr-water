@@ -11804,58 +11804,58 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-04-18",
-   "latest_sample_date": "2026-03-04",
-   "n_results": 290,
-   "n_detections": 98,
+   "latest_sample_date": "2026-09-15",
+   "n_results": 328,
+   "n_detections": 113,
    "latest": {
     "PFOA": {
-     "value": 21.0,
+     "value": 26.0,
      "units": "NG/L",
-     "date": "2026-03-04",
+     "date": "2026-09-15",
      "qualifier": "No problem"
     },
     "PFOS": {
      "value": 3.6,
      "units": "NG/L",
-     "date": "2026-03-04",
+     "date": "2026-09-15",
      "qualifier": "No problem"
     },
     "EPA PFAS HAZARD INDEX": {
-     "value": 0.11,
+     "value": 0.17,
      "units": null,
-     "date": "2026-03-04",
+     "date": "2026-09-15",
      "qualifier": "No problem"
     },
     "PFHXS": {
-     "value": 1.1,
+     "value": 1.2,
      "units": "NG/L",
-     "date": "2026-03-04",
+     "date": "2026-09-15",
      "qualifier": "Between LOD and LOQ"
     },
     "PFNA": {
-     "value": null,
+     "value": 0.64,
      "units": "NG/L",
-     "date": "2026-03-04",
-     "qualifier": "Non-detect"
+     "date": "2026-09-15",
+     "qualifier": "Between LOD and LOQ"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-04",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "PFBS": {
-     "value": 1.8,
+     "value": 2.1,
      "units": "NG/L",
-     "date": "2026-03-04",
+     "date": "2026-09-15",
      "qualifier": "Between LOD and LOQ"
     }
    },
    "historic_max": {
     "PFOA": {
-     "value": 21.0,
+     "value": 26.0,
      "units": "NG/L",
-     "date": "2024-02-12"
+     "date": "2026-09-15"
     },
     "PFOS": {
      "value": 4.4,
@@ -11863,22 +11863,27 @@
      "date": "2023-12-06"
     },
     "EPA PFAS HAZARD INDEX": {
-     "value": 0.11,
+     "value": 0.17,
      "units": null,
-     "date": "2026-03-04"
+     "date": "2026-09-15"
     },
     "PFHXS": {
      "value": 1.6,
      "units": "NG/L",
      "date": "2023-09-07"
     },
-    "PFBS": {
-     "value": 2.0,
+    "PFNA": {
+     "value": 0.64,
      "units": "NG/L",
-     "date": "2023-09-07"
+     "date": "2026-09-15"
+    },
+    "PFBS": {
+     "value": 2.1,
+     "units": "NG/L",
+     "date": "2026-09-15"
     }
    },
-   "latest_combined_pfoa_pfos": 24.6,
+   "latest_combined_pfoa_pfos": 29.6,
    "other_detections": [
     {
      "analyte": "PFHXA",
@@ -11888,25 +11893,25 @@
     },
     {
      "analyte": "PFHPA",
-     "max_value": 6.2,
+     "max_value": 7.6,
      "units": "NG/L",
-     "date": "2026-03-04"
+     "date": "2026-09-15"
     }
    ],
    "trend": {
     "PFOA": {
-     "direction": "steady",
-     "latest_value": 21.0,
-     "latest_date": "2026-03-04",
-     "prior_value": 19.0,
-     "prior_date": "2024-10-23"
+     "direction": "rising",
+     "latest_value": 26.0,
+     "latest_date": "2026-09-15",
+     "prior_value": 21.0,
+     "prior_date": "2026-03-04"
     },
     "PFOS": {
      "direction": "steady",
      "latest_value": 3.6,
-     "latest_date": "2026-03-04",
-     "prior_value": 3.4,
-     "prior_date": "2024-10-23"
+     "latest_date": "2026-09-15",
+     "prior_value": 3.6,
+     "prior_date": "2026-03-04"
     }
    }
   },
@@ -13592,50 +13597,50 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-08-09",
-   "latest_sample_date": "2026-06-09",
-   "n_results": 218,
-   "n_detections": 98,
+   "latest_sample_date": "2026-09-14",
+   "n_results": 237,
+   "n_detections": 107,
    "latest": {
     "PFOA": {
-     "value": 43.0,
+     "value": 36.0,
      "units": "NG/L",
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "No problem"
     },
     "PFOS": {
-     "value": 66.0,
+     "value": 51.0,
      "units": "NG/L",
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "No problem"
     },
     "EPA PFAS HAZARD INDEX": {
-     "value": 2.1,
+     "value": 1.69,
      "units": null,
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "No problem"
     },
     "PFHXS": {
-     "value": 16.0,
+     "value": 13.0,
      "units": "NG/L",
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "No problem"
     },
     "PFNA": {
-     "value": 4.7,
+     "value": 3.7,
      "units": "NG/L",
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "No problem"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "Non-detect"
     },
     "PFBS": {
-     "value": 76.0,
+     "value": 54.0,
      "units": "NG/L",
-     "date": "2026-06-09",
+     "date": "2026-09-14",
      "qualifier": "No problem"
     }
    },
@@ -13671,7 +13676,7 @@
      "date": "2025-09-15"
     }
    },
-   "latest_combined_pfoa_pfos": 109.0,
+   "latest_combined_pfoa_pfos": 87.0,
    "other_detections": [
     {
      "analyte": "PFHXA",
@@ -13695,17 +13700,17 @@
    "trend": {
     "PFOA": {
      "direction": "steady",
-     "latest_value": 43.0,
-     "latest_date": "2026-06-09",
-     "prior_value": 37.0,
-     "prior_date": "2026-03-03"
+     "latest_value": 36.0,
+     "latest_date": "2026-09-14",
+     "prior_value": 43.0,
+     "prior_date": "2026-06-09"
     },
     "PFOS": {
-     "direction": "rising",
-     "latest_value": 66.0,
-     "latest_date": "2026-06-09",
-     "prior_value": 50.0,
-     "prior_date": "2026-03-03"
+     "direction": "falling",
+     "latest_value": 51.0,
+     "latest_date": "2026-09-14",
+     "prior_value": 66.0,
+     "prior_date": "2026-06-09"
     }
    }
   },
@@ -21433,13 +21438,13 @@
    },
    "lead": {
     "latest": {
-     "value": 11.0,
+     "value": null,
      "units": "UG/L",
-     "date": "2026-09-01",
-     "qualifier": "No problem",
+     "date": "2026-09-16",
+     "qualifier": "Non-detect",
      "sample_source": "Distribution System"
     },
-    "n_results": 83,
+    "n_results": 85,
     "n_detections": 44,
     "first_sample_date": "2020-08-04",
     "historic_max": {
@@ -21450,14 +21455,14 @@
    },
    "copper": {
     "latest": {
-     "value": 340.0,
+     "value": 56.0,
      "units": "UG/L",
-     "date": "2026-09-01",
+     "date": "2026-09-16",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 83,
-    "n_detections": 81,
+    "n_results": 85,
+    "n_detections": 83,
     "first_sample_date": "2020-08-04",
     "historic_max": {
      "value": 440.0,
@@ -22195,14 +22200,14 @@
    },
    "lead": {
     "latest": {
-     "value": 120.0,
+     "value": 1.1,
      "units": "UG/L",
-     "date": "2026-08-27",
-     "qualifier": "No problem",
+     "date": "2026-09-15",
+     "qualifier": "Between LOD and LOQ",
      "sample_source": "Distribution System"
     },
-    "n_results": 47,
-    "n_detections": 34,
+    "n_results": 50,
+    "n_detections": 36,
     "first_sample_date": "2020-09-22",
     "historic_max": {
      "value": 120.0,
@@ -22212,14 +22217,14 @@
    },
    "copper": {
     "latest": {
-     "value": 380.0,
+     "value": 190.0,
      "units": "UG/L",
-     "date": "2026-08-27",
+     "date": "2026-09-15",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 47,
-    "n_detections": 47,
+    "n_results": 50,
+    "n_detections": 50,
     "first_sample_date": "2020-09-22",
     "historic_max": {
      "value": 580.0,
@@ -23206,50 +23211,50 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-05-22",
-   "latest_sample_date": "2026-03-23",
-   "n_results": 55,
+   "latest_sample_date": "2026-09-15",
+   "n_results": 74,
    "n_detections": 2,
    "latest": {
     "PFOA": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "PFOS": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "EPA PFAS HAZARD INDEX": {
      "value": null,
      "units": null,
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "PFNA": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "PFBS": {
      "value": null,
      "units": "NG/L",
-     "date": "2026-03-23",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     }
    },
@@ -23269,20 +23274,18 @@
    "other_detections": [],
    "trend": {
     "PFOA": {
-     "direction": "unresampled",
+     "direction": "steady",
      "latest_value": null,
-     "latest_date": "2026-03-23",
+     "latest_date": "2026-09-15",
      "prior_value": null,
-     "prior_date": "2023-05-24",
-     "prior_entry_point": null
+     "prior_date": "2026-03-23"
     },
     "PFOS": {
-     "direction": "unresampled",
+     "direction": "steady",
      "latest_value": null,
-     "latest_date": "2026-03-23",
+     "latest_date": "2026-09-15",
      "prior_value": null,
-     "prior_date": "2023-05-24",
-     "prior_entry_point": null
+     "prior_date": "2026-03-23"
     }
    }
   },
@@ -26973,19 +26976,19 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2025-03-18",
+     "date": "2026-09-22",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
+    "n_results": 7,
     "n_detections": 0,
     "first_sample_date": "2020-09-01",
     "trend": {
      "direction": "steady",
      "latest_value": null,
-     "latest_date": "2025-03-18",
+     "latest_date": "2026-09-22",
      "prior_value": null,
-     "prior_date": "2024-10-22"
+     "prior_date": "2025-03-18"
     }
    }
   },
@@ -32531,14 +32534,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 8.58,
+     "value": 1.62,
      "units": "MG/L",
-     "date": "2026-05-18",
+     "date": "2026-09-17",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 29,
-    "n_detections": 29,
+    "n_results": 30,
+    "n_detections": 30,
     "first_sample_date": "2020-04-07",
     "historic_max": {
      "value": 11.51,
@@ -32546,11 +32549,11 @@
      "date": "2024-08-07"
     },
     "trend": {
-     "direction": "steady",
-     "latest_value": 8.58,
-     "latest_date": "2026-05-18",
-     "prior_value": 8.5,
-     "prior_date": "2026-01-26"
+     "direction": "falling",
+     "latest_value": 1.62,
+     "latest_date": "2026-09-17",
+     "prior_value": 8.58,
+     "prior_date": "2026-05-18"
     }
    },
    "arsenic": {
@@ -37022,14 +37025,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 3.07,
+     "value": 2.39,
      "units": "MG/L",
-     "date": "2025-12-14",
+     "date": "2026-09-22",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-06-17",
     "historic_max": {
      "value": 8.57,
@@ -37037,11 +37040,11 @@
      "date": "2020-06-17"
     },
     "trend": {
-     "direction": "steady",
-     "latest_value": 3.07,
-     "latest_date": "2025-12-14",
-     "prior_value": 3.7,
-     "prior_date": "2024-12-10"
+     "direction": "falling",
+     "latest_value": 2.39,
+     "latest_date": "2026-09-22",
+     "prior_value": 3.07,
+     "prior_date": "2025-12-14"
     }
    }
   },
@@ -38857,14 +38860,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 4.04,
+     "value": 2.76,
      "units": "MG/L",
-     "date": "2025-09-08",
+     "date": "2026-09-22",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-03-18",
     "historic_max": {
      "value": 4.12,
@@ -38872,11 +38875,11 @@
      "date": "2020-03-18"
     },
     "trend": {
-     "direction": "steady",
-     "latest_value": 4.04,
-     "latest_date": "2025-09-08",
-     "prior_value": 3.8,
-     "prior_date": "2024-08-13"
+     "direction": "falling",
+     "latest_value": 2.76,
+     "latest_date": "2026-09-22",
+     "prior_value": 4.04,
+     "prior_date": "2025-09-08"
     }
    }
   },
@@ -39855,26 +39858,26 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 0.18,
+     "value": 0.49,
      "units": "MG/L",
-     "date": "2025-07-22",
+     "date": "2026-09-22",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 1,
+    "n_results": 7,
+    "n_detections": 2,
     "first_sample_date": "2020-11-12",
     "historic_max": {
-     "value": 0.18,
+     "value": 0.49,
      "units": "MG/L",
-     "date": "2025-07-22"
+     "date": "2026-09-22"
     },
     "trend": {
-     "direction": "rising",
-     "latest_value": 0.18,
-     "latest_date": "2025-07-22",
-     "prior_value": null,
-     "prior_date": "2024-08-14"
+     "direction": "steady",
+     "latest_value": 0.49,
+     "latest_date": "2026-09-22",
+     "prior_value": 0.18,
+     "prior_date": "2025-07-22"
     }
    }
   },
@@ -44727,7 +44730,7 @@
      "analyte": "PFHPA",
      "max_value": 2.6,
      "units": "NG/L",
-     "date": "2023-06-06"
+     "date": "2023-11-28"
     }
    ],
    "trend": {
@@ -45164,14 +45167,14 @@
    },
    "lead": {
     "latest": {
-     "value": 15.0,
+     "value": null,
      "units": "UG/L",
-     "date": "2023-09-25",
-     "qualifier": "No problem",
+     "date": "2026-09-17",
+     "qualifier": "Non-detect",
      "sample_source": "Distribution System"
     },
-    "n_results": 10,
-    "n_detections": 10,
+    "n_results": 15,
+    "n_detections": 14,
     "first_sample_date": "2020-09-23",
     "historic_max": {
      "value": 15.0,
@@ -45181,14 +45184,14 @@
    },
    "copper": {
     "latest": {
-     "value": 700.0,
+     "value": 12.0,
      "units": "UG/L",
-     "date": "2023-09-25",
+     "date": "2026-09-17",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 10,
-    "n_detections": 10,
+    "n_results": 15,
+    "n_detections": 15,
     "first_sample_date": "2020-09-23",
     "historic_max": {
      "value": 930.0,
@@ -48548,11 +48551,11 @@
     "latest": {
      "value": null,
      "units": "UG/L",
-     "date": "2023-09-05",
+     "date": "2026-09-21",
      "qualifier": "Non-detect",
      "sample_source": "Distribution System"
     },
-    "n_results": 10,
+    "n_results": 15,
     "n_detections": 4,
     "first_sample_date": "2020-07-21",
     "historic_max": {
@@ -48563,14 +48566,14 @@
    },
    "copper": {
     "latest": {
-     "value": 27.0,
+     "value": 350.0,
      "units": "UG/L",
-     "date": "2023-09-05",
+     "date": "2026-09-21",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 10,
-    "n_detections": 10,
+    "n_results": 15,
+    "n_detections": 15,
     "first_sample_date": "2020-07-21",
     "historic_max": {
      "value": 370.0,
@@ -51216,44 +51219,50 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-08-02",
-   "latest_sample_date": "2024-03-20",
-   "n_results": 36,
-   "n_detections": 12,
+   "latest_sample_date": "2026-09-15",
+   "n_results": 55,
+   "n_detections": 20,
    "latest": {
     "PFOA": {
-     "value": 2.8,
+     "value": 2.7,
      "units": "NG/L",
-     "date": "2024-03-20",
+     "date": "2026-09-15",
      "qualifier": "No problem"
     },
     "PFOS": {
-     "value": 2.5,
+     "value": 2.1,
      "units": "NG/L",
-     "date": "2024-03-20",
+     "date": "2026-09-15",
+     "qualifier": "No problem"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.17,
+     "units": null,
+     "date": "2026-09-15",
      "qualifier": "No problem"
     },
     "PFHXS": {
-     "value": 1.8,
+     "value": 0.85,
      "units": "NG/L",
-     "date": "2024-03-20",
+     "date": "2026-09-15",
      "qualifier": "Between LOD and LOQ"
     },
     "PFNA": {
-     "value": null,
+     "value": 0.87,
      "units": "NG/L",
-     "date": "2024-03-20",
-     "qualifier": "Non-detect"
+     "date": "2026-09-15",
+     "qualifier": "Between LOD and LOQ"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2024-03-20",
+     "date": "2026-09-15",
      "qualifier": "Non-detect"
     },
     "PFBS": {
      "value": 2.7,
      "units": "NG/L",
-     "date": "2024-03-20",
+     "date": "2026-09-15",
      "qualifier": "No problem"
     }
    },
@@ -51268,10 +51277,20 @@
      "units": "NG/L",
      "date": "2024-03-20"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.17,
+     "units": null,
+     "date": "2026-09-15"
+    },
     "PFHXS": {
      "value": 1.8,
      "units": "NG/L",
      "date": "2024-03-20"
+    },
+    "PFNA": {
+     "value": 0.87,
+     "units": "NG/L",
+     "date": "2026-09-15"
     },
     "PFBS": {
      "value": 2.7,
@@ -51279,13 +51298,13 @@
      "date": "2024-03-20"
     }
    },
-   "latest_combined_pfoa_pfos": 5.3,
+   "latest_combined_pfoa_pfos": 4.8,
    "other_detections": [
     {
      "analyte": "PFHXA",
-     "max_value": 1.5,
+     "max_value": 2.0,
      "units": "NG/L",
-     "date": "2024-03-20"
+     "date": "2026-09-15"
     },
     {
      "analyte": "PFHPA",
@@ -51296,18 +51315,18 @@
    ],
    "trend": {
     "PFOA": {
-     "direction": "rising",
-     "latest_value": 2.8,
-     "latest_date": "2024-03-20",
-     "prior_value": 2.2,
-     "prior_date": "2023-08-02"
+     "direction": "steady",
+     "latest_value": 2.7,
+     "latest_date": "2026-09-15",
+     "prior_value": 2.8,
+     "prior_date": "2024-03-20"
     },
     "PFOS": {
-     "direction": "rising",
-     "latest_value": 2.5,
-     "latest_date": "2024-03-20",
-     "prior_value": 1.9,
-     "prior_date": "2023-08-02"
+     "direction": "steady",
+     "latest_value": 2.1,
+     "latest_date": "2026-09-15",
+     "prior_value": 2.5,
+     "prior_date": "2024-03-20"
     }
    }
   },
@@ -51710,7 +51729,7 @@
  {
   "pwsid": "WI7440846",
   "pws_id_dnr": "74408466",
-  "name": "LITTLE SUNSHINES LEARNING CENTER II",
+  "name": "SAFE HAVEN CHRISTIAN ACADEMY",
   "county": "Oneida",
   "type_code": "NTNCWS",
   "type": "Non-transient, non-community",
@@ -54121,44 +54140,50 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-09-19",
-   "latest_sample_date": "2025-03-03",
-   "n_results": 72,
-   "n_detections": 24,
+   "latest_sample_date": "2026-09-11",
+   "n_results": 91,
+   "n_detections": 31,
    "latest": {
     "PFOA": {
-     "value": 2.7,
+     "value": 2.8,
      "units": "NG/L",
-     "date": "2025-03-03",
+     "date": "2026-09-11",
      "qualifier": "No problem"
     },
     "PFOS": {
-     "value": 1.9,
+     "value": 1.7,
      "units": "NG/L",
-     "date": "2025-03-03",
+     "date": "2026-09-11",
+     "qualifier": "No problem"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.15,
+     "units": null,
+     "date": "2026-09-11",
      "qualifier": "No problem"
     },
     "PFHXS": {
-     "value": 1.3,
+     "value": 1.5,
      "units": "NG/L",
-     "date": "2025-03-03",
+     "date": "2026-09-11",
      "qualifier": "Between LOD and LOQ"
     },
     "PFNA": {
      "value": null,
      "units": "NG/L",
-     "date": "2025-03-03",
+     "date": "2026-09-11",
      "qualifier": "Non-detect"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2025-03-03",
+     "date": "2026-09-11",
      "qualifier": "Non-detect"
     },
     "PFBS": {
-     "value": 2.7,
+     "value": 4.7,
      "units": "NG/L",
-     "date": "2025-03-03",
+     "date": "2026-09-11",
      "qualifier": "No problem"
     }
    },
@@ -54173,18 +54198,23 @@
      "units": "NG/L",
      "date": "2024-02-16"
     },
+    "EPA PFAS HAZARD INDEX": {
+     "value": 0.15,
+     "units": null,
+     "date": "2026-09-11"
+    },
     "PFHXS": {
      "value": 1.9,
      "units": "NG/L",
      "date": "2023-10-09"
     },
     "PFBS": {
-     "value": 3.0,
+     "value": 4.7,
      "units": "NG/L",
-     "date": "2023-09-19"
+     "date": "2026-09-11"
     }
    },
-   "latest_combined_pfoa_pfos": 4.6,
+   "latest_combined_pfoa_pfos": 4.5,
    "other_detections": [
     {
      "analyte": "PFHXA",
@@ -54201,18 +54231,18 @@
    ],
    "trend": {
     "PFOA": {
-     "direction": "falling",
-     "latest_value": 2.7,
-     "latest_date": "2025-03-03",
-     "prior_value": 5.2,
-     "prior_date": "2024-02-16"
+     "direction": "steady",
+     "latest_value": 2.8,
+     "latest_date": "2026-09-11",
+     "prior_value": 2.7,
+     "prior_date": "2025-03-03"
     },
     "PFOS": {
-     "direction": "falling",
-     "latest_value": 1.9,
-     "latest_date": "2025-03-03",
-     "prior_value": 2.9,
-     "prior_date": "2024-02-16"
+     "direction": "steady",
+     "latest_value": 1.7,
+     "latest_date": "2026-09-11",
+     "prior_value": 1.9,
+     "prior_date": "2025-03-03"
     }
    }
   },
@@ -58358,7 +58388,7 @@
      "analyte": "PFHXA",
      "max_value": 1.8,
      "units": "NG/L",
-     "date": "2025-09-23"
+     "date": "2023-12-05"
     },
     {
      "analyte": "PFHPA",
@@ -77101,13 +77131,13 @@
    },
    "lead": {
     "latest": {
-     "value": 0.27,
+     "value": null,
      "units": "UG/L",
-     "date": "2023-09-29",
-     "qualifier": "Between LOD and LOQ",
+     "date": "2026-09-18",
+     "qualifier": "Non-detect",
      "sample_source": "Distribution System"
     },
-    "n_results": 10,
+    "n_results": 15,
     "n_detections": 5,
     "first_sample_date": "2020-10-22",
     "historic_max": {
@@ -77118,19 +77148,19 @@
    },
    "copper": {
     "latest": {
-     "value": 340.0,
+     "value": 890.0,
      "units": "UG/L",
-     "date": "2023-09-29",
+     "date": "2026-09-18",
      "qualifier": "No problem",
      "sample_source": "Distribution System"
     },
-    "n_results": 10,
-    "n_detections": 10,
+    "n_results": 15,
+    "n_detections": 15,
     "first_sample_date": "2020-10-22",
     "historic_max": {
-     "value": 800.0,
+     "value": 890.0,
      "units": "UG/L",
-     "date": "2023-09-27"
+     "date": "2026-09-18"
     }
    }
   },
@@ -81187,13 +81217,20 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2025-09-25",
+     "date": "2026-09-22",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 1,
+    "n_results": 2,
     "n_detections": 0,
-    "first_sample_date": "2025-09-25"
+    "first_sample_date": "2025-09-25",
+    "trend": {
+     "direction": "steady",
+     "latest_value": null,
+     "latest_date": "2026-09-22",
+     "prior_value": null,
+     "prior_date": "2025-09-25"
+    }
    }
   },
   "echo": {
@@ -81423,14 +81460,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 13.3,
+     "value": 0.276,
      "units": "MG/L",
-     "date": "2025-10-20",
-     "qualifier": "No problem",
+     "date": "2026-09-21",
+     "qualifier": "Between LOD and LOQ",
      "sample_source": "Entry Point"
     },
-    "n_results": 2,
-    "n_detections": 2,
+    "n_results": 3,
+    "n_detections": 3,
     "first_sample_date": "2025-07-28",
     "historic_max": {
      "value": 13.38,
@@ -81438,11 +81475,12 @@
      "date": "2025-07-28"
     },
     "trend": {
-     "direction": "steady",
-     "latest_value": 13.3,
-     "latest_date": "2025-10-20",
-     "prior_value": 13.38,
-     "prior_date": "2025-07-28"
+     "direction": "unresampled",
+     "latest_value": 0.276,
+     "latest_date": "2026-09-21",
+     "prior_value": 13.3,
+     "prior_date": "2025-10-20",
+     "prior_entry_point": 1
     }
    }
   },
@@ -83389,19 +83427,19 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2025-02-27",
+     "date": "2026-09-21",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 3,
+    "n_results": 4,
     "n_detections": 0,
     "first_sample_date": "2023-09-25",
     "trend": {
      "direction": "steady",
      "latest_value": null,
-     "latest_date": "2025-02-27",
+     "latest_date": "2026-09-21",
      "prior_value": null,
-     "prior_date": "2024-10-15"
+     "prior_date": "2025-02-27"
     }
    }
   },
@@ -85714,14 +85752,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 2.9,
+     "value": 3.3,
      "units": "MG/L",
-     "date": "2025-08-19",
+     "date": "2026-09-21",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-05-12",
     "historic_max": {
      "value": 3.3,
@@ -85730,10 +85768,10 @@
     },
     "trend": {
      "direction": "steady",
-     "latest_value": 2.9,
-     "latest_date": "2025-08-19",
-     "prior_value": 2.8,
-     "prior_date": "2024-09-24"
+     "latest_value": 3.3,
+     "latest_date": "2026-09-21",
+     "prior_value": 2.9,
+     "prior_date": "2025-08-19"
     }
    }
   },
@@ -85844,13 +85882,20 @@
     "latest": {
      "value": null,
      "units": null,
-     "date": "2020-06-08",
+     "date": "2026-09-22",
      "qualifier": "Unexplained",
      "sample_source": "Entry Point"
     },
-    "n_results": 1,
+    "n_results": 2,
     "n_detections": 0,
-    "first_sample_date": "2020-06-08"
+    "first_sample_date": "2020-06-08",
+    "trend": {
+     "direction": "steady",
+     "latest_value": null,
+     "latest_date": "2026-09-22",
+     "prior_value": null,
+     "prior_date": "2020-06-08"
+    }
    }
   },
   "echo": {
@@ -87306,19 +87351,19 @@
     "latest": {
      "value": null,
      "units": "MG/L",
-     "date": "2025-09-25",
+     "date": "2026-09-24",
      "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
+    "n_results": 7,
     "n_detections": 0,
     "first_sample_date": "2020-09-02",
     "trend": {
      "direction": "steady",
      "latest_value": null,
-     "latest_date": "2025-09-25",
+     "latest_date": "2026-09-24",
      "prior_value": null,
-     "prior_date": "2024-09-11"
+     "prior_date": "2025-09-25"
     }
    }
   },
@@ -89733,13 +89778,13 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 0.0,
+     "value": null,
      "units": "MG/L",
-     "date": "2025-09-25",
-     "qualifier": "No problem",
+     "date": "2026-09-22",
+     "qualifier": "Non-detect",
      "sample_source": "Entry Point"
     },
-    "n_results": 5,
+    "n_results": 6,
     "n_detections": 2,
     "first_sample_date": "2021-08-26",
     "historic_max": {
@@ -89748,11 +89793,11 @@
      "date": "2024-09-23"
     },
     "trend": {
-     "direction": "steady",
-     "latest_value": 0.0,
-     "latest_date": "2025-09-25",
+     "direction": "falling",
+     "latest_value": null,
+     "latest_date": "2026-09-22",
      "prior_value": 0.0,
-     "prior_date": "2024-09-23"
+     "prior_date": "2025-09-25"
     }
    }
   },
@@ -94479,44 +94524,50 @@
   "pfas": {
    "sampled": true,
    "first_sample_date": "2023-02-07",
-   "latest_sample_date": "2025-03-04",
-   "n_results": 90,
-   "n_detections": 28,
+   "latest_sample_date": "2026-09-14",
+   "n_results": 109,
+   "n_detections": 32,
    "latest": {
     "PFOA": {
-     "value": 0.72,
+     "value": 0.94,
      "units": "NG/L",
-     "date": "2025-03-04",
+     "date": "2026-09-14",
      "qualifier": "Between LOD and LOQ"
     },
     "PFOS": {
-     "value": 1.6,
+     "value": 2.1,
      "units": "NG/L",
-     "date": "2025-03-04",
+     "date": "2026-09-14",
      "qualifier": "No problem"
+    },
+    "EPA PFAS HAZARD INDEX": {
+     "value": null,
+     "units": null,
+     "date": "2026-09-14",
+     "qualifier": "Non-detect"
     },
     "PFHXS": {
      "value": null,
      "units": "NG/L",
-     "date": "2025-03-04",
+     "date": "2026-09-14",
      "qualifier": "Non-detect"
     },
     "PFNA": {
      "value": null,
      "units": "NG/L",
-     "date": "2025-03-04",
+     "date": "2026-09-14",
      "qualifier": "Non-detect"
     },
     "HFPO-DA": {
      "value": null,
      "units": "NG/L",
-     "date": "2025-03-04",
+     "date": "2026-09-14",
      "qualifier": "Non-detect"
     },
     "PFBS": {
-     "value": 1.6,
+     "value": 1.5,
      "units": "NG/L",
-     "date": "2025-03-04",
+     "date": "2026-09-14",
      "qualifier": "Between LOD and LOQ"
     }
    },
@@ -94527,9 +94578,9 @@
      "date": "2024-04-16"
     },
     "PFOS": {
-     "value": 2.0,
+     "value": 2.1,
      "units": "NG/L",
-     "date": "2023-05-10"
+     "date": "2026-09-14"
     },
     "PFHXS": {
      "value": 0.8,
@@ -94542,7 +94593,7 @@
      "date": "2023-05-10"
     }
    },
-   "latest_combined_pfoa_pfos": 2.32,
+   "latest_combined_pfoa_pfos": 3.04,
    "other_detections": [
     {
      "analyte": "PFHXA",
@@ -94560,17 +94611,17 @@
    "trend": {
     "PFOA": {
      "direction": "steady",
-     "latest_value": 0.72,
-     "latest_date": "2025-03-04",
-     "prior_value": 1.1,
-     "prior_date": "2024-04-16"
+     "latest_value": 0.94,
+     "latest_date": "2026-09-14",
+     "prior_value": 0.72,
+     "prior_date": "2025-03-04"
     },
     "PFOS": {
-     "direction": "steady",
-     "latest_value": 1.6,
-     "latest_date": "2025-03-04",
-     "prior_value": 2.0,
-     "prior_date": "2024-04-16"
+     "direction": "rising",
+     "latest_value": 2.1,
+     "latest_date": "2026-09-14",
+     "prior_value": 1.6,
+     "prior_date": "2025-03-04"
     }
    }
   },
@@ -98793,14 +98844,14 @@
   "chem": {
    "nitrate": {
     "latest": {
-     "value": 5.26,
+     "value": 4.14,
      "units": "MG/L",
-     "date": "2026-09-02",
+     "date": "2026-09-21",
      "qualifier": "No problem",
      "sample_source": "Entry Point"
     },
-    "n_results": 6,
-    "n_detections": 6,
+    "n_results": 7,
+    "n_detections": 7,
     "first_sample_date": "2020-05-22",
     "historic_max": {
      "value": 5.26,
@@ -98809,11 +98860,11 @@
     },
     "trend": {
      "direction": "unresampled",
-     "latest_value": 5.26,
-     "latest_date": "2026-09-02",
-     "prior_value": 4.18,
-     "prior_date": "2024-10-23",
-     "prior_entry_point": 100
+     "latest_value": 4.14,
+     "latest_date": "2026-09-21",
+     "prior_value": 5.26,
+     "prior_date": "2026-09-02",
+     "prior_entry_point": 11
     }
    },
    "arsenic": {

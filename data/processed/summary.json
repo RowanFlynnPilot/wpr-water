@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-20T18:12:47.639744+00:00",
+ "built_at": "2026-09-27T19:01:33.036896+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1232,
-  "pfas_results": 13896,
-  "chem_results": 14482,
+  "pfas_results": 14029,
+  "chem_results": 14536,
   "violations": 2917
  },
  "counties": {
@@ -413,7 +413,6 @@
   "GILMAN": 1,
   "GREEN VALLEY": 1,
   "HANNIBAL": 1,
-  "HANSEN TN": 1,
   "HAZELHURST": 1,
   "HULL": 1,
   "LINWOOD TN": 1,
