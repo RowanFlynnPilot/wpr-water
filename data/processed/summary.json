@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-27T19:01:33.036896+00:00",
+ "built_at": "2026-10-04T20:59:53.032892+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1232,
-  "pfas_results": 14029,
-  "chem_results": 14536,
+  "pfas_results": 14048,
+  "chem_results": 14634,
   "violations": 2917
  },
  "counties": {
@@ -116,10 +116,10 @@
   "Oneida": {
    "systems": 347,
    "sampled_for_pfas": 24,
-   "with_pfas_detections": 12,
+   "with_pfas_detections": 13,
    "with_unresolved_violations": 35,
-   "population_served": 40498,
-   "population_pfas_sampled": 13631,
+   "population_served": 40426,
+   "population_pfas_sampled": 13559,
    "private_wells": {
     "nitrate": {
      "samples": 6584,
@@ -451,7 +451,7 @@
   "UNITY": 1,
   "WAUSAU": 20,
   "WEIN": 1,
-  "WISCONSIN RAPIDS": 12,
+  "WISCONSIN RAPIDS": 13,
   "WITTENBERG VIL": 1,
   "WOODRUFF": 1
  },
