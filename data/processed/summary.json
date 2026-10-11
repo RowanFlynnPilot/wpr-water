@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-04T20:59:53.032892+00:00",
+ "built_at": "2026-10-11T19:30:30.851494+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -41,10 +41,10 @@
   }
  },
  "counts": {
-  "systems": 1232,
-  "pfas_results": 14048,
-  "chem_results": 14634,
-  "violations": 2917
+  "systems": 1236,
+  "pfas_results": 14181,
+  "chem_results": 14676,
+  "violations": 2960
  },
  "counties": {
   "Langlade": {
@@ -73,8 +73,8 @@
    "systems": 98,
    "sampled_for_pfas": 10,
    "with_pfas_detections": 9,
-   "with_unresolved_violations": 16,
-   "population_served": 19050,
+   "with_unresolved_violations": 17,
+   "population_served": 19035,
    "population_pfas_sampled": 14444,
    "private_wells": {
     "nitrate": {
@@ -92,11 +92,11 @@
    "pfas_sites": 0
   },
   "Marathon": {
-   "systems": 196,
+   "systems": 195,
    "sampled_for_pfas": 46,
    "with_pfas_detections": 38,
-   "with_unresolved_violations": 34,
-   "population_served": 103490,
+   "with_unresolved_violations": 33,
+   "population_served": 103492,
    "population_pfas_sampled": 95389,
    "private_wells": {
     "nitrate": {
@@ -114,11 +114,11 @@
    "pfas_sites": 3
   },
   "Oneida": {
-   "systems": 347,
+   "systems": 349,
    "sampled_for_pfas": 24,
    "with_pfas_detections": 13,
-   "with_unresolved_violations": 35,
-   "population_served": 40426,
+   "with_unresolved_violations": 39,
+   "population_served": 40601,
    "population_pfas_sampled": 13559,
    "private_wells": {
     "nitrate": {
@@ -136,11 +136,11 @@
    "pfas_sites": 3
   },
   "Portage": {
-   "systems": 148,
+   "systems": 149,
    "sampled_for_pfas": 21,
    "with_pfas_detections": 11,
    "with_unresolved_violations": 13,
-   "population_served": 50348,
+   "population_served": 50398,
    "population_pfas_sampled": 46686,
    "private_wells": {
     "nitrate": {
@@ -158,11 +158,11 @@
    "pfas_sites": 0
   },
   "Shawano": {
-   "systems": 117,
+   "systems": 118,
    "sampled_for_pfas": 18,
    "with_pfas_detections": 7,
    "with_unresolved_violations": 21,
-   "population_served": 24297,
+   "population_served": 24340,
    "population_pfas_sampled": 20689,
    "private_wells": {
     "nitrate": {
@@ -183,8 +183,8 @@
    "systems": 60,
    "sampled_for_pfas": 9,
    "with_pfas_detections": 4,
-   "with_unresolved_violations": 13,
-   "population_served": 10786,
+   "with_unresolved_violations": 14,
+   "population_served": 11984,
    "population_pfas_sampled": 7263,
    "private_wells": {
     "nitrate": {
@@ -202,11 +202,11 @@
    "pfas_sites": 0
   },
   "Wood": {
-   "systems": 149,
+   "systems": 150,
    "sampled_for_pfas": 25,
    "with_pfas_detections": 16,
-   "with_unresolved_violations": 23,
-   "population_served": 58534,
+   "with_unresolved_violations": 24,
+   "population_served": 58559,
    "population_pfas_sampled": 48447,
    "private_wells": {
     "nitrate": {
@@ -419,7 +419,7 @@
   "MAPLE GROVE TN": 2,
   "MARATHON": 3,
   "MARATHON CITY": 2,
-  "MARSHFIELD": 9,
+  "MARSHFIELD": 8,
   "MEDFORD": 4,
   "MERRILL": 2,
   "MINOCQUA": 2,
