@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-12T00:23:49.426642+00:00",
+ "built_at": "2026-10-18T22:58:00.298370+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1236,
-  "pfas_results": 14181,
-  "chem_results": 14676,
+  "pfas_results": 14409,
+  "chem_results": 14694,
   "violations": 2960
  },
  "counties": {
@@ -96,8 +96,8 @@
    "sampled_for_pfas": 46,
    "with_pfas_detections": 38,
    "with_unresolved_violations": 33,
-   "population_served": 103492,
-   "population_pfas_sampled": 95389,
+   "population_served": 103537,
+   "population_pfas_sampled": 95434,
    "private_wells": {
     "nitrate": {
      "samples": 4506,
@@ -435,7 +435,6 @@
   "RINGLE": 1,
   "ROTHSCHILD": 1,
   "SENECA": 1,
-  "SENECA TN": 1,
   "SHAWANO": 3,
   "SHAWANO CTY": 2,
   "SPENCER TN": 1,
