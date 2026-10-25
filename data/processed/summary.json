@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-18T22:58:00.298370+00:00",
+ "built_at": "2026-10-25T18:21:35.747449+00:00",
  "thresholds": {
   "wi_combined_pfoa_pfos": {
    "value": 70,
@@ -42,8 +42,8 @@
  },
  "counts": {
   "systems": 1236,
-  "pfas_results": 14409,
-  "chem_results": 14694,
+  "pfas_results": 14523,
+  "chem_results": 14718,
   "violations": 2960
  },
  "counties": {
@@ -402,7 +402,7 @@
   "BOWLER": 1,
   "BRADLEY TN": 1,
   "CAMERON TN": 1,
-  "CLEVELAND TN": 2,
+  "CLEVELAND TN": 1,
   "EDGAR": 2,
   "ELAND": 1,
   "ELCHO": 4,
