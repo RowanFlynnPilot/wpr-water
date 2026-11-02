@@ -21872,7 +21872,7 @@
      "analyte": "PFHPA",
      "max_value": 1.7,
      "units": "NG/L",
-     "date": "2025-06-16"
+     "date": "2025-03-26"
     }
    ],
    "trend": {
@@ -22397,7 +22397,7 @@
      "analyte": "PFHPA",
      "max_value": 2.1,
      "units": "NG/L",
-     "date": "2025-04-29"
+     "date": "2023-05-22"
     }
    ],
    "trend": {
@@ -54120,7 +54120,7 @@
      "analyte": "PFHPA",
      "max_value": 1.1,
      "units": "NG/L",
-     "date": "2023-09-19"
+     "date": "2024-02-16"
     }
    ],
    "trend": {
@@ -58294,7 +58294,7 @@
      "analyte": "PFHXA",
      "max_value": 1.8,
      "units": "NG/L",
-     "date": "2025-09-23"
+     "date": "2024-03-20"
     },
     {
      "analyte": "PFHPA",
